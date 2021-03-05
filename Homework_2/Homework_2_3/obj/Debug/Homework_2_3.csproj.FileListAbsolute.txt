@@ -1,0 +1,7 @@
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\obj\Debug\Homework_2_3.csprojAssemblyReference.cache
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\obj\Debug\Homework_2_3.csproj.CoreCompileInputs.cache
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\bin\Debug\Homework_2_3.exe.config
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\bin\Debug\Homework_2_3.exe
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\bin\Debug\Homework_2_3.pdb
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\obj\Debug\Homework_2_3.exe
+F:\大二下\软件构造基础\source code\Homework_2\Homework_2_3\obj\Debug\Homework_2_3.pdb
