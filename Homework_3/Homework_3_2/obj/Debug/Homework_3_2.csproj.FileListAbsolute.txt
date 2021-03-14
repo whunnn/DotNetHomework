@@ -1,0 +1,11 @@
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\bin\Debug\Homework_3_2.exe.config
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\bin\Debug\Homework_3_2.exe
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\bin\Debug\Homework_3_2.pdb
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\bin\Debug\Homework_3_1.exe
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\bin\Debug\Homework_3_1.pdb
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\bin\Debug\Homework_3_1.exe.config
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\obj\Debug\Homework_3_2.csprojAssemblyReference.cache
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\obj\Debug\Homework_3_2.csproj.CoreCompileInputs.cache
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\obj\Debug\Homework_3_2.csproj.CopyComplete
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\obj\Debug\Homework_3_2.exe
+C:\Users\14168\source\repos\Homework_3\Homework_3_2\obj\Debug\Homework_3_2.pdb
