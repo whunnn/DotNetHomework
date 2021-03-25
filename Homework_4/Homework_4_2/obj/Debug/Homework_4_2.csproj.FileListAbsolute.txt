@@ -1,0 +1,6 @@
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_2\bin\Debug\Homework_4_2.exe.config
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_2\bin\Debug\Homework_4_2.exe
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_2\bin\Debug\Homework_4_2.pdb
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_2\obj\Debug\Homework_4_2.csproj.CoreCompileInputs.cache
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_2\obj\Debug\Homework_4_2.exe
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_2\obj\Debug\Homework_4_2.pdb

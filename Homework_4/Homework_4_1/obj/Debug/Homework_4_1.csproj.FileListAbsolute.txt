@@ -1,0 +1,7 @@
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\bin\Debug\Homework_4_1.exe.config
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\bin\Debug\Homework_4_1.exe
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\bin\Debug\Homework_4_1.pdb
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\obj\Debug\Homework_4_1.csprojAssemblyReference.cache
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\obj\Debug\Homework_4_1.csproj.CoreCompileInputs.cache
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\obj\Debug\Homework_4_1.exe
+F:\github\C#\DotNetHomework\Homework_4\Homework_4_1\obj\Debug\Homework_4_1.pdb
