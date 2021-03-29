@@ -27,7 +27,7 @@ namespace Homework_5_1
             return OrderId == m.OrderId && BuyerName == m.BuyerName;
         }
 
-        //重写Equals()方法
+        //重写GetHashCode()方法
         public override int GetHashCode()
         {
             return BuyerName.GetHashCode() * OrderId;
@@ -47,24 +47,25 @@ namespace Homework_5_1
                 TotalCost += item.GoodsCount*item.GoodsPrice;
             }
         }
-
-        public void AddOrder(OrderDetails orderDetails)   //新增订单明细
+        //新增订单明细
+        public void AddOrder(OrderDetails orderDetails)
         {
-            bool flag = true;
+          /*  bool flag = true;
             foreach (OrderDetails n in Goods)
             {
                 if (n == orderDetails) flag = false;
             }
-            if (flag)
+            */
+            if (!Goods.Contains(orderDetails))
             {
                 Goods.Add(orderDetails);
                 TotalCost += orderDetails.GoodsCount * orderDetails.GoodsPrice;
-                Console.WriteLine($"已经为订单{this.OrderId}添加该明细");
+                Console.WriteLine($"为订单{this.OrderId}添加该明细成功");
             }
             else Console.WriteLine($"订单{this.OrderId}已存在该明细");
 
         }
-        //判断此订单是否含有某种商品
+        //判断此订单是否含有某种商品 
         public bool HaveGoods(string s)
         {
             foreach (OrderDetails n in Goods)
@@ -73,6 +74,7 @@ namespace Homework_5_1
             }
             return false;
         }
+        //重写ToString()函数
         public override string ToString()
         {
             string s = "订单编号：" + OrderId + " 客户姓名：" + BuyerName + " 送货地址：" + Address + " 支付方式：" + PaymentWay+"\n订单明细如下：\n";
@@ -84,11 +86,14 @@ namespace Homework_5_1
             return s;
         }
     }
+
+
     class OrderDetails
     {
         public string GoodsName { get; set; } //商品名
         public int GoodsCount { get; set; }  //商品数量
         public int GoodsPrice { get; set; }   //商品单价
+
         public OrderDetails(string GoodsName, int GoodsPrice,int GoodsCount )
         {
             this.GoodsName = GoodsName;
@@ -112,6 +117,8 @@ namespace Homework_5_1
             return "商品名称："+GoodsName+" 商品单价："+GoodsPrice+" 商品个数："+GoodsCount+"\n";
         }
     }
+
+   
     class Goods
     {
         public string Name { set; get; }
@@ -126,6 +133,8 @@ namespace Homework_5_1
             return Name+":"+Price;
         }
     }
+
+
     class OrderService
     {
         public List<Order> orders;
@@ -199,6 +208,8 @@ namespace Homework_5_1
                 Console.WriteLine("删除订单失败");
             }
         }
+
+        //修改订单操作
         public void ChangeOrder(Order order1,Order order2)
         {
             try
@@ -213,11 +224,13 @@ namespace Homework_5_1
                 Console.WriteLine("修改订单失败");
             }    
         }
+
         //默认按ID排序
         public void Sort()
         {
             orders.Sort((p1, p2) => p1.OrderId - p2.OrderId);
         }
+
         //Lambda表达式进行自定义排序
         public void Sort(Comparison<Order> t)
         {
@@ -227,7 +240,7 @@ namespace Homework_5_1
     }
         class Program
         {
-
+           //打印订单函数
             public static void Show(List<Order> n)
           {
             foreach (Order ods in n)
@@ -312,6 +325,7 @@ namespace Homework_5_1
             orders.ChangeOrder(order2, new Order(2, "buyer4", "address4", "Alipay", items2));
             Console.WriteLine(orders.orders[1]);
             Console.WriteLine("\n\n");
+
             //将订单按TotalCost排序
             Console.WriteLine("将订单按照总花费排序:");
             orders.Sort((p1, p2) => p1.TotalCost - p2.TotalCost);
