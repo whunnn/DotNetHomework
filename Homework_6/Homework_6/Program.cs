@@ -207,32 +207,32 @@ namespace Homework_5_1
         //删除订单操作
         public static void DeleteOrder(Order order)
         {
-            try
-            {
+          //  try
+           // {
                 if(orders.Remove(order))
                 Console.WriteLine($"订单{order.OrderId}删除成功");
                 else throw new OrderException("不存在该订单");
-            }
-            catch (OrderException e)
-            {
-                Console.WriteLine("删除订单失败"+e.Message);
-            }
+          //  }
+            //catch (OrderException e)
+            //{
+            //    Console.WriteLine("删除订单失败"+e.Message);
+            //}
         }
 
         //修改订单操作
         public static void ChangeOrder(Order order1, Order order2)
         {
-            try
-            {
+         //   try
+          //  {
                 int n = orders.IndexOf(order1);
                 if(n<0) throw new OrderException("不存在该订单");
                 orders[n] = order2;
                 Console.WriteLine($"订单{order1.OrderId}修改成功");
-            }
-            catch (OrderException e)
-            {
-                Console.WriteLine("修改订单失败"+e.Message);
-            }
+           // }
+            //catch (OrderException e)
+            //{
+            //    Console.WriteLine("修改订单失败"+e.Message);
+            //}
         }
 
         //默认按ID排序
@@ -247,20 +247,20 @@ namespace Homework_5_1
             orders.Sort(t);
         }
 
-        public static void Export()
+        public static void Export(string filename)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof (List<Order>));
-            using (FileStream fs = new FileStream("orders.xml", FileMode.Create))
+            using (FileStream fs = new FileStream(filename, FileMode.Create))
             {
                 xmlSerializer.Serialize(fs,orders);
             }
             Console.WriteLine("\n Serialize as XML");
-            Console.WriteLine(File.ReadAllText("orders.xml"));
+            Console.WriteLine(File.ReadAllText(filename));
         }
-        public static void Import()
+        public static void Import(string filepath)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Order>));
-            using (FileStream fs=new FileStream("orders.xml", FileMode.Open))
+            using (FileStream fs=new FileStream(filepath, FileMode.Open))
             {
                 List<Order> orders2 = (List<Order>)xmlSerializer.Deserialize(fs);
                 Console.WriteLine("\nDeserialize form orders.xml");
@@ -364,8 +364,8 @@ namespace Homework_5_1
             OrderService.Sort((p1, p2) => p1.TotalCost - p2.TotalCost);
             Show(OrderService.orders);
 
-            OrderService.Export();
-            OrderService.Import();
+            OrderService.Export("Orders.xml");
+            OrderService.Import("Orders.xml");
         }
     }
 }

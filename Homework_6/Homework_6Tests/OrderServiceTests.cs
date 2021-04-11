@@ -64,8 +64,8 @@ namespace Homework_6_1.Tests
             List<Order> orderlist = new List<Order>{new Order(3, "buyer2", "address2", "WeChatPay", items)};
             List<Order> actual1 = OrderService.SelectByOrderId(3, 3);
             List<Order> actual2 = OrderService.SelectByOrderId(7, 8);
-            Assert.AreEqual(orderlist,actual1);
-            Assert.IsNull(actual2);
+            CollectionAssert.AreEqual(orderlist,actual1);
+            Assert.IsTrue(actual2.Count==0);
         }
 
         [TestMethod()]
@@ -79,8 +79,8 @@ namespace Homework_6_1.Tests
             List<Order> orderlist = new List<Order> { new Order(3, "buyer2", "address2", "WeChatPay", items) };
             List<Order> actual1 = OrderService.SelectByBuyerName("buyer2");
             List<Order> actual2 = OrderService.SelectByBuyerName("buyer5");
-            Assert.AreEqual(orderlist, actual1);
-            Assert.IsNull(actual2);
+            CollectionAssert.AreEqual(orderlist, actual1);
+            Assert.IsTrue(actual2.Count==0);
         }
 
         [TestMethod()]
@@ -92,8 +92,8 @@ namespace Homework_6_1.Tests
             List<Order> orderlist = new List<Order> { new Order(5, "buyer3", "address2", "Alipay", items) };
             List<Order> actual1 = OrderService.SelectByGoodsName("T-short");
             List<Order> actual2 = OrderService.SelectByGoodsName("shoes");
-            Assert.AreEqual(orderlist, actual1);
-            Assert.IsNull(actual2);
+            CollectionAssert.AreEqual(orderlist, actual1);
+            Assert.IsTrue(actual2.Count==0);
         }
 
         [TestMethod()]
@@ -105,8 +105,8 @@ namespace Homework_6_1.Tests
             List<Order> orderlist = new List<Order> { new Order(5, "buyer3", "address2", "Alipay", items) };
             List<Order> actual1 = OrderService.SelectByTotalCost(160,160);
             List<Order> actual2 = OrderService.SelectByTotalCost(1000, 2000);
-            Assert.AreEqual(orderlist, actual1);
-            Assert.IsNull(actual2);
+            CollectionAssert.AreEqual(actual1, orderlist); 
+            Assert.IsTrue(actual2.Count==0);
         }
 
 
@@ -132,7 +132,7 @@ namespace Homework_6_1.Tests
             Order order2 = new Order(5, "buyer4", "address4", "WeChatPay", items);
             OrderService.ChangeOrder(order1, order2);
             orders[orders.IndexOf(order1)] = order2;
-            Assert.AreEqual(orders, OrderService.orders);
+            CollectionAssert.AreEqual(orders, OrderService.orders);
 
         }
         [TestMethod()]
@@ -181,15 +181,9 @@ namespace Homework_6_1.Tests
             Order order4 = new Order(4, "buyer3", "address2", "Alipay", items4);
             Order order5 = new Order(5, "buyer3", "address2", "Alipay", items5);
             Order order6 = new Order(6, "buyer4", "address2", "CreditCard", items6);
-            OrderService.AddOrder(order1);
-            OrderService.AddOrder(order2);
-            OrderService.AddOrder(order3);
-            OrderService.AddOrder(order4);
-            OrderService.AddOrder(order5);
-            OrderService.AddOrder(order6);
             List<Order> orderlist = new List<Order> { order5, order4, order3, order1, order2, order6 };
             OrderService.Sort((p1, p2) => p1.TotalCost - p2.TotalCost);
-            Assert.AreEqual(orderlist, OrderService.orders);
+            CollectionAssert.AreEqual(orderlist, OrderService.orders);
 
         }
 
@@ -197,8 +191,9 @@ namespace Homework_6_1.Tests
         [TestMethod()]
         public void ExportTest()
         {
-            OrderService.Export();
+            OrderService.Export("test.xml");
             Assert.IsTrue(File.Exists("test.xml"));
+
         }
 
     }
