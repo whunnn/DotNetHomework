@@ -194,7 +194,15 @@ namespace Homework_6_1.Tests
             OrderService.Export("test.xml");
             Assert.IsTrue(File.Exists("test.xml"));
 
+            String result = File.ReadAllText("test.xml");
+            String expect = File.ReadAllText("../../expectedOrders.xml");
+            Assert.AreEqual(expect, result);
+
+            File.Delete("test.xml"); //Clear up
+
         }
+
+
 
     }
 }

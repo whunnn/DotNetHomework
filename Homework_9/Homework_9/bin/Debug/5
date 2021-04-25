@@ -1,0 +1,1360 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="always" />
+    <title>IT新闻 - 博客园</title>
+    <meta name="keywords" content="IT新闻,it news,互联网新闻,业界新闻,IT资讯,IT业界,新闻频道" />
+    <meta name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link id="rsslink" title="rss" type="application/rss+xml" rel="alternate" href="http://feed.cnblogs.com/news/rss" />
+    <link rel="shortcut icon" href="//common.cnblogs.com/favicon.ico" />
+    <link rel="stylesheet" href="/Content/bundles/news.css?v=3xP9uuDECgAlC6BJj9zLyJMsa0nKoD5dAt4paP25qKM" />
+    <link rel="stylesheet" type="text/css" href="//mention.cnblogs.com/css/mention-simple.css?id=20160613">
+    <link id="smallScreen" rel="stylesheet" type="text/css" media="screen and (max-width:768px)" href="/Content/smallScreen.css?v=nefLI3mgFt-9OMgJr0ayftmT0REvBpYq2wb0OMDO1pY" />
+    <script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/Scripts/bundles/news.js?v=NWzOaUGAd-DmDHBEBJ-MPL3eLK8Vpc26nS6ubbAaS3o"></script>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot('/1090369/news_E1', [728, 90], 'div-gpt-ad-1533633736227-0').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/news_E2', [300, 250], 'div-gpt-ad-1533633736227-1').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/news_E3', [300, 250], 'div-gpt-ad-1533633736227-2').addService(googletag.pubads());
+            googletag.defineSlot('/1090369/news_E4', [468, 60], 'div-gpt-ad-1533633736227-3').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+</head>
+<body>
+    <a name="top"></a>
+    <div id="wrap">
+        <div id="header">
+            <a name="top"></a>
+            <div id="wrapper_top_block">
+                <div id="login_area">
+                </div>
+                <div id="top_mini_nav_block">&laquo; <a href="//www.cnblogs.com" class="dark_gray" title="程序员的网上家园">网站首页</a> <a href="http://zzk.cnblogs.com/" class="dark_gray">找找看</a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div id="main_wrapper">
+        <div id="main_header">
+            <div class="header_div">
+                <div class="logo">
+                    <a href="//www.cnblogs.com">
+                        <img src="/Images/logo.gif" alt="logo" />
+                    </a>
+                </div>
+                <div class="banner">
+                    <div id="clubHeader_panelNews">
+                        <div id="e1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainmenu">
+                <div class="feedback_block">
+                    <a href="//group.cnblogs.com/forum/public/">反馈问题或建议</a>
+                </div>
+                <ul id="navlist_main">
+                    <li style="margin-left:20px;">
+                        <a href="//www.cnblogs.com">首页</a>
+                    </li>
+                    <li>
+                        <a href="//home.cnblogs.com">园子</a>
+                    </li>
+                    <li>
+                    </li>
+                    <li id="clubHeader_liNews">
+                        <a id="clubHeader_lnkNews" title="IT新闻" class="current" href="/">新 闻</a>
+                    </li>
+                    <li>
+                        <a id="clubHeader_lkQuestionMenu" href="//q.cnblogs.com/">博问</a>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                        <a id="clubHeader_lkIngMenu" href="//ing.cnblogs.com/">闪存</a>
+                    </li>
+                    <li>
+                        <a id="clubHeader_lnkWz" href="//wz.cnblogs.com/">收藏</a>
+                    </li>
+                    <li>
+                        <a href="https://brands.cnblogs.com/">专区</a>
+                    </li>
+                    <li>
+                        <a href="//kb.cnblogs.com">知识库</a>
+                    </li>
+                    <li id="clubHeader_liMyMessage">
+                    </li>
+                </ul>
+            </div>
+            <script type="text/javascript">
+                if (typeof (jQuery) != 'undefined') {
+                    GetUserInfo();
+                }
+            </script>
+        </div>
+        <div id="sideleft">
+    <div id="guide" style="display:none;">
+        <h3>
+            <a href="//www.cnblogs.com" title="程序员的网上家园">博客园</a> » <a href="/" title="IT新闻">新闻</a><span id="lbMobileAuditTips" style="display:none;"></span>
+        </h3>
+    </div>
+    <div id="navcontainer" class="floatright" style="padding-top: 1px;">
+        <ul id="navlist">
+            <li>
+                <a href="/" class="current">最新发布</a>
+            </li>
+            <li>
+                <a href="/n/recommend">推荐新闻</a>
+            </li>
+            <li>
+                <a href="/n/digg">热门新闻</a>
+            </li>
+            <li>
+                <a href="/n/comment">新闻评论</a>
+            </li>
+        </ul>
+    </div>
+    <div class="clear">
+    </div>
+    <div id="news_list">
+            <div class="news_block" id="entry_691534">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691534,'agree')">
+                        <span id="digg_num_691534" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691534" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691534/" target="_blank">特斯拉涉嫌滥用Autopilot，美参议员要求彻查德州事故</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_429.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919095456914-256019808.png" class="topic_img" alt=""/></a>
+                        腾讯科技讯， 4 月 23 日消息，特斯拉正因滥用 Autopilot 而受到美国参议院两名议员的关注，两人要求 NHTSA 彻查特斯拉德州事故，为有关特斯拉 Autopilot 等先进驾驶辅助系统的未来立法提供更多依据。 两名民主党参议员敦促美国联邦监管机构对特斯拉采取“纠正措施”，以防止特斯拉的
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691534#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">0 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Tesla/" class="gray">Tesla</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:41</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691533">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691533,'agree')">
+                        <span id="digg_num_691533" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691533" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691533/" target="_blank">腾讯完成发行41.5亿美元票据，10年期利率2.880%</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_7.htm"><img src="https://img2020.cnblogs.com/news_topic/20200706085628246-1266015956.gif" class="topic_img" alt=""/></a>
+                        财联社 4 月 23 日讯，腾讯控股在港交所公告，根据 300 亿美元全球中期票据计划，于 4 月 22 日发行 5.0 亿美元 2031 年到期优先票据，利率为 2.880%。发行 9.0 亿美元 2041 年到期优先票据，利率为 3.680%。发行 17.5 亿美元 2051 年到期优先票据，利
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691533#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">0 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E8%85%BE%E8%AE%AF/" class="gray">腾讯</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:34</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691532">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691532,'agree')">
+                        <span id="digg_num_691532" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691532" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691532/" target="_blank">比特币连日下跌重挫，以太币却创历史新高</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_424.htm"><img src="https://img2020.cnblogs.com/news_topic/20201127175718159-1044964558.png" class="topic_img" alt=""/></a>
+                        作者：&#160;高星 加密货币市场规模排名第一的比特币与排名第二的以太币走势出现明显分化。根据 Coindesk 的价格数据，截至发稿时以太币在 24 小时之内上涨 1.21%，而在欧洲交易时段更曾经创下 2645 美元的历史高点。反观比特币则是下跌近 5.5%，跌破 52000 美元关口，日内更一度下探至
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691532#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">0 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E6%AF%94%E7%89%B9%E5%B8%81/" class="gray">比特币</a> <a href="/n/tag/%E4%BB%A5%E5%A4%AA%E5%B8%81/" class="gray">以太币</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:28</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691531">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691531,'agree')">
+                        <span id="digg_num_691531" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691531" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691531/" target="_blank">马斯克公布1亿美元除碳竞赛奖：每年要除碳1000吨</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_570.htm"><img src="//images0.cnblogs.com/news_topic/20150702090016187.png" class="topic_img" alt=""/></a>
+                        财联社 4 月 23 日讯，特斯拉 CEO 埃隆&#183;马斯克周四宣布向发明家们提供 1 亿美元奖金来寻找通过从大气或海洋中清除二氧化碳抗击全球变暖的方法。今年 1 月，马斯克宣布他打算拿出 1 亿美元奖金，并在本周四的世界地球日公布竞赛规则。
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691531#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">0 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E9%A9%AC%E6%96%AF%E5%85%8B/" class="gray">马斯克</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:20</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691530">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691530,'agree')">
+                        <span id="digg_num_691530" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691530" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691530/" target="_blank">英特尔Q1营收186亿美元 净利57亿美元同比降6%</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_12.htm"><img src="https://img2020.cnblogs.com/news_topic/20200904145804003-48293503.png" class="topic_img" alt=""/></a>
+                        4 月 23 日消息，美国当地时间周四，芯片巨头英特尔发布了截至 3 月 27 日的 2021 财年第一财季财报。财报显示，英特尔第一季度营收 186 亿美元，与去年同期持平；净利润 57 亿美元，同比下降6%；每股收益 1.39 美元，与去年相比下降1%。财报发布后，英特尔股价盘后下跌逾2%。 以
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691530#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">0 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E8%8B%B1%E7%89%B9%E5%B0%94/" class="gray">英特尔</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:15</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691529">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691529,'agree')">
+                        <span id="digg_num_691529" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691529" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691529/" target="_blank">与消费者、合作伙伴、监管摩擦不断，特斯拉为何在中国成了“碰碰车”</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_429.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919095456914-256019808.png" class="topic_img" alt=""/></a>
+                        腾讯新闻《潜望》唐媛媛 正如特斯拉中国区掌门人朱晓彤此前所言“报道我们的技术、产品和愿景能给你们带来最大的流量和关注度”，几乎特斯拉的每一条新闻都能够成为热点事件。 然而事与愿违的是，这带来更大流量与关注度的往往是“技术、产品、愿景”背后所隐藏的潜在的产品缺陷和在消费者看来这家美国公司对待消费者的傲
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691529#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">61 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Tesla/" class="gray">Tesla</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:08</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691528">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691528,'agree')">
+                        <span id="digg_num_691528" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691528" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691528/" target="_blank">苹果高管再次重申：无计划合并iPad与Mac两大产品</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_82.htm"><img src="https://img2018.cnblogs.com/news_topic/20190822140314801-1842879152.png" class="topic_img" alt=""/></a>
+                        腾讯科技讯，4 月 23 日消息，苹果全球营销副总裁格雷格&#183;乔斯维克（Greg Joswiak）周三表示，尽管最新发布的 iPad Pro 像 Mac 一样采用了 M1 处理器，但是苹果并没有合并 iPad 和 Mac 两项业务的计划。 自苹果 2010 年发布第一代 iPad 以来，人们就一直在担
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691528#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">45 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E8%8B%B9%E6%9E%9C/" class="gray">苹果</a> </span>
+                        发布于 <span class="gray">2021-04-23 08:00</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691526">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691526,'agree')">
+                        <span id="digg_num_691526" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691526" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691526/" target="_blank">快手、抖音、微信视频号三国争霸，究竟鹿死谁家？</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_793.htm"><img src="//images2015.cnblogs.com/news_topic/20161222123753807-514279725.png" class="topic_img" alt=""/></a>
+                        文/何加盐 来源/何加盐（ID：ihejiayan） 不知不觉，手机已经占领了我们的生活，成为占有人们每天空闲时间最长的工具；而短视频则已经占领了我们的手机，成为占据手机使用时间最多的领域。 每天，我们有将近四分之一的生命花在手机上；这四分之一里面，又有超过四分之一花在短视频上。（数据来源：极光 i
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691526#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">256 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E5%BF%AB%E6%89%8B/" class="gray">快手</a> <a href="/n/tag/%E6%8A%96%E9%9F%B3/" class="gray">抖音</a> <a href="/n/tag/%E5%BE%AE%E4%BF%A1/" class="gray">微信</a> </span>
+                        发布于 <span class="gray">2021-04-23 00:32</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691524">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691524,'agree')">
+                        <span id="digg_num_691524" class="diggnum">1</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691524" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691524/" target="_blank">特斯拉不愿低头不要紧，太多人在等着接替它的位置</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_429.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919095456914-256019808.png" class="topic_img" alt=""/></a>
+                        文/小互 来源：互联网的那点事（ID：alibuy） 傲慢行不通，至少在中国不行 4 月 20 日，北京时间的深夜，特斯拉终于道歉了。 但它的道歉稿，以及发文的时间，明里暗里都透露着那么一丝不情不愿，避重就轻。 前一阵子，好好的一场车展，因为维权的特斯拉车主，活活办成了3&#183;15。 3&#183;15 放过了特
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691524#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">349 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Tesla/" class="gray">Tesla</a> </span>
+                        发布于 <span class="gray">2021-04-23 00:24</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691521">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691521,'agree')">
+                        <span id="digg_num_691521" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691521" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691521/" target="_blank">跟谁学宣布更名为“高途集团”  称品牌体验更清晰</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_2655.htm"><img src="https://img2018.cnblogs.com/news_topic/20200226125108922-626099503.png" class="topic_img" alt=""/></a>
+                        4 月 22 日消息，美股上市在线教育公司跟谁学（NYSE:GSX）宣布，即日起将公司名称统一更名为“高途集团”。公司统一更名为“高途集团”后，原 K12 业务保持不变，仍为“高途课堂”，原跟谁学成人业务更名为“高途学院”。 据高途集团相关人员介绍，此次公司将“高途”作为统一的公司品牌，可以给予学生
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691521#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">91 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E8%B7%9F%E8%B0%81%E5%AD%A6/" class="gray">跟谁学</a> </span>
+                        发布于 <span class="gray">2021-04-23 00:14</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691522">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691522,'agree')">
+                        <span id="digg_num_691522" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691522" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691522/" target="_blank">李想：理想自研自动驾驶 明年可与华为、特斯拉正面较量</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_2658.htm"><img src="https://img2020.cnblogs.com/news_topic/20200519081225487-510553435.png" class="topic_img" alt=""/></a>
+                        理想 ONE 虽然是一辆增程式电动车，但是在国内也受到了众多消费者的认可，并且仅靠着一辆理想 ONE 主场作战，理想 ONE 的销量就突破了 4 万辆，与蔚来和小鹏相比，理想同样成绩斐然。 此外，与蔚来相比，在电动电池和驱动电机方面的研发，理想并没有表现出明显的较量意图，理想更注重于消费者的体验方面
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691522#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">139 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E7%90%86%E6%83%B3%E6%B1%BD%E8%BD%A6/" class="gray">理想汽车</a> </span>
+                        发布于 <span class="gray">2021-04-23 00:12</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691518">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691518,'agree')">
+                        <span id="digg_num_691518" class="diggnum">5</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691518" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691518/" target="_blank">特斯拉：已快递发出48页事故数据，愿意在权威检测机构检测</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_429.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919095456914-256019808.png" class="topic_img" alt=""/></a>
+                        划重点 通过电话和短信联系张女士丈夫多次，但未得到回复。 事故前半小时完整行车数据共计 48 页、6697 条，已快递、电邮发给张女士。 将毫无保留地配合监管部门开展深入调查，开诚布公接受社会监督。 愿意在客户同意、政府指定或监督的情况下，三方共同见证，在全国范围内任意有资质的权威检测机构进行检测。
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691518#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">254 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Tesla/" class="gray">Tesla</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:32</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691520">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691520,'agree')">
+                        <span id="digg_num_691520" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691520" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691520/" target="_blank">平安好医生与华润三九合作  开发定制化电子云药箱</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_728.htm"><img src="//images2015.cnblogs.com/news_topic/20160713154051264-475946137.png" class="topic_img" alt=""/></a>
+                        4 月 20 日，平安好医生协同平安健康保险，与华润三九医药股份有限公司达成战略合作。 华润三九主要从事医药产品的研发、生产、销售及相关健康服务。其健康产品覆盖领域广，产品线丰富，999 感冒灵颗粒/胶囊连续多年荣获感冒咳嗽类第一名。通过与华润三九合作，用户可通过平安健康 APP 直接享受到 999
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691520#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">39 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E5%B9%B3%E5%AE%89%E5%A5%BD%E5%8C%BB%E7%94%9F/" class="gray">平安好医生</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:25</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691519">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691519,'agree')">
+                        <span id="digg_num_691519" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691519" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691519/" target="_blank">realme发布新品真我Q3：售价999元起</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_1401.htm"><img src="https://img2018.cnblogs.com/news_topic/20190905170126353-2059792830.jpg" class="topic_img" alt=""/></a>
+                        4 月 22 日晚间消息，realme 今天线上发布了真我 Q3 新品系列，三档产品，售价 999 元起。 发布会上，realme 副总裁、中国区总裁、全球营销总裁徐起表示，realme 电商平台粉丝数突破了 2000 万，真我 GT Neo 首销当日 10 秒销售额实现破亿、9 小时全渠道销量超 
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691519#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">154 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/realme/" class="gray">realme</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:20</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691517">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691517,'agree')">
+                        <span id="digg_num_691517" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691517" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691517/" target="_blank">台积电董事会批准28亿美元增加芯片产能计划</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_696.htm"><img src="https://img2018.cnblogs.com/news_topic/20190827152424015-808154993.png" class="topic_img" alt=""/></a>
+                        腾讯科技讯，4 月 22 日消息，全球最大代工芯片制造商台积电周四证实，该公司董事会已批准 28.9 亿美元支出以增加芯片产能计划。此举被视为对全球芯片供应短缺的回应，缺芯危机对汽车制造商的影响尤其严重。 在一份简短的声明中，台积电表示，其董事会已批准这笔支出，“目的是上马成熟制程工艺产能”。不过，
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691517#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">74 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E5%8F%B0%E7%A7%AF%E7%94%B5/" class="gray">台积电</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:17</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691516">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691516,'agree')">
+                        <span id="digg_num_691516" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691516" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691516/" target="_blank">顺丰控股：一季度净亏损9.89亿元 财务负责人伍玮婷调任</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_528.htm"><img src="//images0.cnblogs.com/news_topic/20150323122850630.png" class="topic_img" alt=""/></a>
+                        腾讯科技讯，4 月 22 日，顺丰控股发布业绩公告，一季度净亏损 9.89 亿元，上年同期盈利 9.07 亿元。公司董事会于近日收到财务负责人伍玮婷女士提交的工作调任通知。伍玮婷女士因个人原因，申请自 2021 年 4 月 24 日起辞去公司董事会审计委员会委员、财务负责人、副总经理职务。 顺丰财报
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691516#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">111 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E9%A1%BA%E4%B8%B0/" class="gray">顺丰</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:11</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691515">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691515,'agree')">
+                        <span id="digg_num_691515" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691515" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691515/" target="_blank">消息称苹果准备对其移动软件进行重大改进，包括通知和主屏设计</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_82.htm"><img src="https://img2018.cnblogs.com/news_topic/20190822140314801-1842879152.png" class="topic_img" alt=""/></a>
+                        腾讯科技讯，4 月 22 日消息，据知情人士透露，苹果正在准备对其移动软件进行重大改进，包括升级用户处理通知的方式，重新设计 iPad 主屏幕，更新锁屏，并为其旗舰设备提供额外的隐私保护。 正在开发中的更新计划包括在 iOS 15 和 iPadOS 15 中，这是即将为 iPhone 和 iPad 
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691515#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">73 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E8%8B%B9%E6%9E%9C/" class="gray">苹果</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:08</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691514">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691514,'agree')">
+                        <span id="digg_num_691514" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691514" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691514/" target="_blank">好未来2021财年净收入44.958亿美元 同比增长37.3%</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_511.htm"><img src="//images0.cnblogs.com/news_topic/20150128173520347.png" class="topic_img" alt=""/></a>
+                        腾讯科技讯，4 月 22 日消息，好未来公布其截至 2021 年 2 月 28 日的 2021 财年第四季度和全年未经审计财务报告。 2021 财年第四季度业绩摘要 -净收入从上年同期的 8.577 亿美元增长到本季的 13.627 亿美元，同比增幅为 58.9%。 -经营亏损为 2.972 亿美元
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691514#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">28 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E5%A5%BD%E6%9C%AA%E6%9D%A5/" class="gray">好未来</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:03</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691513">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691513,'agree')">
+                        <span id="digg_num_691513" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691513" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691513/" target="_blank">腾讯发布全球纪录片《零水日》</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_7.htm"><img src="https://img2020.cnblogs.com/news_topic/20200706085628246-1266015956.gif" class="topic_img" alt=""/></a>
+                        4 月 22 日，在庆祝第 52 个世界地球日之际，由腾讯集团、腾讯影业出品、腾讯视频独家首播的纪录片《零水日》(DAY ZERO)在全球 4 大洲 10 余个国家上线播出。该纪录片讲述了南美洲巴西、非洲南非、北美洲美国以及亚洲中国四个国家的水资源挑战。本周一，腾讯刚刚宣布启动战略升级，将“可持续社
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691513#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">106 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E8%85%BE%E8%AE%AF/" class="gray">腾讯</a> </span>
+                        发布于 <span class="gray">2021-04-22 23:00</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691512">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691512,'agree')">
+                        <span id="digg_num_691512" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691512" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691512/" target="_blank">特斯拉维权风波背后，原来是一场战争</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_429.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919095456914-256019808.png" class="topic_img" alt=""/></a>
+                        文/关不羽 来源：冰川思享号（ID：icereview） 特斯拉也好，整个电动车行业也罢，对事故调查环节的“数据之争”，理应寻求制度化、程序化的解决方式，争取实现数据安全的同时赢得公信力。 上海车展的维权风波以特斯拉道歉告一段落。然而，一个“数据争夺战”的时代才刚刚开始。 01 几乎与中国维权风波的
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691512#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">120 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Tesla/" class="gray">Tesla</a> </span>
+                        发布于 <span class="gray">2021-04-22 22:12</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691511">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691511,'agree')">
+                        <span id="digg_num_691511" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691511" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691511/" target="_blank">小程序之争，支付宝输了吗？</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_131.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919094033349-2075585200.png" class="topic_img" alt=""/></a>
+                        文/彦飞 来源：字母榜（ID：wujicaijing） 阿里与腾讯始于四年前的小程序之争，如今高下渐渐清晰。 3 月下旬，淘宝特价版计划开通微信小程序、支持微信支付，4 月初，闲鱼也向微信递交了小程序申请。字母榜（ID：wujicaijing）统计发现，目前已经或计划开设微信小程序的阿里系业务，包括
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691511#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">149 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="gray">小程序</a> <a href="/n/tag/%E6%94%AF%E4%BB%98%E5%AE%9D/" class="gray">支付宝</a> </span>
+                        发布于 <span class="gray">2021-04-22 22:00</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691510">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691510,'agree')">
+                        <span id="digg_num_691510" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691510" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691510/" target="_blank">汽车“缺芯潮”下 产业链“跪产能”困局如何解？</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_132.htm"><img src="//images0.cnblogs.com/news_topic/ITblog.jpg" class="topic_img" alt=""/></a>
+                        文/经纬创投主页君 来源：经纬创投（ID：matrixpartnerschina） 刘慈欣在他的科幻小说《球状闪电》里，讲述了地球受到一种特殊攻击，导致所有硅基芯片被毁，全世界陷入瘫痪的故事。从手机电脑，到汽车飞机，绝大部分现代产品都离不开芯片，而汽车业，正在经历芯片严重短缺的困境。 生产一辆汽车至
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691510#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">31 人浏览</span>
+                        
+                        发布于 <span class="gray">2021-04-22 21:09</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691509">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691509,'agree')">
+                        <span id="digg_num_691509" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691509" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691509/" target="_blank">特斯拉现在道歉，还来得及吗？</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_429.htm"><img src="https://img2020.cnblogs.com/news_topic/20200919095456914-256019808.png" class="topic_img" alt=""/></a>
+                        文/朱晓宇 来源：燃次元（ID：chaintruth） 风波中的特斯拉看上去似乎正在向消费者妥协。 4 月 21 日晚，特斯拉表示，为了维护消费者的权益，特斯拉愿意全力配合，提供事发前半小时的车辆原始数据给第三方鉴定机构或政府指定的技术监管部门或者消费者本人。同时恳请郑州市市监局指定权威的、有资质的
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691509#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">154 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Tesla/" class="gray">Tesla</a> </span>
+                        发布于 <span class="gray">2021-04-22 20:20</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691508">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691508,'agree')">
+                        <span id="digg_num_691508" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691508" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691508/" target="_blank">上海车展观察：玩家掀自动驾驶地位锚定战 落地是竞争关键</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_132.htm"><img src="//images0.cnblogs.com/news_topic/ITblog.jpg" class="topic_img" alt=""/></a>
+                        文/邻章 来源：邻章（ID：TMT317） 以“拥抱变化”为主题的第十九届上海国际汽车工业展览会正处进行时。 在此，观察本届车展，则不难发现，厂商拥抱变化的行为体现在方方面面，其中最为核心的变化，则是本届车展中，厂商都将高级别自动驾驶技术的量产落地能力作为了比拼核心，即使是在消费层面，用户对自动驾驶
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691508#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">48 人浏览</span>
+                        
+                        发布于 <span class="gray">2021-04-22 20:06</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691507">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691507,'agree')">
+                        <span id="digg_num_691507" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691507" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691507/" target="_blank">Facebook被爆新漏洞：可收集用户的电子邮件信息</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_21.htm"><img src="https://img2018.cnblogs.com/news_topic/20190903105334209-2022543618.png" class="topic_img" alt=""/></a>
+                        本月早些时候，有人在黑客论坛上放出了一个拥有 5.3 亿 Facebook 用户个人信息的数据集。随后该公司承认存在本次数据泄漏，但表示不会通知在该漏洞中受到影响的用户。 虽然 Facebook 表示已经修复了之前允许黑客从该社交平台上刮取数据的漏洞，不过一名安全研究人员发现了另一个漏洞。该漏洞允许
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691507#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">28 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Facebook/" class="gray">Facebook</a> </span>
+                        发布于 <span class="gray">2021-04-22 20:00</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691505">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691505,'agree')">
+                        <span id="digg_num_691505" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691505" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691505/" target="_blank">打破纪录：科学家用九架太空望远镜观测了比邻星猛烈耀斑</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_319.htm"><img src="https://img2018.cnblogs.com/news_topic/20181019121101783-952728829.gif" class="topic_img" alt=""/></a>
+                        据外媒报道，一个天文学家团队发现了一个来自太阳最近的邻居--比邻星(Proxima Centauri)的极端爆发或耀斑。他们的研究成果已发表在《The Astrophysical Journal Letters》上，它将有助于指导寻找太阳系以外的生命。 比邻星是一颗“红矮星”，质量约为太阳的八分之一
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691505#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">122 人浏览</span>
+                        
+                        发布于 <span class="gray">2021-04-22 16:48</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691504">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691504,'agree')">
+                        <span id="digg_num_691504" class="diggnum">2</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691504" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691504/" target="_blank">优麒麟 20.04 LTS Pro 发布 - 以初心，铸匠心</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_2648.htm"><img src="https://img2018.cnblogs.com/news_topic/20200116165638321-424961547.gif" class="topic_img" alt=""/></a>
+                        北京时间 2021 年 4 月 22 日，优麒麟团队很高兴地宣布优麒麟（Ubuntu Kylin）开源操作系统 20.04&#160;LTS&#160;Pro 版本正式发布。优麒麟 20.04 Pro 是基于 20.04 长期支持版本的更新，官方将提供 5 年的技术支持。 优麒麟 20.04 Pro 版本默认搭载最新&#160;
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691504#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">228 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E4%BC%98%E9%BA%92%E9%BA%9F/" class="gray">优麒麟</a> </span>
+                        发布于 <span class="gray">2021-04-22 16:40</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691506">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691506,'agree')">
+                        <span id="digg_num_691506" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691506" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691506/" target="_blank">Android 12将带来显著改善App启动体验的新版Splash Screens</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_148.htm"><img src="//images2015.cnblogs.com/news_topic/20161020185521154-1185360701.png" class="topic_img" alt=""/></a>
+                        随着 Android 12 即将从开发者预览转入公测，我们发现它对普通用户的最大体验改进，或许就是应用的启动界面了。多年来，开发者已经习惯了为 App 设计基础的 Splash Screens 。不过随着谷歌致力于改进 App 的启动体验，后续 Android 12 移动操作系统将默认带来更轻快、一
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691506#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">74 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Android/" class="gray">Android</a> </span>
+                        发布于 <span class="gray">2021-04-22 16:30</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691503">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691503,'agree')">
+                        <span id="digg_num_691503" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691503" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691503/" target="_blank">百度诉一公司欺骗其排序算法 涉“搜索引擎优化”不正当竞争</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_5.htm"><img src="//images0.cnblogs.com/news_topic/baidu.jpg" class="topic_img" alt=""/></a>
+                        近日，海淀法院审理了百度公司状告深圳一优网络科技有限公司不正当竞争纠纷一案。据悉，这是首例涉“搜索引擎优化”不正当竞争纠纷案。4 月 20 日下午，海淀法院民事审判五庭（知识产权审判庭）前往中关村知识产权保护中心开展案件巡回审理活动，公开审理了此案。 原告百度公司诉称，其是百度网的运营者，百度公司为
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691503#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">260 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/%E7%99%BE%E5%BA%A6/" class="gray">百度</a> </span>
+                        发布于 <span class="gray">2021-04-22 16:30</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+            <div class="news_block" id="entry_691502">
+                <div class="action">
+                    <div class="diggit" onclick="VoteNews(691502,'agree')">
+                        <span id="digg_num_691502" class="diggnum">0</span>
+                    </div>
+                    <div class="clear"></div>
+                    <div id="digg_tip_691502" class="digg-tip"></div>
+                </div>
+                <!--end: action -->
+                <div class="content">
+                    <h2 class="news_entry">
+                        <a href="/n/691502/" target="_blank">机器学习助力：谷歌Play商店2020年检出近百万违规应用</a>
+                    </h2>
+                    <div class="entry_summary" style="display: block;">
+                        <a href="/n/topic_1.htm"><img src="https://img2018.cnblogs.com/news_topic/20190730073028742-506112123.png" class="topic_img" alt=""/></a>
+                        与苹果 iOS 相比，谷歌 Android 生态相对更开放一些。但是在 Play 商店应用的审核上，它似乎也没有 App Store 那么严格。考虑到无法逐一检查开发者提交的每一款应用，多年来谷歌一直在努力提升机器学习（ML）技术和人工智能（AI）算法的 App 筛查水平。近日，谷歌披露了最新的数据
+                    </div>
+                    <div class="entry_footer">
+                        <a href="//home.cnblogs.com/u/itwriter/" class="gray" target="_blank">
+                            itwriter
+                        </a>投递&nbsp;
+                        <span class="comment">
+                            <a href="/n/691502#comment" class="gray" target="_blank">评论(0)</a>
+                        </span><span class="view">56 人浏览</span>
+                        <span class="tag"> <a href="/n/tag/Google/" class="gray">Google</a> </span>
+                        发布于 <span class="gray">2021-04-22 16:23</span>
+                    </div>
+                    <!--end: entry_footer -->
+                </div>
+                <!--end: content -->
+                <div class="clear">
+                </div>
+            </div>
+            <!--end: news_block -->
+            <div class="clear">
+            </div>
+    </div>
+    <div class="pager"><a href="/" class="p_1 current">1</a><a href="/n/page/2/" class="p_2 middle">2</a><a href="/n/page/3/" class="p_3 middle">3</a><a href="/n/page/4/" class="p_4 middle">4</a><a href="/n/page/5/" class="p_5 middle">5</a><a href="/n/page/6/" class="p_6 middle">6</a><a href="/n/page/7/" class="p_7 middle">7</a><a href="/n/page/8/" class="p_8 middle">8</a><a href="/n/page/9/" class="p_9 middle">9</a><span class="ellipsis">···</span><a href="/n/page/100/" class="p_100 last">100</a><a href="/n/page/2/">Next &gt;</a></div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        LoadNewsCategory("NewsCategoryId",11,0);
+        //新闻列表-右侧编辑推荐新闻
+        CommonLoadNews("/NewsAjax/GetRecommendNews", "RecommendNewsId", 7);
+        //新闻列表-右侧今日新闻排行
+        CommonLoadNews("/NewsAjax/GetHotNews", "HotNewsId", 10);
+        //新闻列表-右侧24小时推荐排行
+        CommonLoadNews("/NewsAjax/GetHotByDiggCount", "HotByDiggCountId", 7);
+        //新闻列表-右侧热门IT新闻
+        CommonLoadNews("/NewsAjax/GetRecentHotNews", "RecentHotNewsId", 10);
+        //新闻列表-右侧最新评论
+        LoadSideComments("NewsIndexCommentsId", 15);
+        CheckAudit();
+        LoadIndexSideInfo();
+    });
+</script>
+        <div id="sideright">
+            
+    <div style="margin-top:25px;">
+        <span id="lbAuditTips" style="display:none;"></span>
+        <div class="news_home_navlink">
+            <div id="rss_sub_top" class="rss_sub">
+                <a href="http://feed.cnblogs.com/news/rss" title="博客园IT新闻RSS订阅">
+                    <img src="//common.cnblogs.com/images/icon_rss.gif" alt="RSS订阅" />
+                </a>
+            </div>
+            <div style="line-height:30px;">
+                &gt; <a href="https://www.cnblogs.com/news/" class="big">新闻栏目</a><br />
+                &gt; <a href="/n/date/" class="big">新闻日历</a><br />
+                &gt; <a href="/n/topiclist/" class="big">新闻主题</a><br />
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <br />
+        <div id="side_right_search">
+            <input type="text" id="google_search_q" size="27" class="side_right_search_q" onkeydown="return google_search_enter(event);" />
+            <input type="submit" name="sa" value="搜索新闻" class="side_right_search_sa" onclick="return google_search();" />
+        </div>
+<div class="side_block">
+    <div class="a4content" id="e2">
+        <div id="div-gpt-ad-1533633736227-1" style="height:250px; width:300px;">
+            <script>
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1533633736227-1'); });
+            </script>
+        </div>
+    </div>
+</div>        <div class="side_block" id="cate_news">
+            <h3 class="title_yellow">
+                新闻类别
+            </h3>
+            <div class="indent" id="NewsCategoryId">
+            </div>
+        </div>
+        <div id="HotNews1_panelToday">
+            <div class="side_block" id="last_news">
+                <h3 class="title_blue">
+                    今日新闻排行
+                </h3>
+                <ul class="topnews block_list bt" id="HotNewsId">
+                </ul>
+            </div>
+        </div>
+        <div class="side_block">
+            <h3 class="title_yellow">
+                编辑推荐新闻
+            </h3>
+            <ul class="topnews block_list bt" id="RecommendNewsId">
+            </ul>
+        </div>
+        <div id="HotNews1_panelDiggTop">
+            <div class="side_block" id="Div1">
+                <h3 class="title_green">
+                    24小时推荐排行
+                </h3>
+                <ul class="topnews block_list bt" id="HotByDiggCountId">
+                </ul>
+            </div>
+        </div>
+        <div class="side_block" id="hot_news">
+            <h3 class="title_red">
+                热门IT新闻
+            </h3>
+            <ul class="topnews block_list bt" id="RecentHotNewsId">
+            </ul>
+        </div>
+<div class="side_block">
+    <div id="e3">
+        <div id="div-gpt-ad-1533633736227-2" style="height:250px; width:300px;">
+            <script>
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1533633736227-2'); });
+            </script>
+        </div>
+    </div>
+</div>        <div class="side_block">
+            <h3 class="title_green">
+                最新评论
+            </h3>
+            <ul class="block_list" id="NewsIndexCommentsId">
+            </ul>
+            <a href="/Comment">
+                <img src="/Images/more_comment.gif" title="更多最新评论" style="float: right; margin: 7px;" alt="" />
+            </a>
+            <div style="clear: both;">
+            </div>
+        </div>
+        <a name="more"></a>
+        <div id="rss_sub_bottom" class="rss_sub">
+            <a href="http://feed.cnblogs.com/news/rss" title="博客园IT新闻RSS订阅">
+                <img src="//common.cnblogs.com/images/icon_rss_news.gif" alt="RSS订阅" />
+            </a>
+            <a href="//news.cnblogs.com/m" rel="nofollow" title="博客园新闻频道手机版">
+                <img src="/Images/ico_ing_cellphone.gif" alt="手机版" />
+            </a>
+        </div>
+    </div>
+
+        </div>
+        <div class="clear">
+        </div>
+        <div id="footer">
+            <div id="foot">
+                <a href="//www.cnblogs.com/AboutUS.aspx">关于博客园</a>
+                <a href="//www.cnblogs.com/ContactUs.aspx">联系我们</a>
+                <a href="//www.cnblogs.com/ad.aspx">广告服务</a>
+                <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备09004260号-1</a>
+                <span>&copy;2004-2021</span>
+                <a href="//www.cnblogs.com">博客园</a>
+                <span id="powered_by">Powered by .NET on Kubernetes</span>
+            </div>
+            <div id="footMobile" style="display:none;">
+                <span>&copy;2004-2021</span>&nbsp;<a href="//www.cnblogs.com">博客园</a>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-476124-8']);
+            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </div>
+</body>
+</html>
