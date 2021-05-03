@@ -1,0 +1,1103 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>小陆 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simpleclear/bundle-simpleclear.min.css?v=YwqKpZSlReWrFAl5bydbTTB3DX1yfsPdM9XzR5Ip8sU" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/simpleclear/bundle-simpleclear-mobile.min.css?v=gORgGj4k30_xdrBBjR8BlmIqd0gwMNLDu1WI_swQtPE" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/lane_cn/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/lane_cn/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/lane_cn/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 7835;
+        var currentBlogApp = 'lane_cn';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleClear';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <div id="main">
+    <div id="header">
+        
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/lane_cn/">一星期8天</a>
+</h1>
+<p id="tagline">Eight Days a Week</p>
+
+
+    </div>
+    
+
+
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2020/11/01.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/13911939.html">
+    <span>
+        版本的故事（五）闯关旅程
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：对于代码的任何一次修改都会形成一个“版本”，其中的大部分版本是没有必要发布的，它们只是普通的提交。当开发人员完成一个里程碑计划，就在这个提交上创建一个基线（具体操作在 Git 平台上创建一个 Tag），标记这个特殊的提交，形成一个正式的“版本”。 一些研发团队使用“持续集成”开发过程，对每一个提交，        <a href="https://www.cnblogs.com/lane_cn/p/13911939.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2020-11-01 22:00
+小陆
+<span data-post-id="13911939" class="post-view-count">阅读(178)</span> 
+<span data-post-id="13911939" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13911939" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13911939" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2020/09/17.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/13685179.html">
+    <span>
+        从技术谈到管理，把系统优化的技术用到企业管理
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：很多技术人员在职业上对自己要求高，工作勤奋，承担越来越大的责任，最终得到信任，被提拔到管理岗位。但是往往缺乏专业的管理知识，在工作中不能从整体范围优化工作流程，仍然是“个人贡献者”的工作方式，遇到问题自己上，经常耽误了本职工作。于是翻了很多书，看了很多文章，学习了很多“为人处世的艺术”和“企业发展的        <a href="https://www.cnblogs.com/lane_cn/p/13685179.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2020-09-17 14:55
+小陆
+<span data-post-id="13685179" class="post-view-count">阅读(8157)</span> 
+<span data-post-id="13685179" class="post-comment-count">评论(26)</span> 
+<span data-post-id="13685179" class="post-digg-count">推荐(38)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13685179" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2020/09/13.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/13662071.html">
+    <span>
+        版本的故事（四）版本号有多重要
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：上一篇谈了怎样给版本取个好名字，也就是版本号。说明了“语义化版本”的命名规范，也说明了这一种命名规范在依赖管理中发挥的重要作用。今天继续谈语义化版本号，说明一下这种命名方式的重要性，以及对研发和运维过程的影响。 开发人员每一次向下游工序交付一个版本，都必须为这个版本编一个号码，这就是版本号（也称作版        <a href="https://www.cnblogs.com/lane_cn/p/13662071.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2020-09-13 18:45
+小陆
+<span data-post-id="13662071" class="post-view-count">阅读(648)</span> 
+<span data-post-id="13662071" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13662071" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13662071" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2020/09/02.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/13595721.html">
+    <span>
+        版本的故事（三）取个好名字
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：当我们发布一个版本的时候，需要为这个版本取一个名字，也称作版本号。本文说明编制版本号的方法。 版本编号有很多不同的方法，其中最常见的是“三段式”版本号，我们使用的操作系统、开发工具、编译器、库函数、中间件，很多都使用这种版本编号方式。比如：Zookeeper 3.4.13、Maven 3.6.2、T        <a href="https://www.cnblogs.com/lane_cn/p/13595721.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2020-09-02 22:26
+小陆
+<span data-post-id="13595721" class="post-view-count">阅读(279)</span> 
+<span data-post-id="13595721" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13595721" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13595721" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2020/08/30.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/13584709.html">
+    <span>
+        版本的故事（二）版本的诞生
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：研发人员不断修改代码，在代码库上形成一个 Commit 链条，每一个 Commit 记录了所有文件在某一时刻的状态，这个状态称为一个“快照”。在所有提交中，我们认为其中一些提交具有特殊的意义，比如我们完成了里程碑任务，这时可以发布版本了。对于这些特殊的提交，我们创建一个标签（Tag）与之关联。这个标        <a href="https://www.cnblogs.com/lane_cn/p/13584709.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2020-08-30 11:11
+小陆
+<span data-post-id="13584709" class="post-view-count">阅读(223)</span> 
+<span data-post-id="13584709" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13584709" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13584709" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2020/08/29.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/13583551.html">
+    <span>
+        版本的故事（一）为什么要写版本的故事
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：随着组织的发展，开发人员越来越多，很多公司开始建立专门的技术部门开发共用组件。能不能做出好用的共用组件，技术能力当然是必不可少的。但是经历了很多项目的生生死死，越来越觉得版本管理也是一个十分重要的因素。很多基础组件做的时候红红火火，做了两年就恍恍惚惚了。有很多老的版本漂流在外，新的项目和老的项目开始        <a href="https://www.cnblogs.com/lane_cn/p/13583551.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2020-08-29 21:17
+小陆
+<span data-post-id="13583551" class="post-view-count">阅读(231)</span> 
+<span data-post-id="13583551" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13583551" class="post-digg-count">推荐(2)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13583551" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2019/01/07.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/10233024.html">
+    <span>
+        程序配置的原则和实践以及 Spring Boot 支持方式
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：原则 软件需要在不同的环境中部署，代码是保持不变的，但是不同的运行环境存在差异，所以需要使用配置适应不同的环境。比如： 数据库，Redis，以及其他 后端服务 的配置； 第三方服务的证书，如 oAuth、支付接口 等； 每份部署特有的配置，如域名等。 配置的原则是：代码与配置要严格分离，不允许在代码        <a href="https://www.cnblogs.com/lane_cn/p/10233024.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2019-01-07 14:23
+小陆
+<span data-post-id="10233024" class="post-view-count">阅读(510)</span> 
+<span data-post-id="10233024" class="post-comment-count">评论(0)</span> 
+<span data-post-id="10233024" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10233024" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2016/08/18.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/5783192.html">
+    <span>
+        全文检索基本概念
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：全文搜索1.索引过程索引过程如下： ┏━━━━━┓ ┏━━━━┓ ┏━━━━━━┓ ┃　预处理　┃┈┈→┃　分词 ┃┈┈→┃　反向索引　┃ ┗━━━━━┛ ┗━━━━┛ ┗━━━━━━┛ 2.预处理2.1 去标点标点符号对文本检索没有作用，可以去除。2.2 去停止词停止词一般是虚词、语气词。极度高频词对检索没有意义。英文停止词一般有：a an and are as at be b...        <a href="https://www.cnblogs.com/lane_cn/p/5783192.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2016-08-18 11:05
+小陆
+<span data-post-id="5783192" class="post-view-count">阅读(2049)</span> 
+<span data-post-id="5783192" class="post-comment-count">评论(0)</span> 
+<span data-post-id="5783192" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5783192" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2016/04/24.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/5428546.html">
+    <span>
+        Elasticsearch升级1.5版本暴露jdk的bug
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：把测试环境的Elasticsearch升级到1.5.1版本，启动的时候报错： [root@node2 elasticsearch-1.5.1]# bin/service/elasticsearch startStarting Elasticsearch…Waiting for Elasticsear        <a href="https://www.cnblogs.com/lane_cn/p/5428546.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2016-04-24 22:15
+小陆
+<span data-post-id="5428546" class="post-view-count">阅读(694)</span> 
+<span data-post-id="5428546" class="post-comment-count">评论(0)</span> 
+<span data-post-id="5428546" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5428546" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/p/5427657.html">
+    <span>
+        以后还是要多写点博客
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：我还在搞技术呢。这几年也搞了点别的，最后才发现还是技术工作自己最喜欢（其实搞别的也很失败，没被老板开掉都应该谢天谢地）。如果有一个工作能让我想事情想的睡不着，半夜爬起来写点东西，只有写代码了。既然自己喜欢，也能给公司挣钱（公司也能给我发工资），还是继续干吧。人应该干自己擅长的事情。 前两天把自己写的        <a href="https://www.cnblogs.com/lane_cn/p/5427657.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2016-04-24 18:15
+小陆
+<span data-post-id="5427657" class="post-view-count">阅读(269)</span> 
+<span data-post-id="5427657" class="post-comment-count">评论(1)</span> 
+<span data-post-id="5427657" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=5427657" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2009/06/04.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2009/06/04/1496383.html">
+    <span>
+        DateTime类型的一个Bug
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：先说一个历史故事，关于我们现在的阳历：现行的公历是格利戈里历法，这个历法的是1582年教皇格利戈里根据恺撒大帝引进的算法改进的。它采用的是闰年制也就是现行的制度，不过有一个需要注意的地方就是，这个历法并不是连续的，中间缺少了11天。1752年9月2日之后的那一天并不是1752年9月3日，而是1752年9月14日。也就是说，从1752年9月3日到1752年9月13日的11天并不存在。抹掉这11天是由...        <a href="https://www.cnblogs.com/lane_cn/archive/2009/06/04/1496383.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2009-06-04 17:32
+小陆
+<span data-post-id="1496383" class="post-view-count">阅读(879)</span> 
+<span data-post-id="1496383" class="post-comment-count">评论(1)</span> 
+<span data-post-id="1496383" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=1496383" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2008/04/01.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2008/04/01/1132796.html">
+    <span>
+        完全命令行.NET开发
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：很久没写日记了，今天走一个Windows系统的GUI太好用了，以至于很多Windows开发者都不知道还有更好用的命令行模式。命令行模式可以把自己经常使用的功能写成脚本，一个命令就可以全部工作执行掉，实在是广大程序员同志的福音啊。NAntJava的开发者都知道Ant，但是.net的开发人员却很少有使用NAnt的。大部分程序员同志都习惯了按下F7，然后把生成物复制到部署文件夹下面，注册dll，修改配置...        <a href="https://www.cnblogs.com/lane_cn/archive/2008/04/01/1132796.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2008-04-01 14:22
+小陆
+<span data-post-id="1132796" class="post-view-count">阅读(5050)</span> 
+<span data-post-id="1132796" class="post-comment-count">评论(16)</span> 
+<span data-post-id="1132796" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=1132796" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2007/03/13.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2007/03/13/672628.html">
+    <span>
+        .NET初学者架构设计指南（四）Model-View-Controller
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：Model-View-Controller简称为MVC，这是图形界面（GUI）应用程序的一种架构形式。Model是业务领域层，比如我们在前面两篇里面提到的Account、Entry、Bill、Invoice之类的对象，这些类构成了一个电信账务系统的业务领域层；View就是用户界面；Controller是指用户界面和业务对象之间的控制器，控制器的作用是从业务对象中获取数据显示到用户界面上，并且从界面...        <a href="https://www.cnblogs.com/lane_cn/archive/2007/03/13/672628.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2007-03-13 09:05
+小陆
+<span data-post-id="672628" class="post-view-count">阅读(15064)</span> 
+<span data-post-id="672628" class="post-comment-count">评论(34)</span> 
+<span data-post-id="672628" class="post-digg-count">推荐(4)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=672628" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2007/02/15.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2007/02/15/651299.html">
+    <span>
+        .NET初学者架构设计指南（三）设计模式
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：在上一篇里面，我们初步了解了OO设计，OO设计的最独特之处在于他看待需求的方式。用这样的方式，我们不需要急于确定软件需要实现哪些流程、设计哪些功能点、制作哪些画面，而是要关注需求中一些更加基本的概念。首先根据这些概念开发出一些零件，然后把这些零件组装起来实现需要的功能。用这样的方式，我们不需要一开始就去知道所有的业务需求，只需要知道一些比较重要的需求，就可以开始开发了。这样开发出来的程序不仅可以实...        <a href="https://www.cnblogs.com/lane_cn/archive/2007/02/15/651299.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2007-02-15 17:15
+小陆
+<span data-post-id="651299" class="post-view-count">阅读(13072)</span> 
+<span data-post-id="651299" class="post-comment-count">评论(13)</span> 
+<span data-post-id="651299" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=651299" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2007/01/25.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2007/01/25/629731.html">
+    <span>
+        .NET初学者架构设计指南（二）OO设计初次见面
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：我使用OO技术第一次设计软件的时候，犯了一个设计者所能犯的所有错误。那是一个来自国外的外包项目，外方负责功能设计，我们公司负责程序设计、编码和测试。 第一个重要的错误是，我没有认真的把设计说明书看明白。功能点设计确实有一些问题，按照他们的设计，一个重要的流程是无法实现的。于是我在没有与投资方沟通的情况下，擅自改动了设计，把一个原本在Linux系统上开发的模块改到了Windows系统上。结果流程确实...        <a href="https://www.cnblogs.com/lane_cn/archive/2007/01/25/629731.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2007-01-25 00:10
+小陆
+<span data-post-id="629731" class="post-view-count">阅读(16508)</span> 
+<span data-post-id="629731" class="post-comment-count">评论(31)</span> 
+<span data-post-id="629731" class="post-digg-count">推荐(2)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=629731" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2007/01/10.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2007/01/10/617099.html">
+    <span>
+        .NET初学者架构设计指南（一）Hello world的时代
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：中学的时候，学校里开设了电脑课。当时的电脑还是一种比较希罕的东西，学校里的电脑一共就十几台，还专门找了一个大厅摆放这些机器。厅里面铺着厚厚的地毯，整天都拉着重重的窗帘。每次上课前一天，我们需要沐浴更衣，剪好指甲。上课时大家都穿上鞋套，排好队伍，列队进入机房。然后各位同学坐在座位上，在老师的指挥下，拿出一张五英寸的软磁盘，磁盘里安装着DOS操作系统，插入电脑的A驱动器。然后依次打开显示器、主机电源，...        <a href="https://www.cnblogs.com/lane_cn/archive/2007/01/10/617099.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2007-01-10 20:44
+小陆
+<span data-post-id="617099" class="post-view-count">阅读(16085)</span> 
+<span data-post-id="617099" class="post-comment-count">评论(41)</span> 
+<span data-post-id="617099" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=617099" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2006/12/19.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2006/12/19/596694.html">
+    <span>
+        软件的逻辑层次
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：基本层次软件的逻辑结构可以划分为下面四个基本层次：从下往上依次是：1：基础设施层——这个层次是纯技术层次，解决的是系统的物理问题，比如database gateway、网络通信、对象容器&#8230;&#8230;这个部分与业务需求关系不大，是系统的物理条件。2：business对象——在这个层次上，业务要素出现了，业务领域中的概念在这里实现。比如一个航运公司的系统，这里就应该有航线、航班、座位、...        <a href="https://www.cnblogs.com/lane_cn/archive/2006/12/19/596694.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2006-12-19 12:37
+小陆
+<span data-post-id="596694" class="post-view-count">阅读(5682)</span> 
+<span data-post-id="596694" class="post-comment-count">评论(6)</span> 
+<span data-post-id="596694" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=596694" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2006/11/13.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2006/11/13/559011.html">
+    <span>
+        无痛苦的软件维护——被遗忘的需求
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：先说一个小笑话。有一个生产队队长，他对专家说：&#8220;现在我们生产队的地越来越多，牛越来越忙不过来了。我想要这么一种牛，他吃的草和普通牛一样多，但是干的活是普通牛的十倍。&#8221;专家说：&#8220;这种牛是可以造出来的，现在有基因工程。&#8221;队长说：&#8220;好吧，你给这造几头这样的牛。&#8221;于是专家找到了生物实验室，让生物实验室的人搞一个基因工程，把牛造出来。于...        <a href="https://www.cnblogs.com/lane_cn/archive/2006/11/13/559011.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2006-11-13 12:08
+小陆
+<span data-post-id="559011" class="post-view-count">阅读(3767)</span> 
+<span data-post-id="559011" class="post-comment-count">评论(16)</span> 
+<span data-post-id="559011" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=559011" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2006/11/03.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2006/11/03/549203.html">
+    <span>
+        无痛苦的软件维护——文档和代码
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：程序维护的时候经常遇到两个困难：1、不知道这段代码是实现什么功能的（code —— function）；2、不知道这个功能是实现什么需求的（function —— business）。解决第一个问题是比较容易的，大家都是搞技术的，一头扎进代码里去，看上几十分钟，通常就能明白：原来这段代码是从数据库里面找到前三个月一直处于停机状态的号码，然后把这些号码放到一个叫做QUIT_USER的数据表里面去。第...        <a href="https://www.cnblogs.com/lane_cn/archive/2006/11/03/549203.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2006-11-03 16:00
+小陆
+<span data-post-id="549203" class="post-view-count">阅读(10689)</span> 
+<span data-post-id="549203" class="post-comment-count">评论(13)</span> 
+<span data-post-id="549203" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=549203" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+		
+
+<!--
+<p class="date">
+	<a href="https://www.cnblogs.com/lane_cn/archive/2006/09/27.html" style="display:inline-block;border-width:0px;height:15px;width:12px;"></a>
+
+	<partial name="./Shared/_DateTitle.cshtml"/>		  
+</p>
+-->
+
+		<div class="post">
+			<h2 class="postTitle">
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/lane_cn/archive/2006/09/27/516281.html">
+    <span>
+        NGOSS的一点简单概念
+    </span>
+    
+
+
+
+</a>
+</h2>
+			<div class="postText">
+			
+
+    <div class="c_b_p_desc">
+摘要：NGOSS（Next Generation Operational Support Systems）是由TMF（Tele Management Forum）提出的，他用于电信领域，是构建下一代OSS/BSS系统的框架。TMF提供了技术中立构架（TNA）作为NGOSS解决方案的技术构架，这样就把NGOSS建立成了一种标准，这个标准与实现他的技术相互独立。TMF还提供了一组测试方法，用于验证解决方案是...        <a href="https://www.cnblogs.com/lane_cn/archive/2006/09/27/516281.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+			</div>				
+			<div class="postFoot">		
+				posted @ 2006-09-27 15:45
+小陆
+<span data-post-id="516281" class="post-view-count">阅读(4820)</span> 
+<span data-post-id="516281" class="post-comment-count">评论(4)</span> 
+<span data-post-id="516281" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=516281" rel="nofollow">
+    编辑
+</a>
+
+			</div>
+		</div>
+
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/lane_cn/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+</div>
+<div id="rightmenu">
+    
+<div id="my_links">
+<h3>导航</h3>
+<ul>
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/lane_cn/">
+首页</a>
+</li>
+
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E5%B0%8F%E9%99%86">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/lane_cn/rss/">
+订阅</a></li><!--<partial name="./Shared/_XmlLink.cshtml" model="Model" />-->
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+</div>
+
+
+    <div id="calendar">
+        <div id="blog-calendar" style="display: none"></div>
+    </div>
+    <script>loadBlogDefaultCalendar();</script>
+    <div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+    <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+    <div id="blog-sidecolumn"></div>
+    <script>loadBlogSideColumn();</script>
+    <div id="footer">
+	Powered by: 
+	<br />
+	
+	<a href="https://www.cnblogs.com/" id="footer_site_link">博客园</a>
+	<br />
+	Copyright &copy; 2021 小陆
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+</div>
+
+
+</div>
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjv1Tt9E_LeYfVHu6lvUhdfl-Hah8-la6TNOo7AdvPh-MB19Rb0BWZG6hDR8_vcfpkT4FYQaf6Zgvtb9m58PthL8Qyi3KKMks2dTL0jEXKBFhcynCIOrn4RR4jlFlFRr0Sc" />
+</body>
+</html>

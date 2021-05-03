@@ -1,0 +1,668 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="GateWay网关 概述简介 Gateway是在 Spring生态系统之上构建的AP网关服务，基于 Spring5， Spring Boot2和 Project Reactor等技术。 Gateway" />
+    <meta property="og:description" content="GateWay网关 概述简介 Gateway是在 Spring生态系统之上构建的AP网关服务，基于 Spring5， Spring Boot2和 Project Reactor等技术。 Gateway" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>SpringCloud（四）GateWay网关 - Odousang - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/custom/bundle-custom.min.css?v=URnzNOcYasaxFfc79Balq6aK60x2WaH4sa2e1Ty6OO4" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/hewenhao-blogs/custom.css?v=ZPQsa1&#x2B;SLEXaDDb/SRb8owO31YQ=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/custom/bundle-custom-mobile.min.css?v=OayYBbtUbH4FYkn_bTL4VVf4DsEOiTHSWhbl11KyY6Y" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/hewenhao-blogs/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/hewenhao-blogs/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/hewenhao-blogs/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 605064;
+        var currentBlogApp = 'hewenhao-blogs';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'Custom';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-03 04:26';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/hewenhao-blogs/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/hewenhao-blogs/">十七</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/hewenhao-blogs/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Odousang">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/hewenhao-blogs/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hewenhao-blogs/p/14727055.html">
+    <span>SpringCloud（四）GateWay网关</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                    <div id="cnblogs_post_description" style="display: none">
+        <img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503151104458-469449910.png" class="desc_img">
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h2 id="gateway网关">GateWay网关</h2>
+<h3 id="概述简介">概述简介</h3>
+<p>Gateway是在 Spring生态系统之上构建的AP网关服务，基于 Spring5， Spring Boot2和 Project Reactor等技术。<br>
+Gateway旨在提供一种简单而有效的方式来对API进行路由，以及提供一些强大的过滤器功能，例如：<strong>熔断、限流、重试</strong>等<br>
+官网地址：<a href="https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.2.RELEASE/reference/html/" target="_blank">https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.2.RELEASE/reference/html/</a><br>
+<img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503150308257-1034384528.png" alt="" loading="lazy"><br>
+SpringCloud Gateway是 Spring Cloud的个全新项目，基于 Spring5.0+ Spring Boot2.0和 Project Reactor等技术开发的网关，它旨在为微服务架构提供一种简单有效的统一的API路由管理方式<br>
+SpringCloud Gateway作为 Spring Cloud生态系统中的网关，目标是替代zuul，在 Spring Cloud2.0以上版本中，没有对新版本的zuul2.0以上最新高性能版本进行集成，仍然还是使用的zuul1.×非 Reactor模式的老版本<strong>。Spring Cloud Gateway使用的 Webflux中的 reactor-netty响应式编程组件，底层使用了 Netty通讯框架</strong><br>
+Spring Cloud Gateway的目标提供统-的路由方式且基于 Filter 链的方式提供了网关基本的功能，例如：<strong>安全，监控/指标，和限流</strong></p>
+<h3 id="主要特点">主要特点</h3>
+<p>作用：<strong>反向代理，鉴权，流量控制，熔断，日志监控</strong></p>
+<ul>
+<li>基于 Spring Framework5， Project Reactor和 Spring Boot2.0进行构建</li>
+<li><strong>动态路由：能够匹配任何请求属性</strong></li>
+<li><strong>可以对路由指定 Predicate（断言）和 Filter（过滤器）</strong></li>
+<li><strong>集成 Hystrix的断路器功能</strong></li>
+<li><strong>集成 Spring Cloud服务发现功能</strong></li>
+<li><strong>请求限流功能</strong></li>
+<li><strong>支持路径重写</strong></li>
+</ul>
+<h3 id="三大核心概念">三大核心概念</h3>
+<p><strong>Route（路由）</strong><br>
+路由是构建网关的基本模块，它由 ID，目标URI，一系列的断言和过滤器组成，如果断言为 true 则匹配该路由<br>
+<strong>Predicate（断言）</strong><br>
+开发人员可以匹配HTTP请求中的所有内容（例如请求头或请求参数），如果请求与断言相匹配则进行路由<br>
+<strong>Filter（过滤）</strong><br>
+指的是 Spring框架中 Gateway Filter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改<br>
+web请求，通过一些匹配条件，定位到真正的服务节点。并在这个转发过程的前后，进行一些精细化控制，<strong>predicate就是我们的匹配条件，而 Filter ，就可以理解为个无所不能的拦截器有了这两个元素，再加上目标 uri 就可以实现一个具体的路由了</strong><br>
+<img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503151104458-469449910.png" alt="" loading="lazy"><br>
+客户端向 Spring Cloud Gateway 发出请求，然后在 Gateway Handler Mapping 中找到与请求相匹配的路由，将其发送到 Gateway Web handler，Handler再通过指定的过滤器链来将请求发送到我们实际的服务执行业务逻辑，然后返回，过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前（"pre"）或之后（"post"）执行业务逻辑<br>
+<strong>Filter在"pre"类型的过滤器可以做参数校验、权限校验、流量监控、日志输岀、协议转换等，在"post”类型的过滤器中可以做响应内容、响应头的修改，日志的输出，流量监控等有着非常重要的作用</strong></p>
+<h4 id="路由配置">路由配置</h4>
+<ol>
+<li>创建一个新的 module</li>
+<li>导入 GateWay 依赖</li>
+</ol>
+<pre><code>&lt;!-- Gateway --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt;
+    &lt;version&gt;2.2.2.RELEASE&lt;/version&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="3">
+<li><strong>配置路由映射</strong></li>
+</ol>
+<ul>
+<li>第一种配置方式：<strong>在配置文件 yml 中配置</strong></li>
+</ul>
+<pre><code>server:
+  port: 9527
+
+spring:
+  application:
+    name: GateWay-Service
+  cloud:
+    gateway:
+      routes:
+        # 路由的 ID，没有固定规则但要求唯一，建议配合服务名
+        - id: payment-route1
+        # 匹配后提供服务的路由地址
+          uri: http://localhost:8001
+        # 断言，路径相匹配的进行路由
+        # 配置服务端的方法路径
+          predicates:
+            - Path=/payment/query/**
+
+        - id: payment-route2
+          uri: http://localhost:8001
+          predicates:
+            - Path=/payment/discovery/**
+
+# Eureka
+eureka:
+  client:
+    # 表示是否将自己注册到 EurekaServer
+    register-with-eureka: true
+    # 是否从 EurekaServer 抓取已有的注册信息
+    # 单节点无所谓，集群必须设置为 true 才能配合 ribbon 使用
+    fetch-registry: true
+    service-url:
+      # 单机版
+      # defaultZone: http://localhost:7001/eureka/
+      # 集群版
+      defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka
+  instance:
+    hostname: GateWay-Service
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503151527999-215060832.png" alt="" loading="lazy"></p>
+<ul>
+<li>第二种配置方式：<strong>自定义配置文件</strong></li>
+</ul>
+<pre><code>@Configuration
+public class GateConfig {
+
+    /**
+     * 测试通过网关 跳转到 百度新闻 的页面 http://news.baidu.com/guonei
+     * 配置了一个 id 为 payment-route3 的路由规则
+     * 当访问地址为 http://localhost:9527/guonei 会自动转发到 http://news.baidu.com/guonei
+     * @param routeLocatorBuilder
+     * @return
+     */
+    @Bean
+    public RouteLocator routeLocator(RouteLocatorBuilder routeLocatorBuilder){
+        return routeLocatorBuilder.routes()
+                .route( "payment-route3",r -&gt; {
+                    return r.path("/guonei")
+                            .uri("http://news.baidu.com/guonei");
+                })
+                .build();
+    }
+}
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503151559961-956938427.png" alt="" loading="lazy"></p>
+<h4 id="动态路由">动态路由</h4>
+<p><strong>默认情况下 Gateway会根据注册中心注册的服务列表，以注册中心上微服名为路径创建动态路由进行转发，从而实现动态路由的功能</strong><br>
+配置 yml 配置文件<br>
+<strong>需要注意的是 uri 的协议为lb，表示启用 Gateway的负载均衡功能</strong><br>
+<strong>lb://service Name</strong> 是spring cloud gateway在微服务中<strong>自动为我们创建的负载均衡uri</strong></p>
+<pre><code>spring:
+  application:
+    name: GateWay-Service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enabled: true
+      routes:
+        # 路由的 ID，没有固定规则但要求唯一，建议配合服务名
+        - id: payment-route1
+        # 匹配后提供服务的路由地址
+        # uri: http://localhost:8001 不能写死
+        # 匹配 服务端 的路由地址，就是微服务名
+          uri: lb://provider-payment-service
+        # 断言，路径相匹配的进行路由
+        # 配置服务端的方法路径
+          predicates:
+            - Path=/payment/lb/**
+
+        - id: payment-route2
+          uri: lb://provider-payment-service
+          predicates:
+            - Path=/payment/query/**
+</code></pre>
+<p>开启两个服务端8001和8002<br>
+<strong>实现了动态路由，可以测试到此时端口可以互相切换</strong></p>
+<h4 id="predicate使用">Predicate使用</h4>
+<p>当开启路由网关时<br>
+<img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503153031182-971503976.png" alt="" loading="lazy"><br>
+SpringCloud Gateway 将路由匹配作为 Spring WebFlux HandlerMapping基础架构的部分<br>
+SpringCloud Gateway 包括许多内置的 RoutePredicate 工厂。所有这些Predicate都与HTTP请求的不同属性匹配，多个Route Predicate工厂可以进行组合<br>
+Spring Cloud Gateway创建 Route对象时，使用 RoutePredicate Factory创建 Predicate对象， Predicate对象可以赋值给Route. Spring Cloud Gateway包含许多内置的 Route predicate factories<br>
+所有这些谓词都匹配HTTP请求的不同属性。多种谓词工厂可以组合，并通过逻辑and组合</p>
+<h5 id="常用的-route-predicate">常用的 Route Predicate</h5>
+<h6 id="after">After</h6>
+<p>路由规则可以匹配一个时间，设置在{arg}之后，当请求的时间在配置<strong>时间之后</strong>，才会交给 route 去处理</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: after_route
+        uri: https://example.org
+        predicates:
+        - After=2021-01-20T17:42:47.789-07:00[China/Shanghai]
+</code></pre>
+<h6 id="before">Before</h6>
+<p>路由规则可以匹配一个时间，设置在{arg}之前，当请求的时间在配置<strong>时间之前</strong>，才会交给 route 去处理</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: after_route
+        uri: https://example.org
+        predicates:
+        - Before=2021-01-20T17:42:47.789-07:00[China/Shanghai]
+</code></pre>
+<h6 id="between">Between</h6>
+<p>路由规则可以匹配一个时间，设置在{arg}之间，当请求的时间在<strong>配置时间之间</strong>，才会交给 route 去处理</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: between_route
+        uri: https://example.org
+        predicates:
+        - Between=2021-01-20T17:42:47.789-07:00[China/Shanghai], 2021-01-21T17:42:47.789-07:00[China/Shanghai]
+</code></pre>
+<h6 id="cookie">Cookie</h6>
+<p>需要2个参数，<strong>一个是cookie名字，另一个是值，可以为正则表达式</strong>。它用于匹配请求中，<strong>带有该名称的cookie和cookie匹配正则表达式的请求</strong></p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: cookie_route
+        uri: https://example.org
+        predicates:
+        - Cookie=name, zhangsan
+
+# 例
+# 请求带有cookie名为name, cookie值为 zhangsan 的请求
+# 将都会转发到uri为 https://example.org 的地址上
+
+# curl 请求
+# $ curl -H ‘Cookie:name=zhangsan’ localhost:8081
+</code></pre>
+<ul>
+<li>
+<p>不带cookie访问<br>
+<img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503161719366-1799770244.png" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>带cookie访问<br>
+<img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503161734289-775682864.png" alt="" loading="lazy"></p>
+</li>
+</ul>
+<h6 id="header">Header</h6>
+<p>在上面的配置中，当请求的 Header 中有 <strong>X-Request-Id的header名</strong>，且header值为数字时，请求会被路由到配置的 uri</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: header_route
+        uri: https://example.org
+        predicates:
+        - Header=X-Request-Id, \d+
+
+# 例
+# $ curl -H ‘X-Request-Id:1’ localhost:8081
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503161841071-61076346.png" alt="" loading="lazy"></p>
+<h6 id="host">Host</h6>
+<p>需要一个参数即hostname，它可以使用 <strong>.</strong> 或者 * 等去匹配host。<strong>这个参数会匹配请求头中的host的值，一致，则请求正确转发</strong></p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: host_route
+        uri: https://example.org
+        predicates:
+        - Host=**.somehost.org,**.anotherhost.org
+
+# 如果请求的主机标头的值为 
+    www.somehost.org 
+    或 beta.somehost.org
+    或 www.anotherhost.org
+# 则此路由匹配
+# curl 请求
+# curl -H ‘Host:www.adou.com’ localhost:8081
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503161903480-826771437.png" alt="" loading="lazy"></p>
+<h6 id="method">Method</h6>
+<p>如果请求方法是<strong>GET或POST</strong>，则此路由匹配</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: method_route
+        uri: https://example.org
+        predicates:
+        - Method=GET,POST
+</code></pre>
+<h6 id="path">Path</h6>
+<p>当请求路径满足 /red/** ，则会经过 route 到达 <a href="https://example.org" target="_blank">https://example.org</a></p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: path_route
+        uri: https://example.org
+        predicates:
+        - Path=/red/**
+</code></pre>
+<h6 id="query">Query</h6>
+<p>也可以只填一个参数，填一个参数时，则只匹配参数名，当请求中请求参数包含 green，则会经过 route 到达 <a href="https://example.org" target="_blank">https://example.org</a></p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: query_route
+        uri: https://example.org
+        predicates:
+        - Query=green
+        - Query=color, green
+# 配置了请求中含有参数color，并且color的值匹配green.，则请求命中路由
+# curl 请求
+# $ curl localhost:8081?color=green
+</code></pre>
+<h6 id="remoteraddr">RemoterAddr</h6>
+<p>请求远程地址，则会经过 route</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: remoteaddr_route
+        uri: https://example.org
+        predicates:
+        - RemoteAddr=192.168.1.1/24
+
+# 如果请求的远程地址是 192.168.1.10 ，则此路由匹配
+</code></pre>
+<h6 id="weight">Weight</h6>
+<p>权重采用两个参数匹配 group 和 weight，当达成条件则会路由转发</p>
+<pre><code>spring:
+  cloud:
+    gateway:
+      routes:
+      - id: weight_high
+        uri: https://weighthigh.org
+        predicates:
+        - Weight=group1, 8
+      - id: weight_low
+        uri: https://weightlow.org
+        predicates:
+        - Weight=group1, 2
+
+# 这条路线会将大约80％的流量转发到 weighthigh.org
+# 将大约20％的流量转发到 weightlow.org
+</code></pre>
+<p>说白了， <strong>Predicate就是为了实现一组匹配规则，让请求过来找到对应的 Route进行处理</strong></p>
+<h4 id="filter使用">Filter使用</h4>
+<p>路由过滤器可用于修改进入的HTTP请求和返回的HTTP响应，路由过滤器只能指定路由进行使用<br>
+Spring Cloud Gateway内置了多种路由过滤器，他们都由 GatewayFilter 的工厂类来产生<br>
+种类：<strong>GateWayFilter</strong>，<strong>GlobalFilter</strong></p>
+<p><strong>自定义过滤器</strong><br>
+自定义全局GlobalFilter<br>
+主要继承两个接口：GlobalFilter，Ordered<br>
+作用：<strong>全局日志记录，统一网关鉴权等等</strong></p>
+<pre><code>@Component
+@Slf4j
+public class LogGateWayFilter implements GlobalFilter, Ordered {
+
+    @Override
+    public Mono&lt;Void&gt; filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        // 获取请求的参数
+        String username = exchange.getRequest().getQueryParams().getFirst("username");
+        if (username == null){
+            log.info("用户名为空，找不到该用户");
+            // 设置状态码
+            exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND);
+            return exchange.getResponse().setComplete();
+        }
+        // 返回
+        log.info("进入拦截器");
+        return chain.filter(exchange);
+    }
+
+    /**
+     * 加载过滤器的顺序
+     * @return
+     */
+    @Override
+    public int getOrder() {
+        return 0;
+    }
+}
+</code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/2042950/202105/2042950-20210503162304674-1671364112.png" alt="" loading="lazy"></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-03 16:26</span>&nbsp;
+<a href="https://www.cnblogs.com/hewenhao-blogs/">Odousang</a>&nbsp;
+阅读(<span id="post_view_count">31</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727055" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14727055);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 605064, cb_blogApp = 'hewenhao-blogs', cb_blogUserGuid = '116cdb0b-e869-4054-243f-08d7fbd22d6e';
+    var cb_entryId = 14727055, cb_entryCreatedDate = '2021-05-03 16:26', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 Odousang
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        
+<!--放大图片-->
+<link rel="stylesheet" type="text/css" href="https://blog-static.cnblogs.com/files/zouwangblog/zoom.css">
+<script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/zoom.js"></script>
+<script type='text/javascript'>$('#cnblogs_post_body img').attr('data-action', 'zoom');</script>
+<!--放大图片end-->
+
+<!-- Music-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/APlayer.min.js"></script>
+<script src="https://unpkg.com/meting@1.2/dist/Meting.min.js"></script>
+<div id="player" class="aplayer aplayer-withlist aplayer-fixed" data-id="2878443703" data-server="netease" data-type="playlist" data-order="random" data-fixed="true" data-listfolded="true" data-theme="orange"></div>
+<!-- Music end -->
+
+
+<!--顶部加载条-->
+<link rel="stylesheet" href="https://blog-static.cnblogs.com/files/zouwangblog/nprogress.css">
+<script src="https://blog-static.cnblogs.com/files/zouwangblog/nprogress.js"></script>
+<script>
+NProgress.start();
+NProgress.done();
+</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjuQu8TSkA8zT6AzXJj3xIVEX58gaD8C_XeHxpkQ3-tnSg8zj9eMYF4NxKj0WXFykrixvBUlSBmINxNcVwPTjrTLi04cls4xE_0xVvcvpIGgkkv6mNuNZwVXubG3xhgwoVg" />
+</body>
+</html>

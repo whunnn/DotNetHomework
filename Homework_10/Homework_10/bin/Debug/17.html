@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="CSS 中有一个非常有意思的模块 -- CSS Motion Path Module Level 1，翻译过来也就是运动路径。本文将对 motion path 一探究竟，通过本文，你可以了解到： 什么" />
+    <meta property="og:description" content="CSS 中有一个非常有意思的模块 -- CSS Motion Path Module Level 1，翻译过来也就是运动路径。本文将对 motion path 一探究竟，通过本文，你可以了解到： 什么" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>探秘神奇的运动路径动画 Motion Path - ChokCoco - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/coco1s/custom.css?v=VHn8LeNN7I759yDzp6MQstdw9tw=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/thinkinside/bundle-thinkinside-mobile.min.css?v=1kb6JMrYnH_hQyNadevonyt40TkBWckdUtnStHWa0bs" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/coco1s/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/coco1s/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/coco1s/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 177636;
+        var currentBlogApp = 'coco1s';
+        var cb_enable_mathjax = true;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'ThinkInside';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-04-28 10:38';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: {
+        equationNumbers: { autoNumber: ['AMS'], useLabelIds: true },
+        extensions: ['extpfeil.js', 'mediawiki-texvc.js'],
+        Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script>
+    <script src="https://mathjax.cnblogs.com/2_7_5/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;v=20200504"></script>
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/coco1s/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/coco1s/">ChokCoco</a>
+</h1>
+<h2>经不住流年似水, 逃不过此间少年</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/coco1s/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/ChokCoco">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/coco1s/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/coco1s/p/14713110.html">
+    <span>探秘神奇的运动路径动画 Motion Path</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<p>CSS 中有一个非常有意思的模块 -- <a href="https://drafts.fxtf.org/motion-1/" target="_blank">CSS Motion Path Module Level 1</a>，翻译过来也就是运动路径。本文将对 motion path 一探究竟，通过本文，你可以了解到：</p>
+<ul>
+<li>什么是 CSS motion path</li>
+<li>使用 CSS motion path 制作简单路径动画</li>
+<li>使用 CSS motion path 制作复杂路径动画</li>
+</ul>
+<h2 id="什么是-css-motion-path-运动路径？">什么是 CSS Motion Path 运动路径？</h2>
+<p>什么是 CSS Motion Path 运动路径？利用这个规范规定的属性，我们可以控制元素按照特定的路径进行位置变换的动画。并且，这个路径可以是非常复杂的一条路径。</p>
+<p>在进一步介绍 CSS Motion Path 之前，我们先看看使用传统的 CSS 的能力，我们如何实现路径动画。</p>
+<h3 id="css-传统方式实现直线路径动画">CSS 传统方式实现直线路径动画</h3>
+<p>在之前，我们希望将一个物体从 A 点直线运动到 B 点，通常而言可以使用 <code>transform: translate()</code>、<code>top | left | bottom | right</code> 或者 是 <code>margin</code> 之类的可以改变物体位置的属性。</p>
+<p>简单的一个 Demo：</p>
+<pre><code class="language-HTML">&lt;div&gt;
+</code></pre>
+<pre><code class="language-CSS">div {
+    width: 60px;
+    height: 60px;
+    background: #000;
+    animation: move infinite 1s alternate linear;
+}
+@keyframes move {
+    100% {
+        transform: translate(100px, 100px);
+    }
+}
+</code></pre>
+<p>对于简单的从 A 点直线运动到 B 点的效果如下：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f68ee2a948114aa095b16f145f4ed873~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<h3 id="css-传统方式实现曲线路径动画">CSS 传统方式实现曲线路径动画</h3>
+<p>当然，CSS 也可以实现一些简单的曲线路径动画的。如果我们希望从 A 点运动到 B 点走的不是一条直线，而是一条曲线，该怎么做呢？</p>
+<p>对于一些简单的圆弧曲线路径，还是可以借助一些巧妙的办法实现的，看看下面这个例子。</p>
+<p>这次，我们使用了两个元素，子元素是希望被曲线运动的小球，但是实际上我们是通过设定了父元素的 <code>transform-origin</code>，让父元素进行了一个 <code>transform: rotate()</code> 的运动带动了子元素的小球：</p>
+<pre><code class="language-HTML">&lt;div class="g-container"&gt;
+    &lt;div class="g-ball"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-CSS">.g-container {
+    position: relative;
+    width: 10vmin;
+    height: 70vmin;
+    transform-origin: center 0;
+    animation: rotate 1.5s infinite alternate;
+}
+.g-ball {
+    position: absolute;
+    width: 10vmin;
+    height: 10vmin;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff, #000);
+    bottom: 0;
+    left: 0;
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(90deg);
+    }
+}
+</code></pre>
+<p>为了方便理解，在运动的过程中，我让父元素的轮廓显现出来：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/453ddacceb0b4a989cf218aa925016d5~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>这样，我们算是勉强得到了一个非直线路径运动动画，它的实际运动轨迹是一条曲线。</p>
+<p>然而，这基本上是之前 CSS 能做到的极限了，使用纯 CSS 的方法，没办法实现更复杂的路径动画，譬如下面这样一条路径动画：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a8352a40165d4943a59a2b09f53e13ac~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>直到现在，我们有了一种更为强大的专门做这个事情的规范，也就是本文的主角 -- <strong>CSS Motion Path</strong>。</p>
+<h2 id="css-motion-path-实现直线路径动画">CSS Motion Path 实现直线路径动画</h2>
+<p>CSS Motion Path 规范主要包含以下几个属性：</p>
+<ul>
+<li><code>offset-path</code>：接收一个 SVG 路径（与 SVG 的path、CSS 中的 clip-path 类似），指定运动的几何路径</li>
+<li><code>offset-distance</code>：控制当前元素基于 <code>offset-path</code> 运动的距离</li>
+<li><code>offset-position</code>：指定 <code>offset-path</code> 的初始位置</li>
+<li><code>offset-anchor</code>：定义沿 <code>offset-path</code> 定位的元素的锚点。 这个也算好理解，运动的元素可能不是一个点，那么就需要指定元素中的哪个点附着在路径上进行运动</li>
+<li><code>offset-rotate</code>：定义沿 <code>offset-path</code> 定位时元素的方向，说人话就是运动过程中元素的角度朝向</li>
+</ul>
+<p>下面，我们使用 Motion Path 实现一个简单的直线位移动画。</p>
+<pre><code class="language-HTML">&lt;div&gt;
+</code></pre>
+<pre><code class="language-CSS">div {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(#fc0, #f0c);
+    offset-path: path("M 0 0 L 100 100");
+    offset-rotate: 0deg;
+    animation: move 2000ms infinite alternate ease-in-out;
+}
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+</code></pre>
+<p><code>offset-path</code> 接收一个 SVG 的 path 路径，这里我们的路径内容是一条自定义路径 <code>path("M 0 0 L 100 100")</code>，翻译过来就是从 <code>0 0</code> 点运动到 <code>100px 100px</code> 点。</p>
+<blockquote>
+<p><code>offset-path</code> 接收一个 SVG 路径，指定运动的几何路径。与 SVG 的path、CSS 中的 clip-path 类似，对于这个 SVG Path 还不太了解的可以戳这里先了解下 SVG 路径内容：<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Paths" target="_blank">SVG 路径</a></p>
+</blockquote>
+<p>我们会得到如下结果：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d50b06c670304dd6a88f275cef143bb6~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>通过控制元素的 <code>offset-distance</code> 从 <code>0%</code> 变化到 <code>100%</code> 进行元素的路径动画。</p>
+<p>当然，上述的动画是最基本的，我可以充分利用 path 的特性，增加多个中间关键帧，稍微改造下上述代码：</p>
+<pre><code class="language-CSS">div {
+    // 只改变运动路径，其他保持一致
+    offset-path: path("M 0 0 L 100 0 L 200 0 L 300 100 L 400 0 L 500 100 L 600 0 L 700 100 L 800 0");
+    animation: move 2000ms infinite alternate linear;
+}
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+</code></pre>
+<p>这里最主要还是运用了 path 中的 <code>L</code> 指令，得到了如下图这样一条直线路径：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58b271122c9547c2bbd0df2f675f3224~tplv-k3u1fbpfcp-zoom-1.image" alt="image" loading="lazy"></p>
+<p>最终的效果如下，与利用 <code>transform: translate()</code> 添加多个关键帧类似：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df232da0819142b3b16b7320717c2c75~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>完整的 Demo 你可以戳这里：<a href="https://codepen.io/Chokcoco/pen/gOgqoem" target="_blank">CodePen Demo -- CSS Motion Path Demo</a></p>
+<h2 id="css-motion-path-实现曲线路径动画">CSS Motion Path 实现曲线路径动画</h2>
+<p>上面的运动轨迹都是由直线构成，下面我们看看如何使用 CSS Motion Path 实现曲线路径动画。</p>
+<p>其实原理还是一模一样，只需要在 <code>offset-path: path()</code> 中添加曲线相关的路径即可。</p>
+<p>在 SVG 的 Path 中，我们取其中一种绘制曲线的方法 -- 贝塞尔曲线，譬如下述这条 path，其中的 path 为 <code>d="M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80"</code>：</p>
+<pre><code class="language-HTML">&lt;svg width="400" height="160" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80" stroke="black" fill="transparent"/&gt;
+&lt;/svg&gt;
+</code></pre>
+<p>对应这样一条连续的贝塞尔曲线：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/65f0aae9c2a84b16801443a18bec69ab~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>将对应的路径应用在 <code>offset-path: path</code> 中：</p>
+<pre><code class="language-HTML">&lt;div&gt;
+</code></pre>
+<pre><code class="language-CSS">div:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(#fc0, #f0c);
+    offset-path: path('M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80');
+}
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+</code></pre>
+<p>可以得到如下运动效果：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aa8b63c32354981bb761d95317d43fa~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>可以看到，元素是沿着贝塞尔曲线的路径进行运动的，并且，由于这次没有限制死 <code>offset-rotate</code>，元素的朝向也是跟随路径的朝向一直变化的。（可以联想成开车的时候，车头一直跟随道路会进行变化的，带动整个车身的角度变化）</p>
+<p>完整的 Demo 你可以戳这里：<a href="https://codepen.io/Chokcoco/pen/gOgqoem" target="_blank">CodePen Demo -- CSS Motion Path Demo</a></p>
+<h2 id="理解-offset-anchor-运动锚点">理解 offset-anchor 运动锚点</h2>
+<p>OK，那么接下来，我们再看看 <code>offset-anchor</code> 如何理解。</p>
+<p>还是上述的 DEMO，我们把小正方形替换成一个三角形，并且把运动的曲线给画到页面上，像是这样：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1e6f810f9624f8cbc785f65d2c97052~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>其中，三角形是通过 <code>clip-path</code> 实现的：</p>
+<pre><code class="language-CSS">    width: 40px;
+    height: 40px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    background: linear-gradient(#fc0, #f0c);
+</code></pre>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e5ffb0e801a4106a1f09a1214fa21c7~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>通常而言，沿着曲线运动的是物体的中心点（类比 <code>transform-origin</code>），在这里，我们可以通过 <code>offset-anchor</code> 改变运动的锚点，譬如，我们希望三角形的最下方沿着曲线运动：</p>
+<pre><code class="language-CSS">.ball {
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    offset-path: path('M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80');
+    offset-anchor: 0 100%;
+    background: linear-gradient(#fc0, #f0c);
+    animation: move 3000ms infinite alternate linear;
+}
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+</code></pre>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a47fc1940961477ebe7ea0eeb421daf3~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<blockquote>
+<p>经过实测，Can i use 上写着 <code>offset-anchor</code> 属性的兼容性在为 Chrome 79+、Firefox 72+，但是实际只有 Firefox 支持，Chrome 下暂时无法生效~</p>
+</blockquote>
+<p>完整的 Demo 你可以戳这里：<a href="https://codepen.io/Chokcoco/pen/poRGZeE" target="_blank">CodePen Demo -- CSS Motion Path offset-anthor Demo</a></p>
+<h2 id="运用-motion-path-制作动画效果">运用 Motion Path 制作动画效果</h2>
+<p>OK，上面我们基本把原理给过了一遍，下面我们就看看，运用 Motion Path，可以在实践中如何运用。</p>
+<h3 id="利用-motion-path-制作按钮效果">利用 Motion Path 制作按钮效果</h3>
+<p>利用运动路径，我们可以制作一些简单的按钮点击效果。在之前，我在 CodePen 上见到过这样一种按钮点击效果：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e20d108218c24731b600bec237e630fa~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>其原理是运用了 <code>background-radial</code> 去生成每一个小圆点，通过控制 <code>background-position</code> 控制小圆点的位移，详细的 Demo 代码你可以戳这里：</p>
+<p><a href="https://codepen.io/Chokcoco/pen/bGGMLdd" target="_blank">CodePen Demo -- Bubbly button (Design by Gal Shir)</a></p>
+<p>但是小圆点的运动路径基本上都是直线，运用本文的 Motion Path，我们也可以实现一些类似的效果，核心代码如下，HTML 这里我们使用了 <code>Pug</code> 模板，CSS 使用了 <code>SASS</code>：</p>
+<pre><code class="language-HTML">.btn
+  -for(var i=0; i&lt;60; i++)
+    span.dot
+</code></pre>
+<pre><code class="language-CSS">.btn {
+  position: relative;
+  padding: 1.5rem 4.5rem;
+}
+.btn .dot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  
+  @for $i from 1 through $count { 
+    &amp;:nth-child(#{$i}) {
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0) rotate(#{360 / $count * $i}deg);
+      }
+  }
+  
+  &amp;::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    offset-path: path("M0 1c7.1 0 10.7 2 14.3 4s7.1 4 14.3 4 10.7-2 14.3-4 7.2-4 14.3-4 10.7 2 14.3 4 7.1 4 14.3 4 10.7-2 14.3-4 7.1-4 14.3-4 10.7 2 14.3 4 7.1 4 14.3 4 10.7-2 14.3-4 7.1-4 14.3-4 10.7 2 14.3 4 7.1 4 14.3 4");
+    offset-distance: 0;
+  }
+}
+
+.btn.is-animating:active .dot:nth-child(4n+1)::before {
+  animation: dot var(--animation-time) var(--animation-timging-function);
+}
+.btn.is-animating:active .dot:nth-child(4n+2)::before {
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  animation: dot var(--animation-time) var(--animation-timging-function) 0.1s;
+}
+.btn.is-animating:active .dot:nth-child(4n+3)::before {
+  animation: dot var(--animation-time) var(--animation-timging-function) 0.2s;
+}
+.btn.is-animating:active .dot:nth-child(4n)::before {
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  animation: dot var(--animation-time) var(--animation-timging-function) 0.3s;
+}
+
+@keyframes dot {
+  0% {
+    offset-distance: 0%;
+    opacity: 1;
+  }
+  90% {
+    offset-distance: 60%;
+    opacity: .5;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+</code></pre>
+<p>别看代码多有一点点复杂，但是不难理解，本质就是给每个子元素小点点设置同样的 <code> offset-path: path()</code>，给不同分组下的子元素设定不同的旋转角度，并且利用了动画延迟 <code>animation-delay</code> 设定了 4 组同时出发的动画。</p>
+<p>这里我们的轨迹 path 不是直线，效果如下：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/df66f8575a1f48b79214ed279774aec5~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>完整的代码你可以戳这里：</p>
+<p><a href="https://codepen.io/Chokcoco/pen/xxgMPzJ" target="_blank">CodePen Demo -- Button Animation with CSS Offset Paths</a></p>
+<h3 id="利用-motion-path-绘制地图路径寻路动画">利用 Motion-Path 绘制地图路径寻路动画</h3>
+<p>这个也是非常实用的，现在我们可以完全利用 CSS Motion-Path 实现地图上的寻路动画：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfa8f17c92e848cc9fa17f4da40f6658~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>该 Demo 源自 Ahmad Emran，完整的代码你可以戳这里：</p>
+<p><a href="https://codepen.io/ahmadbassamemran/pen/bXByBv" target="_blank">CodePen Demo -- CodePen Home Animation with offset-path | Only Using CSS &amp; HTML</a></p>
+<h3 id="利用-motion-path-绘制路径动画">利用 Motion-Path 绘制路径动画</h3>
+<p>又或者，我们利用 Path 能绘制任意路径的特性，实现各种我们想要的路径，譬如加入购物车的抛物线，或者各类运动轨迹，都不在话下，这里再提供一个 Demo：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6fe1f250fbab4f77a18409fc1fc9ada0~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p><a href="https://codepen.io/Chokcoco/pen/dyNaZea" target="_blank">CodePen Demo -- CSS Motion Path offset-path animation</a></p>
+<h2 id="can-i-use---motion-path">Can i Use - Motion-Path</h2>
+<p>来看看 Motion-Path 目前的兼容性如何？截止至 2021-04-27。</p>
+<p><a href="https://caniuse.com/?search=motion%20path" target="_blank">Can i Use - Motion-Path</a>：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9169049a17434d4083292ae151d207bf~tplv-k3u1fbpfcp-zoom-1.image" alt="" loading="lazy"></p>
+<p>目前而言，除去 IE 浏览器，就等待 Safari 何时能够兼容了，具体是否使用，还需要根据目标群体浏览器使用情况进行取舍。</p>
+<h2 id="最后">最后</h2>
+<p>好了，本文到此结束，介绍了运动路径动画 Motion Path，并且利用它实现了一些以往无法简单实现的路径动画效果，希望对你有帮助 😃</p>
+<p>更多精彩 CSS 技术文章汇总在我的 <a href="https://github.com/chokcoco/iCSS" target="_blank">Github -- iCSS</a> ，持续更新，欢迎点个 star 订阅收藏。</p>
+<p>如果还有什么疑问或者建议，可以多多交流，原创文章，文笔有限，才疏学浅，文中若有不正之处，万望告知。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-04-28 10:38</span>&nbsp;
+<a href="https://www.cnblogs.com/coco1s/">ChokCoco</a>&nbsp;
+阅读(<span id="post_view_count">733</span>)&nbsp;
+评论(<span id="post_comment_count">9</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14713110" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14713110);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 177636, cb_blogApp = 'coco1s', cb_blogUserGuid = '97b0660a-69a1-e311-8d02-90b11c0b17d6';
+    var cb_entryId = 14713110, cb_entryCreatedDate = '2021-04-28 10:38', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 ChokCoco
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script>
+var href = location.href;
+
+if(/https/.test(href)) {
+     document.querySelectorAll('iframe').forEach(val => { 
+	val.src = 'https:' + val.src.split(':')[1];
+    });
+}
+
+var l = document.createElement('link');
+l.rel = "shortcut icon";
+l.href = "http://images.cnblogs.com/cnblogs_com/coco1s/965277/o_favicon.png";
+document.getElementsByTagName("head")[0].appendChild(l);
+
+</script>
+<div id="rocket"></div>
+<script>
+var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259286380'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1259286380%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>
+var i = 0,
+	deIframe = setInterval(function(){
+		i++;
+		$('#sideBar').find('iframe').parent().remove();
+		$('#sideBar>div').not('#sideBarMain').remove();
+		if(i == 10){
+			clearInterval(deIframe);
+		}
+	}, 200);
+</script>
+<script>
+var reward = (function(){
+	function dataInsert(){
+var data = '<div class="g-gongzhonghao">'
+    +    '<p><strong><span style="font-size: 14px; font-family: verdana, geneva;">想 Get 到最有意思的 CSS 资讯，千万不要错过我的 iCSS 公众号 😄 ：</span></strong></p>'
+    +    '<p><span style="font-size: 14px; font-family: verdana, geneva;"><a href="https://images.cnblogs.com/cnblogs_com/coco1s/965277/o_201030023049qrcode.png" target="_blank"><img src="https://images.cnblogs.com/cnblogs_com/coco1s/881614/o_20031002540054919342-6d0dfd00-4ef8-11e9-9ee8-fbae9241d89e.png" alt="image" width="180" height="144"></a></span></p>'
+    + '</div>'
+    + '<div class="m-reward">' 
+							+ '<div class="m-desc">如果觉得文章对您有用，请随意打赏。您的支持将鼓励我继续创作！</div>'
+							+ '<div class="reward-btn">打赏支持</div>'
+							+ '</div>'
+							+ '<div class="reward-wrap">'
+							+ '<div class="reward-btn-close">+</div>'
+							+ '<h2>(^_^)打个赏喝个咖啡(^_^)</h2>'
+							+ '<div class="wechat">'
+							+ '<img src="https://images.cnblogs.com/cnblogs_com/coco1s/881614/o_weixin.png" alt="微信支付" />'
+							+ '</div>'
+							+ '<div class="zhifubao">'
+							+ '<img src="https://images.cnblogs.com/cnblogs_com/coco1s/881614/o_zhifubao.png" alt="支付宝支付" />'
+							+ '</div>	'
+							+ '</div>';
+
+		if($('#cnblogs_post_body')){
+			$('#cnblogs_post_body').append(data);		
+			eventBind();
+		}					
+	}
+
+	function eventBind(){
+		$('.reward-btn').on('click', function(event) {
+			$('.reward-wrap').fadeIn(300);
+		});
+
+		$('.reward-btn-close').on('click', function(event) {
+			$('.reward-wrap').fadeOut(500);
+		});
+	}
+	
+	return{
+		init:function(){
+			dataInsert();
+		}
+	}
+})();
+reward.init();
+</script>
+<script>
+/** 侧边栏回到顶部 */
+var rocket = $('#rocket');
+
+$(window).on('scroll', debounce(slideTopSet, 300));
+
+function debounce(func, wait) {
+	var timeout;
+	return function() {
+		clearTimeout(timeout);
+		timeout = setTimeout(func, wait);
+	};
+};
+function slideTopSet() {
+	var top = $(document).scrollTop();
+
+	if (top > 200) {
+		rocket.addClass('show');
+	} else {
+		rocket.removeClass('show');
+	}
+}
+$(document).on('click', '#rocket', function(event) {
+	rocket.addClass('move');
+	$('body, html').animate({
+		scrollTop: 0
+	}, 800);
+});
+$(document).on('animationEnd', function() {
+	setTimeout(function() {
+		rocket.removeClass('move');
+	}, 400);
+
+});
+$(document).on('webkitAnimationEnd', function() {
+	setTimeout(function() {
+		rocket.removeClass('move');
+	}, 400);
+});
+</script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtkq194EG8GWxv6nJpx3O3erKDc8CugycWxlHUlxlfKIueZYuhGVc_nqXtb6T1ljqsM1vTtDYWEN9PBO8CGOh5tTENrsmqFSsF2NykCc4Ua7z2ypSngMD-Yvrk4kk5VGXs" />
+</body>
+</html>

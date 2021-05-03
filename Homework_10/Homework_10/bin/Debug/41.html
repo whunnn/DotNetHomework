@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Mrwhite86 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright.min.css?v=00nt3ajQUVX0gvFynxRY-4TOqQaW32yFChuBOrvOqLk" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/lessismoreright/bundle-lessismoreright-mobile.min.css?v=cSBXSFXCBG9KdnF2sdUs-Rwu75GHG2_Gs50OCy_ecGg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/mrwhite2020/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/mrwhite2020/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/mrwhite2020/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 595873;
+        var currentBlogApp = 'mrwhite2020';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'LessIsMoreRight';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            <div class="title"><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/mrwhite2020/">Mrwhite86</a>
+</div>
+<div class="subtitle"></div>
+
+        </div>
+        <div id="navigator">
+            
+<ul id="navList">
+    <li id="nav_sitehome"><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+    <li id="nav_myhome">
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/mrwhite2020/">
+首页</a>
+</li>
+    <li id="nav_newpost">
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+    <li id="nav_contact">
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/Mrwhite86">
+联系</a></li>
+    <li id="nav_rss">
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/mrwhite2020/rss/">
+订阅</a></li>
+    <li id="nav_admin">
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+            <div class="blogStats">
+                <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+                
+
+
+
+
+
+
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/mrwhite2020/archive/2021/05/03.html">2021年5月3日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14675087.html">
+    <span>
+        maven自动化构建工具
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：目录结构： 一、Maven简介 二、Maven核心概念 三、Maven的使用 四、Maven在IDEA中的应用 五、依赖管理 六、Maven常用设置 分割线：正文 一、Maven简介 1、Maven可以管理jar包文件，自动下载jar和他的文档，源代码。 2、Maven可以管理jar包之间的依赖、j        <a href="https://www.cnblogs.com/mrwhite2020/p/14675087.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-05-03 15:21
+Mrwhite86
+<span data-post-id="14675087" class="post-view-count">阅读(45)</span> 
+<span data-post-id="14675087" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14675087" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14675087" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/mrwhite2020/archive/2021/04/25.html">2021年4月25日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14695991.html">
+    <span>
+        junit+maven单元测试
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：一、概念 junit是一个专门测试的框架 集合maven进行单元测试，可批量测试类中的大量方法是否符合预期 二、作用：单元测试：测试的内容是类中的方法，每一个方法都是独立测试的。方法是测试的基本单位。 三、使用方法1、pom内加入依赖 &lt;dependency&gt; &lt;groupId&gt;junit&lt;/gro        <a href="https://www.cnblogs.com/mrwhite2020/p/14695991.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-25 23:09
+Mrwhite86
+<span data-post-id="14695991" class="post-view-count">阅读(13)</span> 
+<span data-post-id="14695991" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14695991" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14695991" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/mrwhite2020/archive/2021/04/18.html">2021年4月18日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14672609.html">
+    <span>
+        python进阶(8)--测试函数与类
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：一、测试函数(unittest) 1、源文件方法（name_function.py）： def get_formatted_name(first,last): &quot;&quot;&quot;生成全名&quot;&quot;&quot; full_name=f&quot;{first} {last}&quot; return full_name.title() 2、通过un        <a href="https://www.cnblogs.com/mrwhite2020/p/14672609.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-18 22:18
+Mrwhite86
+<span data-post-id="14672609" class="post-view-count">阅读(10)</span> 
+<span data-post-id="14672609" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14672609" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14672609" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14672602.html">
+    <span>
+        python进阶(7)--文件与异常
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：一、文件读取二、文件写入三、异常四、存储数据 分割线：正文 一、文件读取 1、with语句 #采用idea的sources root的相对路径with open(&#39;..//data//pi_digits.txt&#39;) as file_object: contents = file_object.rea        <a href="https://www.cnblogs.com/mrwhite2020/p/14672602.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-18 15:52
+Mrwhite86
+<span data-post-id="14672602" class="post-view-count">阅读(49)</span> 
+<span data-post-id="14672602" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14672602" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14672602" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14672598.html">
+    <span>
+        python进阶(6)--类
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：文档目录： 一、创建类 二、使用类与实例 三、继承 分割线：正文 一、创建类 1、类由类名(首字母大写)、类的实例、类的方法组成 2、举例创建类 class Dog(): &quot;&quot;&quot;模拟小狗的简单尝试&quot;&quot;&quot; def __init__(self,name,age): &quot;&quot;&quot;初始化属性name,age&quot;&quot;&quot;        <a href="https://www.cnblogs.com/mrwhite2020/p/14672598.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-18 12:03
+Mrwhite86
+<span data-post-id="14672598" class="post-view-count">阅读(17)</span> 
+<span data-post-id="14672598" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14672598" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14672598" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14669304.html">
+    <span>
+        python进阶(5)--函数
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：文档目录： 一、函数体二、实参与形参三、返回值四、举例：函数+while循环五、举例：列表/元组/字典传递六、模块与函数的导入 分割线：正文 一、函数体 1、定义删除 def green_user(): &quot;&quot;&quot;显示简单的问候语&quot;&quot;&quot; print(&quot;hello world!&quot;) green_user(        <a href="https://www.cnblogs.com/mrwhite2020/p/14669304.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-18 00:05
+Mrwhite86
+<span data-post-id="14669304" class="post-view-count">阅读(15)</span> 
+<span data-post-id="14669304" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14669304" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14669304" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/mrwhite2020/archive/2021/04/17.html">2021年4月17日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14665202.html">
+    <span>
+        python进阶(4)--字典
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：文档目录： 一、一个简单的字典二、字典-增删改三、遍历字典四、字典嵌套 分割线：正文 一、一个简单的字典 alien_0={&#39;color&#39;:&#39;green&#39;,&#39;point&#39;:5} print(type(alien_0)) 查看结果： &lt;class &#39;dict&#39;&gt; 二、字典-增删改 1、访问字典 ali        <a href="https://www.cnblogs.com/mrwhite2020/p/14665202.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-17 00:25
+Mrwhite86
+<span data-post-id="14665202" class="post-view-count">阅读(16)</span> 
+<span data-post-id="14665202" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14665202" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14665202" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14665112.html">
+    <span>
+        python进阶(3)--条件判断、用户输入
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：文档目录： 一、if语句二、检索条件三、用户输入input四、while+inoput(),让用户选择何时退出五、break与continue六、while循环处理字典和列表 分割线：正文 一、if语句 1、if-else语句 cars=[&#39;audi&#39;,&#39;bmw&#39;,&#39;toyota&#39;] for car        <a href="https://www.cnblogs.com/mrwhite2020/p/14665112.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-17 00:17
+Mrwhite86
+<span data-post-id="14665112" class="post-view-count">阅读(26)</span> 
+<span data-post-id="14665112" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14665112" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14665112" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/mrwhite2020/archive/2021/04/15.html">2021年4月15日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14656088.html">
+    <span>
+        python进阶(2)--列表
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：文档目录：一、访问列表元素二、更新列表三、删除元素四、列表排序五、len()与range()/list()六、创建一个包含1-10平方的列表七、复制列表两种方式八、元组：不可变的列表 分割线：正文 一、访问列表元素 1、直接访问 #直接访问 print(myTest[0]) print(myTest        <a href="https://www.cnblogs.com/mrwhite2020/p/14656088.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-15 23:17
+Mrwhite86
+<span data-post-id="14656088" class="post-view-count">阅读(14)</span> 
+<span data-post-id="14656088" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14656088" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14656088" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+    
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/mrwhite2020/archive/2021/04/14.html">2021年4月14日</a>
+    </div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/mrwhite2020/p/14644911.html">
+    <span>
+        python进阶(1)--变量与数据类型、python之禅
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+            
+
+    <div class="c_b_p_desc">
+摘要：一、变量： 1、变量组成 必须由数据、字母与下划线组合 不能以数字开头 python关键字与函数名不能作为变量名 2、含引号的字符串变量 当字符串变量中包含引号时，可使用单引号与双引号进行区分，或转义 print(&quot;python is &#39;ok&#39;&quot;) print(&#39;my name is &quot;Mr.whi        <a href="https://www.cnblogs.com/mrwhite2020/p/14644911.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+
+        </div>
+        <div class="clear"></div>
+        <div class="postDesc">
+            posted @ 2021-04-14 00:30
+Mrwhite86
+<span data-post-id="14644911" class="post-view-count">阅读(122)</span> 
+<span data-post-id="14644911" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14644911" class="post-digg-count">推荐(1)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14644911" rel="nofollow">
+    编辑
+</a>
+
+        </div>
+        <div class="clear"></div>
+</div>
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/mrwhite2020/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+            </div>
+        </div>
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+                <div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+                <div id="calendar"><div id="blog-calendar" style="display:none"></div></div>                
+                <script>loadBlogDefaultCalendar();</script>
+                <div id="leftcontentcontainer">
+                    <!-- begin:SingleColumn -->
+                    <div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+                    <!-- end:  SingleColumn -->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+        <!--done-->
+Copyright &copy; 2021 Mrwhite86
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+    </div>
+</div>
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvnXGtDZR0rcCyvdWpFcsi2RQXNd8Knhpjoz7HECskRi10gZNdDJxnL8P3qmm04KwOymLbk8WR2zjDKm3hrElnufDs7ASTY5RZg0G_jtl-lPhBjKR9GI0egg_yZJUz8oaY" />
+</body>
+</html>
