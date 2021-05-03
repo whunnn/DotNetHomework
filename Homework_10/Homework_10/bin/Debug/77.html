@@ -1,0 +1,433 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="never" />
+    <meta name="description" content="解Bug之路-Nginx 502 Bad Gateway 前言 事实证明，读过Linux内核源码确实有很大的好处，尤其在处理问题的时刻。当你看到报错的那一瞬间，就能把现象/原因/以及解决方案一股脑的在" />
+    <meta property="og:description" content="解Bug之路-Nginx 502 Bad Gateway 前言 事实证明，读过Linux内核源码确实有很大的好处，尤其在处理问题的时刻。当你看到报错的那一瞬间，就能把现象/原因/以及解决方案一股脑的在" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>解Bug之路-Nginx 502 Bad Gateway  - 无毁的湖光-Al - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simplememory/bundle-simplememory.min.css?v=uknaX_hejnSu-njQgx4Hj1R0JiPLwUhFPUlwWNmWyB4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/alchemystar/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/alchemystar/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/alchemystar/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 605890;
+        var currentBlogApp = 'alchemystar';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2020-07-31 02:30';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/alchemystar/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/alchemystar/">alchemystar</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/alchemystar/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E6%97%A0%E6%AF%81%E7%9A%84%E6%B9%96%E5%85%89-Al">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/alchemystar/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/alchemystar/p/13409534.html">
+    <span>解Bug之路-Nginx 502 Bad Gateway </span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<h1 id="解bug之路-nginx-502-bad-gateway">解Bug之路-Nginx 502 Bad Gateway</h1>
+<h2 id="前言">前言</h2>
+<p>事实证明，读过Linux内核源码确实有很大的好处，尤其在处理问题的时刻。当你看到报错的那一瞬间，就能把现象/原因/以及解决方案一股脑的在脑中闪现。甚至一些边边角角的现象都能很快的反应过来是为何。笔者读过一些Linux TCP协议栈的源码，就在解决下面这个问题的时候有一种非常流畅的感觉。</p>
+<h2 id="bug现场">Bug现场</h2>
+<p>首先，这个问题其实并不难解决，但是这个问题引发的现象倒是挺有意思。先描述一下现象吧，<br>
+笔者要对自研的dubbo协议隧道网关进行压测(这个网关的设计也挺有意思，准备放到后面的博客里面)。先看下压测的拓扑吧:<br>
+<img src="https://oscimg.oschina.net/oscnet/up-cb1706f8f544254d756b32eee5c1aa35c91.png" alt="" loading="lazy"><br>
+为了压测笔者gateway的单机性能，两端仅仅各保留一台网关，即gateway1和gateway2。压到一定程度就开始报错，导致压测停止。很自然的就想到，网关扛不住了。</p>
+<h2 id="网关的情况">网关的情况</h2>
+<p>去Gateway2的机器上看了一下，没有任何报错。而Gateway1则有大量的502报错。502是Bad Gateway，Nginx的经典报错，首先想到的就是Gateway2不堪重负被Nginx在Upstream中踢掉。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-66b1a86270111e6dd1f85bc7c5de2ef607b.png" alt="" loading="lazy"><br>
+那么，就先看看Gateway2的负载情况把，查了下监控，发现Gateway2在4核8G的机器上只用了一个核，完全看不出来有瓶颈的样子，难道是IO有问题？看了下小的可怜的网卡流量打消了这个猜想。</p>
+<h2 id="nginx所在机器cpu利用率接近100">Nginx所在机器CPU利用率接近100%</h2>
+<p>这时候，发现一个有意思的现象,Nginx确用满了CPU!<br>
+<img src="https://oscimg.oschina.net/oscnet/up-9f576eae06a6986e67124ea3d507cde9a5d.png" alt="" loading="lazy"><br>
+再次压测，去Nginx所在机器上top了一下，发现Nginx的4个Worker分别占了一个核把CPU吃满-_-!<br>
+<img src="https://oscimg.oschina.net/oscnet/up-003ef53f92ecdf34f9d7fda79f2d9d56c6c.png" alt="" loading="lazy"><br>
+什么，号称性能强悍的Nginx竟然这么弱，说好的事件驱动\epoll边沿触发\纯C打造的呢？一定是用的姿势不对！</p>
+<h2 id="去掉nginx直接通信毫无压力">去掉Nginx直接通信毫无压力</h2>
+<p>既然猜测是Nginx的瓶颈,就把Nginx去掉吧。Gateway1和Gateway2直连，压测TPS里面就飙升了，而且Gateway2的CPU最多也就吃了2个核，毫无压力。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-af8631ffa7846bf38d2327a4ebf8458c566.png" alt="" loading="lazy"></p>
+<h2 id="去nginx上看下日志">去Nginx上看下日志</h2>
+<p>由于Nginx机器权限并不在笔者手上，所以一开始没有关注其日志，现在就联系一下对应的运维去看一下吧。在accesslog里面发现了大量的502报错，确实是Nginx的。又看了下错误日志，发现有大量的</p>
+<pre><code>Cannot assign requested address
+</code></pre>
+<p>由于笔者读过TCP源码，一瞬间就反应过来，是端口号耗尽了！由于Nginx upstream和后端Backend默认是短连接，所以在大量请求流量进来的时候回产生大量TIME_WAIT的连接。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-bc0679c7b942bae4768a9665a533413a4d8.png" alt="" loading="lazy"><br>
+而这些TIME_WAIT是占据端口号的，而且基本要1分钟左右才能被Kernel回收。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-50205eda3449c043a0e56055b12aa4199a4.png" alt="" loading="lazy"></p>
+<pre><code>cat /proc/sys/net/ipv4/ip_local_port_range
+32768	61000
+</code></pre>
+<p>也就是说，只要一分钟之内产生28232(61000-32768)个TIME_WAIT的socket就会造成端口号耗尽，也即470.5TPS(28232/60),只是一个很容易达到的压测值。事实上这个限制是Client端的,Server端没有这样的限制，因为Server端口号只有一个8080这样的有名端口号。而在<br>
+upstream中Nginx扮演的就是Client,而Gateway2就扮演的是Nginx<br>
+<img src="https://oscimg.oschina.net/oscnet/up-766723b666e595349e9cfb9146312f3e07c.png" alt="" loading="lazy"></p>
+<h2 id="为什么nginx的cpu是100">为什么Nginx的CPU是100%</h2>
+<p>而笔者也很快想明白了Nginx为什么吃满了机器的CPU,问题就出来端口号的搜索过程。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-a448940c1a15e153a6835b056c7ea8369de.png" alt="" loading="lazy"><br>
+让我们看下最耗性能的一段函数:</p>
+<pre><code>int __inet_hash_connect(...)
+{
+		// 注意，这边是static变量
+		static u32 hint;
+		// hint有助于不从0开始搜索，而是从下一个待分配的端口号搜索
+		u32 offset = hint + port_offset;
+		.....
+		inet_get_local_port_range(&amp;low, &amp;high);
+		// 这边remaining就是61000 - 32768
+		remaining = (high - low) + 1
+		......
+		for (i = 1; i &lt;= remaining; i++) {
+			port = low + (i + offset) % remaining;
+			/* port是否占用check */
+			....
+			goto ok;
+		}
+		.......
+ok:
+		hint += i;
+		......
+}
+</code></pre>
+<p>看上面那段代码，如果一直没有端口号可用的话，则需要循环remaining次才能宣告端口号耗尽，也就是28232次。而如果按照正常的情况，因为有hint的存在，所以每次搜索从下一个待分配的端口号开始计算，以个位数的搜索就能找到端口号。如下图所示:<br>
+<img src="https://oscimg.oschina.net/oscnet/up-c17dc94c880945bac9b02d704554cf1ca67.png" alt="" loading="lazy"><br>
+所以当端口号耗尽后，Nginx的Worker进程就沉浸在上述for循环中不可自拔，把CPU吃满。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-cb770f9f076feca572fe18719f5e78fdbc6.png" alt="" loading="lazy"></p>
+<h2 id="为什么gateway1调用nginx没有问题">为什么Gateway1调用Nginx没有问题</h2>
+<p>很简单，因为笔者在Gateway1调用Nginx的时候设置了Keepalived，所以采用的是长连接，就没有这个端口号耗尽的限制。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-4d5b1e68366e92683f836dc2802c70d4a4a.png" alt="" loading="lazy"></p>
+<h2 id="nginx-后面有多台机器的话">Nginx 后面有多台机器的话</h2>
+<p>由于是因为端口号搜索导致CPU 100%,而且但凡有可用端口号，因为hint的原因，搜索次数可能就是1和28232的区别。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-48fe0e2929e5287f66aaf6a6eafaf4347d5.png" alt="" loading="lazy"><br>
+因为端口号限制是针对某个特定的远端server:port的。<br>
+所以，只要Nginx的Backend有多台机器，甚至同一个机器上的多个不同端口号，只要不超过临界点，Nginx就不会有任何压力。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-2365bb8d7f067fa253a6760df6afbc1b6b1.png" alt="" loading="lazy"></p>
+<h2 id="把端口号范围调大">把端口号范围调大</h2>
+<p>比较无脑的方案当然是把端口号范围调大，这样就能抗更多的TIME_WAIT。同时将tcp_max_tw_bucket调小，tcp_max_tw_bucket是kernel中最多存在的TIME_WAIT数量，只要port范围 - tcp_max_tw_bucket大于一定的值，那么就始终有port端口可用，这样就可以避免再次到调大临界值得时候继续击穿临界点。</p>
+<pre><code>cat /proc/sys/net/ipv4/ip_local_port_range
+22768	61000
+cat /proc/sys/net/ipv4/tcp_max_tw_buckets
+20000
+</code></pre>
+<h2 id="开启tcp_tw_reuse">开启tcp_tw_reuse</h2>
+<p>这个问题Linux其实早就有了解决方案，那就是tcp_tw_reuse这个参数。</p>
+<pre><code>echo '1' &gt; /proc/sys/net/ipv4/tcp_tw_reuse
+</code></pre>
+<p>事实上TIME_WAIT过多的原因是其回收时间竟然需要1min，这个1min其实是TCP协议中规定的2MSL时间，而Linux中就固定为1min。</p>
+<pre><code>#define TCP_TIMEWAIT_LEN (60*HZ) /* how long to wait to destroy TIME-WAIT
+				  * state, about 60 seconds	*/
+</code></pre>
+<p>2MSL的原因就是排除网络上还残留的包对新的同样的五元组的Socket产生影响，也就是说在2MSL(1min)之内重用这个五元组会有风险。为了解决这个问题，Linux就采取了一些列措施防止这样的情况，使得在大部分情况下1s之内的TIME_WAIT就可以重用。下面这段代码，就是检测此TIME_WAIT是否重用。</p>
+<pre><code>__inet_hash_connect
+	|-&gt;__inet_check_established
+static int __inet_check_established(......)
+{
+	......	
+	/* Check TIME-WAIT sockets first. */
+	sk_nulls_for_each(sk2, node, &amp;head-&gt;twchain) {
+		tw = inet_twsk(sk2);
+		// 如果在time_wait中找到一个match的port,就判断是否可重用
+		if (INET_TW_MATCH(sk2, net, hash, acookie,
+					saddr, daddr, ports, dif)) {
+			if (twsk_unique(sk, sk2, twp))
+				goto unique;
+			else
+				goto not_unique;
+		}
+	}
+	......
+}
+</code></pre>
+<p>而其中的核心函数就是twsk_unique，它的判断逻辑如下:</p>
+<pre><code>int tcp_twsk_unique(......)
+{
+	......
+	if (tcptw-&gt;tw_ts_recent_stamp &amp;&amp;
+	    (twp == NULL || (sysctl_tcp_tw_reuse &amp;&amp;
+			     get_seconds() - tcptw-&gt;tw_ts_recent_stamp &gt; 1))) {
+       // 对write_seq设置为snd_nxt+65536+2
+       // 这样能够确保在数据传输速率&lt;=80Mbit/s的情况下不会被回绕      
+		tp-&gt;write_seq = tcptw-&gt;tw_snd_nxt + 65535 + 2
+		......
+		return 1;
+	}
+	return 0;	
+}
+</code></pre>
+<p>上面这段代码逻辑如下所示:<br>
+<img src="https://oscimg.oschina.net/oscnet/up-cc611e1edbfcbf281c48be909077e5eb952.png" alt="" loading="lazy"><br>
+在开启了tcp_timestamp以及tcp_tw_reuse的情况下,在Connect搜索port时只要比之前用这个port的TIME_WAIT状态的Socket记录的最近时间戳&gt;1s,就可以重用此port,即将之前的1分钟缩短到1s。同时为了防止潜在的序列号冲突，直接将write_seq加上在65537,这样，在单Socket传输速率小于80Mbit/s的情况下，不会造成序列号重叠(冲突)。<br>
+同时这个tw_ts_recent_stamp设置的时机如下图所示:<br>
+<img src="https://oscimg.oschina.net/oscnet/up-4392bfa08c54c4784547f6b48708d5ac8ff.png" alt="" loading="lazy"><br>
+所以如果Socket进入TIME_WAIT状态后，如果一直有对应的包发过来，那么会影响此TIME_WAIT对应的port是否可用的时间。<br>
+开启了这个参数之后,由于从1min缩短到1s,那么Nginx单台对单Upstream可承受的TPS就从原来的470.5TPS(28232/60)一跃提升为28232TPS，增长了60倍。<br>
+如果还嫌性能不够，可以配上上面的端口号范围调大以及tcp_max_tw_bucket调小继续提升tps,不过tcp_max_tw_bucket调小可能会有序列号重叠的风险，毕竟Socket不经过2MSL阶段就被重用了。</p>
+<h2 id="不要开启tcp_tw_recycle">不要开启tcp_tw_recycle</h2>
+<p>开启tcp_tw_recyle这个参数会在NAT环境下造成很大的影响，建议不开启。</p>
+<h1 id="nginx-upstream改成长连接">Nginx upstream改成长连接</h1>
+<p>事实上，上面的一系列问题都是由于Nginx对Backend是短连接导致。<br>
+Nginx从 1.1.4 开始，实现了对后端机器的长连接支持功能。在Upstream中这样配置可以开启长连接的功能:</p>
+<pre><code>upstream backend {
+    server 127.0.0.1:8080;
+# It should be particularly noted that the keepalive directive does not limit the total number of connections to upstream servers that an nginx worker         	process can open. The connections parameter should be set to a number small enough to let upstream servers process new incoming connections as 	well.
+    keepalive 32; 
+    keepalive_timeout 30s; # 设置后端连接的最大idle时间为30s
+}
+</code></pre>
+<p>这样前端和后端都是长连接，大家又可以愉快的玩耍了。<br>
+<img src="https://oscimg.oschina.net/oscnet/up-bc140402be302685e1987faaee9f7c12f8a.png" alt="" loading="lazy"></p>
+<h1 id="由此产生的风险点">由此产生的风险点</h1>
+<p>由于对单个远端ip:port耗尽会导致CPU吃满这种现象。所以在Nginx在配置Upstream时候需要格外小心。假设一种情况，PE扩容了一台Nginx,为防止有问题，就先配一台Backend看看情况，这时候如果量比较大的话击穿临界点就会造成大量报错(而应用本身确毫无压力，毕竟临界值是470.5TPS(28232/60))，甚至在同Nginx上的非此域名的请求也会因为CPU被耗尽而得不到响应。多配几台Backend/开启tcp_tw_reuse或许是不错的选择。</p>
+<h1 id="总结">总结</h1>
+<p>应用再强大也还是承载在内核之上，始终逃不出Linux内核的樊笼。所以对于Linux内核本身参数的调优还是非常有意义的。如果读过一些内核源码，无疑对我们排查线上问题有着很大的助力，同时也能指导我们避过一些坑！</p>
+<h2 id="公众号">公众号</h2>
+<p>关注笔者公众号，获取更多干货文章:<br>
+<img src="https://oscimg.oschina.net/oscnet/up-03e8bdd592b3eb9dec0a50fa5ff56192df0.JPEG" alt="" loading="lazy"></p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2020-07-31 14:30</span>&nbsp;
+<a href="https://www.cnblogs.com/alchemystar/">无毁的湖光-Al</a>&nbsp;
+阅读(<span id="post_view_count">9238</span>)&nbsp;
+评论(<span id="post_comment_count">42</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13409534" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(13409534);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 605890, cb_blogApp = 'alchemystar', cb_blogUserGuid = '1cf9229d-640a-4286-28a5-08d5c3af5c24';
+    var cb_entryId = 13409534, cb_entryCreatedDate = '2020-07-31 14:30', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 无毁的湖光-Al
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvr1ArhfzBGh1B8IYvyJA2Uc7HxTCWZNeZcOlVXZw5zlNiqtIpJAAzMB-Dt_v_0rMR9IV6_oGlLj4twYsJj4G4bsf9kX9exwvf9e-yEB42yYAKN9rETqU5AvbK_AX8v5AE" />
+</body>
+</html>

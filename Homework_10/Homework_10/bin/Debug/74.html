@@ -1,0 +1,635 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>轩辕之风 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/xuanyuan/custom.css?v=1x/hOAF2DBc3F9SC1kmM7U6j8oc=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xuanyuan/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xuanyuan/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xuanyuan/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 193695;
+        var currentBlogApp = 'xuanyuan';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'CodingLife';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="page_begin_html">
+        <script>loadPageBeginHtml();</script>
+    </div>
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xuanyuan/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xuanyuan/">轩辕之风</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xuanyuan/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%BD%A9%E8%BE%95%E4%B9%8B%E9%A3%8E">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/xuanyuan/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/29.html">2021年4月29日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14716733.html">
+    <span>
+        我是如何把计算机网络考了100分的？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：有读者问我：轩辕，你是怎么学计算机网络的？ 鸽了好久，今天得空聊聊这个话题。 轩辕是通信工程专业，计算机网络通信自然是必学内容。 我猜，绝大多数同学的计算机网络知识，估计都是在学生时代，抱着谢希仁那本厚厚的《计算机网络》课本，老师念着上个世纪就传承至今的教案PPT得来的。 如果运气好，老师讲的不错，        <a href="https://www.cnblogs.com/xuanyuan/p/14716733.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-29 09:41
+轩辕之风
+<span data-post-id="14716733" class="post-view-count">阅读(662)</span> 
+<span data-post-id="14716733" class="post-comment-count">评论(2)</span> 
+<span data-post-id="14716733" class="post-digg-count">推荐(5)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14716733" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/28.html">2021年4月28日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14711951.html">
+    <span>
+        大一那会，我用QQ远程帮同学考过计算机二级
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：考证 大一那会儿流行考证，什么普通话、教师资格证、计算机、商务英语各种证五花八门的。 我们非计算机专业（我是通信工程）的基本上都会去考一个叫计算机二级的证书，说是找工作有用，大一新生，哪懂这些，一窝蜂的跟风就去考了。 稀里糊涂的去学了一个Visual FoxPro的数据库语言（简称VF），就是这个东        <a href="https://www.cnblogs.com/xuanyuan/p/14711951.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-28 09:51
+轩辕之风
+<span data-post-id="14711951" class="post-view-count">阅读(1532)</span> 
+<span data-post-id="14711951" class="post-comment-count">评论(9)</span> 
+<span data-post-id="14711951" class="post-digg-count">推荐(9)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14711951" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/04/20.html">2021年4月20日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14679727.html">
+    <span>
+        从键盘按下一个6，到显示出来，计算机发生了什么？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：计算机领域有一个经典的问题：从你在浏览器中输入URL并按下回车，到网页渲染出来，这中间发生了什么？ 通过这个问题，可以考察候选人对计算机网络的理解程度，因此出现在数不清的面试场合。 毋庸置疑，这是一个好问题，我也看到不下100篇文章在探讨这个问题的答案。 而今天，我想跟大家探讨的是另外一个问题：从你        <a href="https://www.cnblogs.com/xuanyuan/p/14679727.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-04-20 09:43
+轩辕之风
+<span data-post-id="14679727" class="post-view-count">阅读(3218)</span> 
+<span data-post-id="14679727" class="post-comment-count">评论(10)</span> 
+<span data-post-id="14679727" class="post-digg-count">推荐(30)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14679727" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2021/03/02.html">2021年3月2日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14467387.html">
+    <span>
+        一个故事看懂内存条工作原理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我是内存条 我是一个内存条，刚刚从深圳的一个工厂里被生产出来，跟我一起的还有一批小伙伴，长得跟我一模一样，下了流水线后我们就被扔进了一处黑暗的角落。 “这是哪里啊，黑漆漆的”，一个小伙伴说到。 “这里是内存条仓库”，黑暗中有人在说话，声音中略有一丝沧桑，像是一个老头。 “谁？谁在那里” “别怕，我也        <a href="https://www.cnblogs.com/xuanyuan/p/14467387.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-02 09:50
+轩辕之风
+<span data-post-id="14467387" class="post-view-count">阅读(3683)</span> 
+<span data-post-id="14467387" class="post-comment-count">评论(13)</span> 
+<span data-post-id="14467387" class="post-digg-count">推荐(43)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14467387" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/12/03.html">2020年12月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14077758.html">
+    <span>
+        CPU：网卡老哥，你到底怎么工作的？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：阿Q造访 我是一个网卡，居住在一个机箱内的主板上，负责整台计算机的网络通信，要是没有我，这里就成了一个信息孤岛了，那也太无聊了～ 上个周末，服务器断电维护了，这是我难得的休息时间，我准备打个盹儿眯一会儿。 这才刚合上眼，CPU一号车间的阿Q跑过来串门了。 “怎么是你小子，听说你背后说了我很多坏话啊！        <a href="https://www.cnblogs.com/xuanyuan/p/14077758.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-12-03 09:36
+轩辕之风
+<span data-post-id="14077758" class="post-view-count">阅读(2948)</span> 
+<span data-post-id="14077758" class="post-comment-count">评论(11)</span> 
+<span data-post-id="14077758" class="post-digg-count">推荐(25)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14077758" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/25.html">2020年11月25日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14034187.html">
+    <span>
+        主板上来了一个新邻居，CPU慌了！
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：大家好，我是CPU一号车间的那个阿Q，好久不见，我想死你们了～ 不认识我的请去这里这里补补课：完了！CPU一味求快出事儿了！ 主板上的新邻居 “阿Q，快别忙了，马上去一趟会议室，领导有重要事情开会”，一大早，咱们CPU厂里的总线主任就挨个到8个车间通知大家开会，神色有些凝重。 “什么事情，这么着急？        <a href="https://www.cnblogs.com/xuanyuan/p/14034187.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-25 09:50
+轩辕之风
+<span data-post-id="14034187" class="post-view-count">阅读(6325)</span> 
+<span data-post-id="14034187" class="post-comment-count">评论(17)</span> 
+<span data-post-id="14034187" class="post-digg-count">推荐(54)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14034187" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/19.html">2020年11月19日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/14003524.html">
+    <span>
+        还不懂Docker？一个故事安排的明明白白！
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：程序员受苦久矣 多年前的一个夜晚，风雨大作，一个名叫Docker的年轻人来到Linux帝国拜见帝国的长老。 “Linux长老，天下程序员苦于应用部署久矣，我要改变这一现状，希望长老你能帮帮我” 长老回答：“哦，小小年纪，口气不小，先请入座，你有何所求，愿闻其详” Docker坐下后开始侃侃而谈：“当        <a href="https://www.cnblogs.com/xuanyuan/p/14003524.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-19 09:24
+轩辕之风
+<span data-post-id="14003524" class="post-view-count">阅读(6470)</span> 
+<span data-post-id="14003524" class="post-comment-count">评论(43)</span> 
+<span data-post-id="14003524" class="post-digg-count">推荐(87)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14003524" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/13.html">2020年11月13日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/13967583.html">
+    <span>
+        五分钟看懂抓包神技：DPDK
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我是一个网络监控软件，我被开发出来的使命就是监控网络中进进出出的所有通信流量。 一直以来，我的工作都非常的出色，但是随着我监控的网络越来越庞大，网络中的通信流量也变得越来越多，我开始有些忙不过来了，逐渐发生丢包的现象，而且最近这一现象越发的严重了。 万兆流量需求 一天晚上，程序员哥哥把我从硬盘上叫了        <a href="https://www.cnblogs.com/xuanyuan/p/13967583.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-13 09:28
+轩辕之风
+<span data-post-id="13967583" class="post-view-count">阅读(1963)</span> 
+<span data-post-id="13967583" class="post-comment-count">评论(2)</span> 
+<span data-post-id="13967583" class="post-digg-count">推荐(3)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13967583" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/11/03.html">2020年11月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/13917844.html">
+    <span>
+        假如把Redis服务器们拉到一个群，看看他们是怎么工作的？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：我是Redis，一个叫Antirez的男人把我带到了这个世界上。 那天，Redis基友群里，许久未见的大白发来了一条消息&#183;&#183;&#183; 于是，大白拉了一个新的群 以后的日子中，咱们哥仨相互配合，日常工作中最多的就是数据同步了 如果主节点有数据写入、删除、修改命令，也会把这些命令挨个通知到从节点，我们把这叫做        <a href="https://www.cnblogs.com/xuanyuan/p/13917844.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-03 09:51
+轩辕之风
+<span data-post-id="13917844" class="post-view-count">阅读(3204)</span> 
+<span data-post-id="13917844" class="post-comment-count">评论(30)</span> 
+<span data-post-id="13917844" class="post-digg-count">推荐(58)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13917844" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/xuanyuan/archive/2020/10/29.html">2020年10月29日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xuanyuan/p/13894905.html">
+    <span>
+        从创建进程到进入main函数，发生了什么？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前几天，读者群里有小伙伴提问：从进程创建后，到底是怎么进入我写的main函数的？ 今天这篇文章就来聊聊这个话题。 首先先划定一下这个问题的讨论范围：C/C++语言 这篇文章主要讨论的是操作系统层面上对于进程、线程的创建初始化等行为，而像Python、Java等基于解释器、虚拟机的语言，如何进入到ma        <a href="https://www.cnblogs.com/xuanyuan/p/13894905.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-10-29 09:18
+轩辕之风
+<span data-post-id="13894905" class="post-view-count">阅读(968)</span> 
+<span data-post-id="13894905" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13894905" class="post-digg-count">推荐(4)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13894905" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/xuanyuan/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 轩辕之风
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjua25YeDk2Y0pJOWHaeY-nASYIyR1kr4C0zgn9y1ngb6fN_oebE0CYjGCs0ojI9G5DyVHwvNKuV22zYBehrqwKJ-HQm-JVBE57p-ApbLDwm9tsGS8UadigYSgAdtifPyt4" />
+</body>
+</html>

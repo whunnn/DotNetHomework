@@ -1,0 +1,803 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="前一溜时间有给大家分享一个 electron&#x2B;vite跨端短视频 项目。这次分享的是vite2.x和electron实现跨平台后台框架，支持国际化多语言配置、导航菜单&#x2B;树形菜单两种路由菜单模式、展开/" />
+    <meta property="og:description" content="前一溜时间有给大家分享一个 electron&#x2B;vite跨端短视频 项目。这次分享的是vite2.x和electron实现跨平台后台框架，支持国际化多语言配置、导航菜单&#x2B;树形菜单两种路由菜单模式、展开/" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>基于vite2+electron12后台管理模板|Electron后台框架系统 - xiaoyan2017 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simplememory/bundle-simplememory.min.css?v=uknaX_hejnSu-njQgx4Hj1R0JiPLwUhFPUlwWNmWyB4" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xiaoyan2017/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xiaoyan2017/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xiaoyan2017/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 405933;
+        var currentBlogApp = 'xiaoyan2017';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'SimpleMemory';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-03 06:43';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/xiaoyan2017/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xiaoyan2017/">web前端项目案例实战</a>
+</h1>
+<h2>交流分享前端(移动端|微信端|小程序)最新技术、知识、项目案例...</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xiaoyan2017/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/xiaoyan2017">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/xiaoyan2017/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xiaoyan2017/p/14727973.html">
+    <span>基于vite2+electron12后台管理模板|Electron后台框架系统</span>
+    
+
+
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p><span style="font-size: 12px; font-family: &quot;times new roman&quot;, times">前一溜时间有给大家分享一个 <a href="https://www.cnblogs.com/xiaoyan2017/p/14585223.html" target="_blank">electron+vite跨端短视频</a> 项目。这次分享的是<strong>vite2.x</strong>和<strong>electron</strong>实现跨平台后台框架，支持<span style="background-color: rgba(255, 255, 153, 1)">国际化多语言配置、导航菜单+树形菜单两种路由菜单模式、展开/收缩路由菜单</span>等功能。</span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503165918055-1822165117.png" alt="" loading="lazy"></p>
+<p><span style="font-size: 12px"><em>vite2-electron-system</em> 后台模板框架使用到的版本：<span style="font-family: &quot;comic sans ms&quot;, sans-serif">vite2.1.51、vue3.0.5、electron12.0.4</span></span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503171004691-1763016977.png" alt="" loading="lazy"></p>
+<ul>
+<li>
+<h3 id="一项目简介"><strong>vite2.x|vue3-i18n国际化多语言</strong></h3>
+</li>
+</ul>
+<p><span style="font-size: 12px">项目支持如下图3种语言切换[中文/英文/繁体]，使用Vue I18n国际化vue3版本。</span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503171406991-1304119087.png" alt="" loading="lazy"></p>
+<div class="cnblogs_code">
+<pre>// 安装vue-<span style="color: rgba(0, 0, 0, 1)">i18n插件
+npm i vue</span>-i18n@next -D</pre>
+</div>
+<p><span style="font-size: 12px">在布局模板中新建locale多语言配置文件。</span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503172136864-573552104.png" alt="" loading="lazy"></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * @desc 国际化语言配置(主模板)
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+
+export </span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)"> {
+    </span>'layout__main-menu__home': '首页'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__home_dashboard': '控制台'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__home_breadcrumbs': '自定义面包屑导航'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__home_breadcrumbs-link': 'https://cn.vitejs.dev/'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__home_docs': '自定义链接'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__home_tree': '树形菜单'<span style="color: rgba(0, 0, 0, 1)">,
+
+    </span>'layout__main-menu__component': '组件'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_table': '表格'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_table-all': '所有表格'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_table-custom': '自定义表格'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_table-search': '表格搜索'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_table-search-list': '搜索列表'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_form': '表单'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_form-all': '所有表单'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_form-custom': '自定义表单'<span style="color: rgba(0, 0, 0, 1)">,
+    </span>'layout__main-menu__component_editor': '富文本编辑器'<span style="color: rgba(0, 0, 0, 1)">,
+}</span></pre>
+</div>
+<p><span style="font-size: 12px">在plugins目录下新建一个<strong>i18n.js</strong>配置文件。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * vue-i18n国际化配置文件
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+
+import { createI18n } from </span>'vue-i18n'<span style="color: rgba(0, 0, 0, 1)">
+import Storage from </span>'@/utils/storage'
+
+<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 默认设置</span>
+export const langKey = 'lang'<span style="color: rgba(0, 0, 0, 1)">
+export const langVal </span>= 'zh-CN'
+
+<span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * 引入element-plus国际化包
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+import enUS from </span>'element-plus/lib/locale/lang/en'<span style="color: rgba(0, 0, 0, 1)">
+import zhCN from </span>'element-plus/lib/locale/lang/zh-cn'<span style="color: rgba(0, 0, 0, 1)">
+import zhTW from </span>'element-plus/lib/locale/lang/zh-tw'<span style="color: rgba(0, 0, 0, 1)">
+export const ElPlusLang </span>=<span style="color: rgba(0, 0, 0, 1)"> {
+    </span>'en-US'<span style="color: rgba(0, 0, 0, 1)">: enUS,
+    </span>'zh-CN'<span style="color: rgba(0, 0, 0, 1)">: zhCN,
+    </span>'zh-TW'<span style="color: rgba(0, 0, 0, 1)">: zhTW
+}
+
+</span><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * 初始化多语言
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+export const $messages </span>=<span style="color: rgba(0, 0, 0, 1)"> importLang()
+export const $lang </span>=<span style="color: rgba(0, 0, 0, 1)"> getLang()
+const i18n </span>=<span style="color: rgba(0, 0, 0, 1)"> createI18n({
+    legacy: </span><span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">,
+    locale: $lang,
+    messages: $messages
+})
+
+</span><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * 自动导入项目目录下语言配置
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+export </span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> importLang() {
+    const localeModule </span>=<span style="color: rgba(0, 0, 0, 1)"> {}
+    </span><span style="color: rgba(0, 0, 255, 1)">try</span><span style="color: rgba(0, 0, 0, 1)"> {
+        </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 导入 @/layouts 文件夹下包含子目录locale中的xxx.js文件</span>
+        const layoutsCtx = require.context('@/layouts', <span style="color: rgba(0, 0, 255, 1)">true</span>, /[/\\]locale[/\\]([a-z]{2})-?([A-Z]{2})?\.js$/<span style="color: rgba(0, 0, 0, 1)">)
+        layoutsCtx.keys().map(path </span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+            const pathCtx </span>=<span style="color: rgba(0, 0, 0, 1)"> layoutsCtx(path)
+            </span><span style="color: rgba(0, 0, 255, 1)">if</span>(pathCtx.<span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)">) {
+                const pathName </span>= path.replace(/(.*\/)*([^.]+).*/ig, '$2'<span style="color: rgba(0, 0, 0, 1)">)
+                </span><span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(localeModule[pathName]) {
+                    localeModule[pathName] </span>=<span style="color: rgba(0, 0, 0, 1)"> {
+                        ...localeModule[pathName], ...pathCtx.</span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)">
+                    }
+                }</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+                    localeModule[pathName] </span>= pathCtx.<span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)">
+                }
+            }
+        })
+    } </span><span style="color: rgba(0, 0, 255, 1)">catch</span><span style="color: rgba(0, 0, 0, 1)"> (error) {
+        console.log(error)
+    }
+
+    </span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> localeModule
+}
+
+</span><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * 存储设置语言
+ * @param lang 语言类型 zh-CN | zh-TW | en-US
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+export </span><span style="color: rgba(0, 0, 255, 1)">function</span> setLang(lang, reload = <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">) {
+    </span><span style="color: rgba(0, 0, 255, 1)">if</span>(getLang() !==<span style="color: rgba(0, 0, 0, 1)"> lang) {
+        Storage.set(langKey, lang </span>|| ''<span style="color: rgba(0, 0, 0, 1)">)
+        </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 设置全局语言</span>
+        i18n.global.locale.value =<span style="color: rgba(0, 0, 0, 1)"> lang
+
+        </span><span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(reload) {
+            window.location.reload()
+        }
+    }
+}
+
+</span><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * 获取语言
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+export </span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> getLang() {
+    const lang </span>=<span style="color: rgba(0, 0, 0, 1)"> Storage.get(langKey)
+    </span><span style="color: rgba(0, 0, 255, 1)">return</span> lang ||<span style="color: rgba(0, 0, 0, 1)"> langVal
+}
+
+export </span><span style="color: rgba(0, 0, 255, 1)">default</span> i18n</pre>
+</div>
+<p><span style="font-size: 12px">然后在main.js中导入配置。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 引入element-plus组件库</span>
+import ElPlus from 'element-plus'
+
+<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 引入多语言</span>
+import VueI18n, { ElPlusLang, getLang } from '@/plugins/i18n'<span style="color: rgba(0, 0, 0, 1)">
+
+app.use(ElPlus, {
+    size: </span>'small'<span style="color: rgba(0, 0, 0, 1)">,
+    locale: ElPlusLang[getLang()]
+})
+app.use(VueI18n)</span></pre>
+</div>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503173010270-175842221.png" alt="" loading="lazy">&nbsp;<img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503173108164-501502416.png" alt="" loading="lazy"></p>
+<ul>
+<li>
+<h3><strong>vite2|vue3.0动态Hook设置标题</strong></h3>
+</li>
+</ul>
+<p><span style="font-size: 12px"><strong>如下图：</strong>项目中页面路由跳转，动态化显示标题。</span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503174135381-550788705.gif" alt="" loading="lazy"></p>
+<p><span style="font-size: 12px"><strong>vue3 hook&nbsp;</strong>就能快速实现动态切换，在hook目录新建一个useTitle.js文件。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * 动态获取路由标题
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+
+import { onMounted, watchEffect } from </span>'vue'<span style="color: rgba(0, 0, 0, 1)">
+import { useI18n } from </span>'vue-i18n'<span style="color: rgba(0, 0, 0, 1)">
+
+export </span><span style="color: rgba(0, 0, 255, 1)">default</span> <span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> useTitle(route) {
+    console.log(route)
+    </span><span style="color: rgba(0, 0, 255, 1)">if</span>(!route.meta) <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)">
+
+    const { t } </span>=<span style="color: rgba(0, 0, 0, 1)"> useI18n()
+    const defaultTitle </span>= 'ELECTRON-VUE3-VADMIN'<span style="color: rgba(0, 0, 0, 1)">
+
+    const Title </span>= () =&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+        </span><span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(route.meta.title) {
+            document.title </span>= `${t(route.meta.title)} -<span style="color: rgba(0, 0, 0, 1)"> ${defaultTitle}`
+        }</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+            document.title </span>=<span style="color: rgba(0, 0, 0, 1)"> defaultTitle
+        }
+    }
+
+    watchEffect(Title)
+
+    onMounted(() </span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+        Title()
+    })
+}</span></pre>
+</div>
+<p><span style="font-size: 12px">调用非常简单，通过如下方式即可快速实现路由地址切换标题。</span></p>
+<div class="cnblogs_code">
+<pre>import { useRoute } from 'vue-router'<span style="color: rgba(0, 0, 0, 1)">
+import useTitle from </span>'@/hooks/useTitle'<span style="color: rgba(0, 0, 0, 1)">
+
+export </span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)"> {
+    setup() {
+        const route </span>=<span style="color: rgba(0, 0, 0, 1)"> useRoute()
+
+        </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 设置title</span>
+<span style="color: rgba(0, 0, 0, 1)">        useTitle(route)
+
+        </span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> {
+            </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> ...</span>
+<span style="color: rgba(0, 0, 0, 1)">        }
+    }
+}</span></pre>
+</div>
+<ul>
+<li>
+<h3><strong>vite2.x路由载等待效果</strong></h3>
+</li>
+</ul>
+<p><span style="font-size: 12px">为了避免出现等待白屏的情况，可以在路由跳转的时候加入loading提示。</span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503180021245-528852053.png" alt="" loading="lazy"></p>
+<p><span style="font-size: 12px">使用了element-plus的<strong>loading</strong>组件。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 0, 1)">let loadingInstance
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 全局钩子拦截登录状态</span>
+router.beforeEach((to, from, next) =&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 加载提示（避免白屏等待）</span>
+    <span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 可以使用NProgress组件：https://ricostacruz.com/nprogress/</span>
+    loadingInstance =<span style="color: rgba(0, 0, 0, 1)"> ElLoading.service({
+        lock: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+        text: </span>'Loading'<span style="color: rgba(0, 0, 0, 1)">,
+        spinner: </span>'el-icon-loading'<span style="color: rgba(0, 0, 0, 1)">,
+        background: </span>'rgba(255, 255, 255, 0.7)'<span style="color: rgba(0, 0, 0, 1)">
+    })
+
+    const hasLogined </span>=<span style="color: rgba(0, 0, 0, 1)"> store.state.isLogin
+
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 判断当前路由地址是否需要登录权限</span>
+    <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(to.meta.auth) {
+        </span><span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(hasLogined) {
+            next()
+        }</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+            </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 跳转登录页面</span>
+<span style="color: rgba(0, 0, 0, 1)">            loginWin()
+        }
+    }</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+        next()
+    }
+})
+router.afterEach(() </span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 关闭加载提示</span>
+<span style="color: rgba(0, 0, 0, 1)">    loadingInstance.close()
+})</span></pre>
+</div>
+<p><span style="font-size: 12px">大家根据需要也可以选择一款非常小巧强大的<strong>NProgress</strong>插件实现加载效果。</span></p>
+<p><a href="https://ricostacruz.com/nprogress/" target="_blank">https://ricostacruz.com/nprogress/</a></p>
+<ul>
+<li>
+<h3><strong>vite2+element-plus路由菜单</strong></h3>
+</li>
+</ul>
+<p><span style="font-size: 12px">项目中使用了elementUI导航菜单&nbsp;<span class="cnblogs_code">el-menu</span>&nbsp;和树形菜单&nbsp;<span class="cnblogs_code">el-tree</span>&nbsp;两种实现路由地址菜单。</span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503181457601-343982088.gif" alt="" loading="lazy"></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">&lt;!--</span><span style="color: rgba(0, 128, 0, 1)"> el-menu导航菜单路由 </span><span style="color: rgba(0, 128, 0, 1)">--&gt;</span>
+<span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>
+    <span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">el-menu 
+        </span><span style="color: rgba(255, 0, 0, 1)">:default-active</span><span style="color: rgba(0, 0, 255, 1)">="defaultActive"</span><span style="color: rgba(255, 0, 0, 1)"> 
+        :collapse</span><span style="color: rgba(0, 0, 255, 1)">="collapsed"</span><span style="color: rgba(255, 0, 0, 1)"> 
+        :collapse-transition</span><span style="color: rgba(0, 0, 255, 1)">="false"</span><span style="color: rgba(255, 0, 0, 1)"> 
+        class</span><span style="color: rgba(0, 0, 255, 1)">="mainLayout__menuNav"</span><span style="color: rgba(255, 0, 0, 1)"> 
+        @select</span><span style="color: rgba(0, 0, 255, 1)">="handleNodeSelect"</span>
+    <span style="color: rgba(0, 0, 255, 1)">&gt;</span>
+        <span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">sidebar-item 
+            </span><span style="color: rgba(255, 0, 0, 1)">v-for</span><span style="color: rgba(0, 0, 255, 1)">="route in allRoutes"</span><span style="color: rgba(255, 0, 0, 1)"> 
+            :key</span><span style="color: rgba(0, 0, 255, 1)">="route.path"</span><span style="color: rgba(255, 0, 0, 1)"> 
+            :item</span><span style="color: rgba(0, 0, 255, 1)">="route"</span><span style="color: rgba(255, 0, 0, 1)"> 
+            :isNavEnable</span><span style="color: rgba(0, 0, 255, 1)">="isNavEnable"</span><span style="color: rgba(255, 0, 0, 1)"> 
+            :rootsRoute</span><span style="color: rgba(0, 0, 255, 1)">="rootsRoute"</span> 
+        <span style="color: rgba(0, 0, 255, 1)">/&gt;</span>
+    <span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">el-menu</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>
+<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">div</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span>
+
+<span style="color: rgba(0, 128, 0, 1)">&lt;!--</span><span style="color: rgba(0, 128, 0, 1)"> el-tree树形菜单路由 </span><span style="color: rgba(0, 128, 0, 1)">--&gt;</span>
+<span style="color: rgba(0, 0, 255, 1)">&lt;</span><span style="color: rgba(128, 0, 0, 1)">el-tree 
+    </span><span style="color: rgba(255, 0, 0, 1)">ref</span><span style="color: rgba(0, 0, 255, 1)">="treeRef"</span><span style="color: rgba(255, 0, 0, 1)">
+    :data</span><span style="color: rgba(0, 0, 255, 1)">="allRoutes"</span><span style="color: rgba(255, 0, 0, 1)"> 
+    :props</span><span style="color: rgba(0, 0, 255, 1)">="defaultProps"</span><span style="color: rgba(255, 0, 0, 1)"> 
+    @node-click</span><span style="color: rgba(0, 0, 255, 1)">="handleNodeSelect"</span><span style="color: rgba(255, 0, 0, 1)">
+    node-key</span><span style="color: rgba(0, 0, 255, 1)">="path"</span><span style="color: rgba(255, 0, 0, 1)">
+    :default-expanded-keys</span><span style="color: rgba(0, 0, 255, 1)">="[rootsRoute, defaultActive]"</span><span style="color: rgba(255, 0, 0, 1)">
+    :default-checked-keys</span><span style="color: rgba(0, 0, 255, 1)">="[defaultActive]"</span><span style="color: rgba(255, 0, 0, 1)">
+    highlight-current
+    show-checkbox
+    check-strictly
+</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span> 
+<span style="color: rgba(0, 0, 255, 1)">&lt;/</span><span style="color: rgba(128, 0, 0, 1)">el-tree</span><span style="color: rgba(0, 0, 255, 1)">&gt;</span></pre>
+</div>
+<p><span style="font-size: 12px">如何让el-tree树形菜单组件一次只能选中一个路由？</span><span style="font-size: 12px">开启&nbsp;&nbsp;<span class="cnblogs_code">highlight-current</span>&nbsp; 和&nbsp;&nbsp;<span class="cnblogs_code">check-strictly</span>&nbsp; 属性。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 0, 0, 1)">highlight-current：是否高亮当前选中节点，默认值是 false。
+check-strictly：在显示复选框的情况下，是否严格的遵循父子不互相关联的做法，默认为 false</span></pre>
+</div>
+<p><span style="font-size: 12px">通过<strong>watchEffect</strong>监听路由地址变化动态更新选中节点。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 选择节点</span>
+const handleNodeSelect = (data) =&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> console.log(data);</span>
+    <span style="color: rgba(0, 0, 255, 1)">if</span>(data.children) <span style="color: rgba(0, 0, 255, 1)">return</span>
+
+    <span style="color: rgba(0, 0, 255, 1)">if</span><span style="color: rgba(0, 0, 0, 1)">(utils.checkExternal(data.path)) {
+        alert(data.path)
+    }</span><span style="color: rgba(0, 0, 255, 1)">else</span><span style="color: rgba(0, 0, 0, 1)"> {
+        treeRef.value.setCheckedKeys([data.path], </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">)
+        router.push(data.path)
+    }
+}
+
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 监听路由变化，设置选中节点</span>
+const routeChanged = async () =&gt;<span style="color: rgba(0, 0, 0, 1)"> {
+    </span><span style="color: rgba(0, 0, 255, 1)">if</span>(!treeRef.value) <span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)">
+    treeRef.value.setCheckedKeys([route.path], </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">)
+}
+
+watchEffect(routeChanged)</span></pre>
+</div>
+<p><span style="font-size: 12px">另外还需自定义选中行的颜色样式。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(128, 0, 0, 1)">// 树形睬単el-tree样式
+.indexlayout-treemenu </span>{<span style="color: rgba(255, 0, 0, 1)">
+    border</span>:<span style="color: rgba(0, 0, 255, 1)"> 3px dashed #f90</span>;<span style="color: rgba(255, 0, 0, 1)"> padding</span>:<span style="color: rgba(0, 0, 255, 1)"> 10px</span>;<span style="color: rgba(255, 0, 0, 1)">
+
+    // 选中行颜色
+    .el-tree--highlight-current .el-tree-node.is-checked&gt;.el-tree-node__content {
+        background</span>:<span style="color: rgba(0, 0, 255, 1)"> $--color-primary</span>;<span style="color: rgba(255, 0, 0, 1)"> color</span>:<span style="color: rgba(0, 0, 255, 1)"> #fff</span>;
+    }<span style="color: rgba(128, 0, 0, 1)">
+}</span></pre>
+</div>
+<p><span style="font-size: 12px">另外附上自定义路由<strong>JSON</strong>文件。</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)">*
+ * @desc    主页面路由集合
+ * @author  ANDY
+ * -----------------------------------------
+ * 路由参数说明：
+ * path: '/home'                    链接
+ * redirect: ''                     路径重定向
+ * meta: {
+ *  auth: true                      需要登录验证
+ *  icon: 'home'                    显示侧边栏图标（1、使用iconfont icon-xxx  2、使用饿了么el-icon-xxx）
+ *  title: '标题'                    名称(显示在侧边栏/面包屑/浏览器title)
+ *  breadcrumb: [                   面包屑导航
+ *      {
+ *          title: '标题'            标题
+ *          path: '/demo'           链接
+ *      }
+ *  ]
+ *  activeRoute: '/home/dashboard'  侧边栏链接选中，默认route.path
+ *  rootsRoute: '/home'             所属顶部链接选中
+ * }
+ </span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)">
+
+import emptyLayout from </span>'@/layouts/empty.vue'<span style="color: rgba(0, 0, 0, 1)">
+
+const mainRoutes </span>=<span style="color: rgba(0, 0, 0, 1)"> [
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 首页模块</span>
+<span style="color: rgba(0, 0, 0, 1)">    {
+        path: </span>'/home'<span style="color: rgba(0, 0, 0, 1)">,
+        redirect: </span>'/home/dashboard'<span style="color: rgba(0, 0, 0, 1)">,
+        component: emptyLayout,
+        meta: {
+            auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span>, <span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">是否登录验证</span>
+            icon: 'icon-ding'<span style="color: rgba(0, 0, 0, 1)">,
+            title: </span>'layout__main-menu__home'<span style="color: rgba(0, 0, 0, 1)">,
+            hidden: </span><span style="color: rgba(0, 0, 255, 1)">false</span>, <span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">隐藏菜单项</span>
+<span style="color: rgba(0, 0, 0, 1)">        },
+        children: [
+            {
+                path: </span>'dashboard'<span style="color: rgba(0, 0, 0, 1)">,
+                component: () </span>=&gt; import('@/views/dashboard.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                meta: {
+                    auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+                    icon: </span>'icon-haoyou'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__home_dashboard'<span style="color: rgba(0, 0, 0, 1)">
+                }
+            },
+            {
+                path: </span>'breadcrumbs'<span style="color: rgba(0, 0, 0, 1)">,
+                component: () </span>=&gt; import('@/views/breadcrumbs/index.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                meta: {
+                    auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+                    icon: </span>'icon-down'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__home_breadcrumbs'<span style="color: rgba(0, 0, 0, 1)">,
+                    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 自定义面包屑</span>
+<span style="color: rgba(0, 0, 0, 1)">                    breadcrumb: [
+                        {
+                            title: </span>'layout__main-menu__home_breadcrumbs'<span style="color: rgba(0, 0, 0, 1)">,
+                            path: </span>'/home/breadcrumbs'<span style="color: rgba(0, 0, 0, 1)">
+                        },
+                        {
+                            title: </span>'layout__main-menu__home'<span style="color: rgba(0, 0, 0, 1)">,
+                            path: </span>'/home'<span style="color: rgba(0, 0, 0, 1)">
+                        },
+                        {
+                            title: </span>'layout__main-menu__home_breadcrumbs-link'<span style="color: rgba(0, 0, 0, 1)">,
+                            path: </span>'https://cn.vitejs.dev/'<span style="color: rgba(0, 0, 0, 1)">
+                        }
+                    ]
+                }
+            },
+            {
+                path: </span>'https://cn.vitejs.dev/'<span style="color: rgba(0, 0, 0, 1)">,
+                meta: {
+                    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> auth: true,</span>
+                    icon: 'icon-go'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__home_docs'<span style="color: rgba(0, 0, 0, 1)">,
+                    rootsRoute: </span>'/home'<span style="color: rgba(0, 0, 0, 1)">
+                }
+            },
+            {
+                path: </span>'tree'<span style="color: rgba(0, 0, 0, 1)">,
+                component: () </span>=&gt; import('@/views/component/tree/index.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                meta: {
+                    auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+                    icon: </span>'el-icon-s-data'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__home_tree'<span style="color: rgba(0, 0, 0, 1)">
+                },
+            },
+        ]
+    },
+
+
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 组件模块</span>
+<span style="color: rgba(0, 0, 0, 1)">    {
+        path: </span>'/component'<span style="color: rgba(0, 0, 0, 1)">,
+        redirect: </span>'/component/table/allTable'<span style="color: rgba(0, 0, 0, 1)">,
+        component: emptyLayout,
+        meta: {
+            auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span>, <span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">是否登录验证</span>
+            icon: 'el-icon-s-operation'<span style="color: rgba(0, 0, 0, 1)">,
+            title: </span>'layout__main-menu__component'<span style="color: rgba(0, 0, 0, 1)">,
+            hidden: </span><span style="color: rgba(0, 0, 255, 1)">false</span>, <span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">隐藏菜单项</span>
+<span style="color: rgba(0, 0, 0, 1)">        },
+        children: [
+            {
+                path: </span>'table'<span style="color: rgba(0, 0, 0, 1)">,
+                redirect: </span>'/component/table/allTable'<span style="color: rgba(0, 0, 0, 1)">,
+                component: emptyLayout,
+                meta: {
+                    auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+                    icon: </span>'el-icon-s-grid'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__component_table'<span style="color: rgba(0, 0, 0, 1)">
+                },
+                children: [
+                    {
+                        path: </span>'allTable'<span style="color: rgba(0, 0, 0, 1)">,
+                        component: () </span>=&gt; import('@/views/component/table/all.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                        meta: {
+                            title: </span>'layout__main-menu__component_table-all'<span style="color: rgba(0, 0, 0, 1)">
+                        }
+                    },
+                    {
+                        path: </span>'customTable'<span style="color: rgba(0, 0, 0, 1)">,
+                        component: () </span>=&gt; import('@/views/component/table/custom.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                        meta: {
+                            title: </span>'layout__main-menu__component_table-custom'<span style="color: rgba(0, 0, 0, 1)">
+                        }
+                    },
+                    {
+                        path: </span>'search'<span style="color: rgba(0, 0, 0, 1)">,
+                        redirect: </span>'/component/table/search/searchlist'<span style="color: rgba(0, 0, 0, 1)">,
+                        component: emptyLayout,
+                        meta: {
+                            title: </span>'layout__main-menu__component_table-search'<span style="color: rgba(0, 0, 0, 1)">
+                        },
+                        children: [
+                            {
+                                path: </span>'searchlist'<span style="color: rgba(0, 0, 0, 1)">,
+                                component: () </span>=&gt; import('@/views/component/table/search.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                                meta: {
+                                    title: </span>'layout__main-menu__component_table-search-list'<span style="color: rgba(0, 0, 0, 1)">
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                path: </span>'form'<span style="color: rgba(0, 0, 0, 1)">,
+                redirect: </span>'/component/form/allForm'<span style="color: rgba(0, 0, 0, 1)">,
+                component: emptyLayout,
+                meta: {
+                    auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+                    icon: </span>'el-icon-cpu'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__component_form'<span style="color: rgba(0, 0, 0, 1)">
+                },
+                children: [
+                    {
+                        path: </span>'allForm'<span style="color: rgba(0, 0, 0, 1)">,
+                        component: () </span>=&gt; import('@/views/component/form/all.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                        meta: {
+                            title: </span>'layout__main-menu__component_form-all'<span style="color: rgba(0, 0, 0, 1)">
+                        }
+                    },
+                    {
+                        path: </span>'customForm'<span style="color: rgba(0, 0, 0, 1)">,
+                        component: () </span>=&gt; import('@/views/component/form/custom.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                        meta: {
+                            title: </span>'layout__main-menu__component_form-custom'<span style="color: rgba(0, 0, 0, 1)">
+                        }
+                    }
+                ]
+            },
+            {
+                path: </span>'editor'<span style="color: rgba(0, 0, 0, 1)">,
+                component: () </span>=&gt; import('@/views/component/editor/index.vue'<span style="color: rgba(0, 0, 0, 1)">),
+                meta: {
+                    auth: </span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,
+                    icon: </span>'el-icon-cpu'<span style="color: rgba(0, 0, 0, 1)">,
+                    title: </span>'layout__main-menu__component_editor'<span style="color: rgba(0, 0, 0, 1)">
+                },
+            },
+        ]
+    },
+
+    </span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 更多路由配置...</span>
+<span style="color: rgba(0, 0, 0, 1)">]
+
+export </span><span style="color: rgba(0, 0, 255, 1)">default</span> mainRoutes</pre>
+</div>
+<p>OK，以上就是基于vite2和electron开发简易后台模板的一些分享，希望对大家有所帮助哈~~&nbsp;😘</p>
+<p><strong>最后附上一个vue3+elementPlus网页pc版聊天实例</strong></p>
+<p><span style="font-size: 12px"><a href="https://www.cnblogs.com/xiaoyan2017/p/14307849.html" target="_blank">https://www.cnblogs.com/xiaoyan2017/p/14307849.html</a></span></p>
+<p><img src="https://img2020.cnblogs.com/blog/1289798/202105/1289798-20210503183951607-1483251373.gif" alt="" width="240" height="150" loading="lazy"></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2021-05-03 18:43</span>&nbsp;
+<a href="https://www.cnblogs.com/xiaoyan2017/">xiaoyan2017</a>&nbsp;
+阅读(<span id="post_view_count">9</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727973" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14727973);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 405933, cb_blogApp = 'xiaoyan2017', cb_blogUserGuid = '462d88e6-5ecd-40b9-34b7-08d52fc34315';
+    var cb_entryId = 14727973, cb_entryCreatedDate = '2021-05-03 18:43', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 xiaoyan2017
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <div style="text-align: center; padding-bottom: 20px"><span>友情链接：<a href="https://blog.csdn.net/yanxinyun1990" target="_blank" style="color: rgba(153, 153, 153, 1)">web码农◆前端技术</a></span></div>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtBfml2n4qRZChUD_jvHPd7uuFX2VOMQrElxUweLZxuMYtNxvKVZ9UF2hqvKMccivbUsNs6DwOJ0o_ZoapPfZ5vNoQnDp-sVm-oBFSd6nEImw4ra4BlFex2SAifTa-eUBA" />
+</body>
+</html>

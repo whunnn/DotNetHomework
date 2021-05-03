@@ -1,0 +1,447 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="这些年零零散散做了很多项目，准备整理一下，将其开源，现整理了两个项目：绑定引擎（BindingEngine），插件式UI框架（GaleSong）……" />
+    <meta property="og:description" content="这些年零零散散做了很多项目，准备整理一下，将其开源，现整理了两个项目：绑定引擎（BindingEngine），插件式UI框架（GaleSong）……" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>朝花夕拾——更新两个开源项目 - 周永恒 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/minyx2_lite/bundle-minyx2_lite.min.css?v=F-kpmc_yPJF8Dd7d6eY5Dqj_SeF3hi4z94QnNXriWxc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/Zhouyongh/custom.css?v=62sWs/cw6QC0UZrkKUB6s3xPf0g=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/minyx2_lite/bundle-minyx2_lite-mobile.min.css?v=iPf_XHQsJ-ofZZ2RiaeMCHG0JEaMNLa9yhkUGK3xTSQ" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/Zhouyongh/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/Zhouyongh/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/Zhouyongh/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 28104;
+        var currentBlogApp = 'Zhouyongh';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'Minyx2_Lite';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-03 06:18';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    <script src="/skins/minyx2_lite/bundle-minyx2_lite.min.js?v=z_XLIOc5JYwRKqTPu9fAWp7D8tchhGxVWGYvlAiigUQ" type="text/javascript" language="javascript"></script>
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    
+<div id="container">
+    <a class="minyx" href="https://www.cnblogs.com/">代码改变世界</a>
+    <ul id="topMnu">
+        <!-- 统计数据 -->
+        <li>
+            <div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+        </li>
+        <!-- 这边可以增加一些链接 -->
+        <!-- 博客园 -->
+        <li><a href="https://www.cnblogs.com/">Cnblogs</a></li>
+        <!-- 管理 -->
+        <li id="topMnu-dashboard">
+            <a id="lnkDashboard" href="https://i.cnblogs.com/">Dashboard</a>
+        </li>
+        <li>
+            
+    <a id="lnkLogin" href="https://account.cnblogs.com/signin/?returnUrl=https://www.cnblogs.com/Zhouyongh/">Login</a>
+
+
+        </li>
+    </ul>
+
+    <script type="text/javascript">
+        var m = window.__blog.topMenuRendered;
+        if (m) { m(__$("topMnu")); }
+    </script>
+
+    <div id="header">
+        <ul id="menu">
+            <!-- 首页，当前section加上current类 -->
+            <li id="menu-home" class="current">
+                <a id="lnkHome" href="https://www.cnblogs.com/Zhouyongh/">Home</a></li>
+            <!-- 联系 -->
+            <li id="menu-contact">
+                <a id="lnkContact" href="https://msg.cnblogs.com/send/%E5%91%A8%E6%B0%B8%E6%81%92">Contact</a></li>
+            <!-- 相册 -->
+            <li id="menu-gallary">
+                <a id="lnkGallery" href="https://www.cnblogs.com/Zhouyongh/gallery.html">Gallery</a></li>
+            <!-- 订阅 -->
+            <li id="menu-subscribe">
+                <a id="blog_nav_rss" href="javascript:void(0);" data-rss="https://www.cnblogs.com/Zhouyongh/rss/">Subscribe</a></li>
+            <!-- Rss订阅 -->
+            <li id="rss">
+                <a id="lnkRss" href="https://www.cnblogs.com/Zhouyongh/rss/">RSS</a></li>
+        </ul>
+        <div id="newmsg"></div>
+        <h1>
+            <!-- 主标题 -->
+            <a id="lnkBlogTitle" href="https://www.cnblogs.com/Zhouyongh/">技术美好生活</a>
+            <!-- 子标题 -->
+            <small>
+                迎接新的一天
+            </small>
+        </h1>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.headerRendered;
+        if (m) { m(__$("header")); }
+    </script>
+
+    <div id="wrapper">
+        <div id="content">
+            <script type="text/javascript">
+                var m = window.__blog.preRenderPosts;
+                if (m) { m(); }
+            </script>
+            <div id="post_detail">
+<div class="post" id="post">
+    <a name="top"></a>
+    <h2>
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/Zhouyongh/p/14727920.html">
+    <span>朝花夕拾——更新两个开源项目</span>
+    
+
+
+
+</a>
+</h2>
+    <small>
+<span id="post-date">2021-05-03 18:18</span>&nbsp;
+<a href="https://www.cnblogs.com/Zhouyongh/">周永恒</a>&nbsp;
+阅读(<span id="post_view_count">33</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727920" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14727920);return false;">收藏</a></small>
+    <div class="entry">
+            <div id="cnblogs_post_description" style="display: none">
+        这些年零零散散做了很多项目，准备整理一下，将其开源，现整理了两个项目：绑定引擎（BindingEngine），插件式UI框架（GaleSong）……
+    </div>
+<div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<h1 style="background-color: rgba(128, 128, 128, 1); margin-top: 24px; margin-bottom: 12px; color: rgba(255, 255, 255, 1); font-size: 26px; font-weight: normal; padding: 5px">前言</h1>
+<p>　　好久没更新博客了，最近准备重拾博客，将更新恢复起来。</p>
+<h1 style="background-color: rgba(128, 128, 128, 1); margin-top: 24px; margin-bottom: 12px; color: rgba(255, 255, 255, 1); font-size: 26px; font-weight: normal; padding: 5px">开源项目</h1>
+<p>　　这些年零零散散做了很多项目，准备整理一下，将其开源，现整理了两个项目：<strong>绑定引擎（BindingEngine），插件式UI框架（GaleSong）</strong>。</p>
+<h1 style="background-color: rgba(128, 128, 128, 1); margin-top: 24px; margin-bottom: 12px; color: rgba(255, 255, 255, 1); font-size: 26px; font-weight: normal; padding: 5px">BindingEngine</h1>
+<p>　　这是一个自定义的绑定引擎，项目的想法是将WPF的ViewModel用到各处：比如Winform、Xamarin、Web等等，</p>
+<p>　　期望可以做到多个环境多个View共同绑定一份ViewModel，当ViewModel变化时，多个View可同步更新。</p>
+<p>　　使用示例：</p>
+<div class="cnblogs_code">
+<pre>BindingEngine.SetPropertyBinding(<span style="color: rgba(0, 0, 255, 1)">this</span>.winformTabControl, i =&gt; i.SelectedIndex, <br>　　　　　　　　　　　　　　　　　　　　DataWarehouse.Instance, o =&gt;<span style="color: rgba(0, 0, 0, 1)"> o.SelectedIndex)
+             .SetMode(BindMode.TwoWay)
+             .AttachTargetEvent(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">SelectedIndexChanged</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+
+ 这段代码的意思是：
+</span><span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)">. 将winFormTabControl控件的SelectedIndex属性绑定至<br>　　DataWarehouse.Instance的SelectedIndex。
+</span><span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">. 类型是双向绑定(TwoWay)
+</span><span style="color: rgba(128, 0, 128, 1)">3</span>. 更新触发事件是SelectedIndexChanged。</pre>
+</div>
+<p>　　目前支持的绑定有：</p>
+<div class="cnblogs_code">
+<pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 属性绑定</span>
+WinformBinding.SetPropertyBinding(<span style="color: rgba(0, 0, 255, 1)">this</span>.trackBar1, <br>　　　　　　　　　　　　　　　　　　　　i =&gt; i.Minimum, DataWarehouse.Instance, <br>　　　　　　　　　　　　　　　　　　　　o =&gt;<span style="color: rgba(0, 0, 0, 1)"> o.ControlViewModel1.SliderMinValue);
+
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 集合绑定</span>
+WinformBinding.SetCollectionBinding(<span style="color: rgba(0, 0, 255, 1)">this</span>.tabControl1, i =&gt; i.TabPages, <br>　　　　　　　　　　　　　　　　　　　　　　DataWarehouse.Instance, <br>　　　　　　　　　　　　　　　　　　　　　　o =&gt; o.ControlViewModel1.Persons, <span style="color: rgba(0, 0, 255, 1)">false</span><span style="color: rgba(0, 0, 0, 1)">)
+              .SetTargetCollectionHandler(</span><span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> TabControlCollectionHanlder())
+              .Activate();
+
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 命令绑定</span>
+WinformBinding.SetCommandBinding(<span style="color: rgba(0, 0, 255, 1)">this</span>.addBtn1, <span style="color: rgba(0, 0, 255, 1)">null</span>, <br>　　　　　　　　　　　　　　　　　　　　DataWarehouse.Instance, <br>　　　　　　　　　　　　　　　　　　　　i =&gt;<span style="color: rgba(0, 0, 0, 1)"> i.ControlViewModel1.AddCommand)
+              .AddEnableProperty</span>&lt;Button&gt;(button =&gt;<span style="color: rgba(0, 0, 0, 1)"> button.Enabled)
+              .AttachTargetEvent(</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Click</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);
+
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 通知绑定</span>
+<span style="color: rgba(0, 0, 0, 1)">WinformBinding.SetNotifyBinding(……
+</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 方法绑定</span>
+WinformBinding.SetMethodBinding(……</pre>
+</div>
+<p>　　运行示例，当点击左侧WinForm中的控件，右面WPF的控件可同步更新，反之亦然。</p>
+<p>　　<img src="https://img2020.cnblogs.com/blog/24545/202105/24545-20210503173859816-1274511847.jpg" alt="" loading="lazy"></p>
+<p>　　代码在Github上，地址参见<a href="https://github.com/zhouyongh/BindingEngine">项目地址</a>。</p>
+<h1 style="background-color: rgba(128, 128, 128, 1); margin-top: 24px; margin-bottom: 12px; color: rgba(255, 255, 255, 1); font-size: 26px; font-weight: normal; padding: 5px">GaleSong</h1>
+<p>　　一个插件式的WPF UI框架，是一个仿Visual Studio的UI框架，技术的原型来自于<a href="https://www.cnblogs.com/Zhouyongh/archive/2012/02/16/2353498.html">前文</a>。</p>
+<p>　　<img src="https://img2020.cnblogs.com/blog/24545/202105/24545-20210503174211001-1790931014.jpg" alt="" loading="lazy"></p>
+<p>　　整理了下代码，上传至码云中，地址：<a href="https://gitee.com/zhouyongh/gale-song">项目地址</a>。</p>
+<p>&nbsp;</p>
+<p>　　起了个名字叫<strong>GaleSong</strong>，中文名：<strong>大风歌</strong>，起这个名字时有些唏嘘，时间流逝得太快，一晃就成老兵了……T_T。</p>
+<p>　　老骥伏枥，志在千里。</p>
+<p>&nbsp;</p>
+<blockquote>
+<p>　　大风吹过，总要留下些什么</p>
+</blockquote>
+<p>&nbsp;</p>
+<div><span style="line-height: 25px; color: rgba(51, 51, 51, 1)"><span style="line-height: 25px; background-color: rgba(255, 255, 255, 1); font-family: georgia; color: rgba(51, 51, 51, 1)"><span style="line-height: 21px; margin: 0; font-family: 宋体; color: rgba(0, 0, 0, 1); font-size: 9pt; padding: 0">作者：</span><span style="line-height: 21px; margin: 0; font-family: verdana, sans-serif; color: rgba(0, 0, 0, 1); font-size: 9pt; padding: 0"><a style="border-bottom: 1px dashed; margin: 0; outline-style: none; color: rgba(61, 129, 238, 1); text-decoration: none; padding: 0" href="http://www.cnblogs.com/Zhouyongh" target="_blank"><span style="margin: 0; font-family: 宋体; color: rgba(255, 102, 0, 1); text-decoration: none; padding: 0">周永恒</span></a> <br style="margin: 0; padding: 0"></span><span style="line-height: 21px; margin: 0; font-family: 宋体; color: rgba(0, 0, 0, 1); font-size: 9pt; padding: 0">出处：</span><span style="line-height: 21px; margin: 0; font-family: verdana, sans-serif; color: rgba(0, 0, 0, 1); font-size: 9pt; padding: 0"><a style="border-bottom: 1px dashed; margin: 0; outline-style: none; color: rgba(61, 129, 238, 1); text-decoration: none; padding: 0" href="http://www.cnblogs.com/Zhouyongh" target="_blank"><span style="margin: 0; color: rgba(255, 102, 0, 1); text-decoration: none; padding: 0">http://www.cnblogs.com/Zhouyongh</span></a> <br style="margin: 0; padding: 0"></span></span></span></div>
+<p><span class="Apple-style-span" style="line-height: 25px; font-family: 宋体; color: rgba(51, 51, 51, 1); font-size: 12px">本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。</span></p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+        <div class="clear"></div>
+        <div id="blog_post_info_block">
+        <div id="blog_post_info">
+        </div>
+        <div class="clear"></div>
+        <div id="post_next_prev"></div>
+    </div>
+</div>
+    <ul class="postmetadata">
+        
+<li class="icon_cat" id="BlogPostCategory">
+分类            <a href="https://www.cnblogs.com/Zhouyongh/category/100667.html" target="_blank">WPF之旅</a>
+,            <a href="https://www.cnblogs.com/Zhouyongh/category/100666.html" target="_blank">.NET&#x3000;FrameWork</a>
+</li>
+<li class="icon_bullet" id="EntryTag">
+标签            <a href="https://www.cnblogs.com/Zhouyongh/tag/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a>
+,            <a href="https://www.cnblogs.com/Zhouyongh/tag/WPF/">WPF</a>
+,            <a href="https://www.cnblogs.com/Zhouyongh/tag/MEF/">MEF</a>
+</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var m = window.__blog.postRendered;
+    if (m) { m(__$("post")); }
+</script>
+<script type="text/javascript">
+    var m = window.__blog.postRenderPosts;
+    if (m) { m(); }
+</script>
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 28104, cb_blogApp = 'Zhouyongh', cb_blogUserGuid = 'dd793d0b-63cf-dd11-9e4d-001cf0cd104b';
+    var cb_entryId = 14727920, cb_entryCreatedDate = '2021-05-03 18:18', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+</div>
+
+
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.contentRendered;
+            if (m) { m(__$("content")); }
+        </script>
+
+        <div id="sidebar">
+            <div id="about">
+                <div>
+                    <h2 id="about_title">About</h2>
+                    <div id="about_body">
+                        <div id="sidebar_news"></div>
+                        <script type="text/javascript">loadBlogNews();</script>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var m = window.__blog.aboutRendered;
+                if (m) { m(__$("about")); }
+            </script>
+            <div id="mySearchWrapper">
+                <div id="mySearch">
+                    <input type="image" src="/skins/minyx2_lite/images/btnsearch.gif" id="btnZzk"  class="submit" onclick="zzk_go();return false;"/>
+                    <label class="lb_search"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="keyword" /></label>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var m = window.__blog.searchFormRendered;
+                if (m) { m(__$("searchform")); }
+            </script>
+            <div id="sideMain">
+            </div>
+            <div id="sideRight">
+            </div>
+            <div id="sideLeft">
+            </div>            
+                <div id="sideContainer">
+                </div>
+                <script type="text/javascript">
+                    $.ajax({
+                        url: '/' + currentBlogApp + '/ajax/Minyx2_Lite_SideColumn.aspx',
+                        data: '{}',
+                        type: 'post',
+                        dataType: 'text',
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (data) {
+                            if (data) {
+                                $("#sideContainer").html(data);
+                                $.ajax({
+                                    url: getAjaxBaseUrl() + 'TopLists.aspx',
+                                    type: 'get',
+                                    dataType: 'text',
+                                    success: function (topLists) {
+                                        if (topLists) {
+                                            $("#sideContainer").append(topLists);
+                                        }
+                                        var m = window.__blog.sideContainerRendered;
+                                        if (m) { m(__$("sideContainer")); }
+                                        window.__blog.sidebar.__layout();
+                                    }
+                                });
+                            }
+                        }
+                    });
+
+                </script>
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.sidebarRendered;
+            if (m) { m(__$("sidebar")); }
+        </script>
+
+        <div id="footer">
+            <p id="logoFoot">
+    <a href="http://www.spiga.com.mx/" title="Agencia Interactiva Spiga">www.spiga.com.mx</a>
+</p>
+<div class="footText">
+<p>
+Copyright &copy; 2021 周永恒
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+</p>
+<p>
+<a href="http://www.cnblogs.com">博客园</a>
+</p>
+</div>
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.wrapperRendered;
+        if (m) { m(__$("wrapper")); }
+    </script>
+
+</div>
+<script type="text/javascript">
+    var m = window.__blog.containerRendered;
+    if (m) { m(__$("container")); }
+</script>
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjvBWgxc3ey7JndmpSboNHkmALGib0ESQPIUmFkNM3xia51d0k5mSDA046DoZtlS-TIdqT5dPZSHti3ugf264bhu8vbBHKX-_S5_L2ljgONk0eU9fZ0eH8SUbKsSx9_Rb3Y" />
+</body>
+</html>

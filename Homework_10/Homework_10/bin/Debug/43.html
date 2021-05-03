@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>xiaoyon - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey.min.css?v=1gj9-XJKL9BZFkjdvROYQPiPWjQXk-hsXXZGtqkfaSc" />
+    <link type="text/css" rel="stylesheet" href="https://www.cnblogs.com/hackerxiaoyon/custom.css?v=5RUxrPTXPPgzI/odl3zpdrR8DEw=" />
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/blacklowkey/bundle-blacklowkey-mobile.min.css?v=zrVn_w7PYXoSvEFaixHbQGlNNXNZ3h27-9PpkXZLYns" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/hackerxiaoyon/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/hackerxiaoyon/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/hackerxiaoyon/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 182225;
+        var currentBlogApp = 'hackerxiaoyon';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'BlackLowKey';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="no-navbar">
+    <a name="top"></a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc navbar-custom">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/hackerxiaoyon/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/hackerxiaoyon/">xiaoyon</a>
+</h1>
+<h2></h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/hackerxiaoyon/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/xiaoyon">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/hackerxiaoyon/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2021/05/03.html">2021年5月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/14727474.html">
+    <span>
+        kafka eagle监控工具配置过程
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 放个五一看会儿东西，学习kafka，学到了监控这一块，自己也不是运维，没有弄过，但是看到这一块，就要去实战一下，于是乎,开始。 正文 kafka eagle 官网地址 https://www.kafka-eagle.org/index.html 1、启动kafka zk 要想启动kafka，你        <a href="https://www.cnblogs.com/hackerxiaoyon/p/14727474.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-03 14:54
+xiaoyon
+<span data-post-id="14727474" class="post-view-count">阅读(23)</span> 
+<span data-post-id="14727474" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14727474" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727474" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/10/28.html">2020年10月28日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13890717.html">
+    <span>
+        Checkpointing
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：上级：https://www.cnblogs.com/hackerxiaoyon/p/12747387.html 每个函数和算子都可以有状态在flink中。状态的函数存储数据通过独立的元素或事件处理。为了让状态具有容错性，flink需要把状态进行快照。检查点允许flink恢复状态和位置在流中，从而是        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13890717.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-10-28 14:00
+xiaoyon
+<span data-post-id="13890717" class="post-view-count">阅读(119)</span> 
+<span data-post-id="13890717" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13890717" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13890717" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/10/23.html">2020年10月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13863806.html">
+    <span>
+        The Broadcast State Pattern
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：上级：&#160;https://www.cnblogs.com/hackerxiaoyon/p/12747387.html 状态启动描述了操作算子的状态，在恢复时，该状态是均匀分布在操作算子的并行任务之间，或者是合并的，整个状态用于初始化恢复的并行任务。 支持状态算子的第三类是广播状态。广播状态就是在我们接        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13863806.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-10-23 14:03
+xiaoyon
+<span data-post-id="13863806" class="post-view-count">阅读(92)</span> 
+<span data-post-id="13863806" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13863806" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13863806" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/08/23.html">2020年8月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13549707.html">
+    <span>
+        mr原理简单分析
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：背景 又是一个周末一天一天的过的好快，今天的任务干啥呢，索引总结一些mr吧，因为前两天有面试问过我？我当时也是简单说了一下，毕竟现在写mr程序的应该很少很少了，废话不说了，结合官网和自己理解写起。 官网 https://hadoop.apache.org/docs/r3.3.0/hadoop-map        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13549707.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-08-23 17:01
+xiaoyon
+<span data-post-id="13549707" class="post-view-count">阅读(551)</span> 
+<span data-post-id="13549707" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13549707" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13549707" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/08/18.html">2020年8月18日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13524816.html">
+    <span>
+        Event Time
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：上游：https://www.cnblogs.com/hackerxiaoyon/p/12747387.html 事件时间、处理时间、摄入时间 处理时间：处理时间引用来自执行相应操作机器系统时间。 当一个流程序运行在处理时间，那么所有的操作都是基于机器的系统时间。一个小时窗口处理时间包括所有的数据就        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13524816.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-08-18 17:44
+xiaoyon
+<span data-post-id="13524816" class="post-view-count">阅读(111)</span> 
+<span data-post-id="13524816" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13524816" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13524816" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/06/24.html">2020年6月24日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13188655.html">
+    <span>
+        动态规划潜入
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：正文 这一周都在搞这个dynamic programming，感觉确实是不光是看视频还是自己的琢磨，题看懂了听懂了，但是一下手就写着写着就停笔了。然后再看人家的答案，好的答案越看越明白，不好的答案越看越迷糊。总结一下，有时候答案可能翻一下才会恍然大悟！ 以一道leetcode的题为列子说一下我的感受        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13188655.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-24 18:47
+xiaoyon
+<span data-post-id="13188655" class="post-view-count">阅读(136)</span> 
+<span data-post-id="13188655" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13188655" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13188655" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13186813.html">
+    <span>
+        寻找hive数据倾斜路
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：前言 一直以来我都是从书上、博客上、别人口中听说数据倾斜，自己也从而指导一些解决数据倾斜的方式或者一些容易出现数据倾斜的场景。但是从来没有认真的去发现过，寻求过，研究过。 正文 我打开了hive官网&#160;点开了 document文档&#160;然后呢，一个一个的去找倾斜的地方，找了一会儿发现了一个地方，看到了一个        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13186813.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-24 11:48
+xiaoyon
+<span data-post-id="13186813" class="post-view-count">阅读(189)</span> 
+<span data-post-id="13186813" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13186813" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13186813" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/06/15.html">2020年6月15日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13129610.html">
+    <span>
+        Distributed Runtime
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：上级：https://www.cnblogs.com/hackerxiaoyon/p/12747387.html Tasks and Operator Chains 任务和操作链 对于分布式执行器，flink将操作子任务一起放到任务中。每一个任务被一个线程执行。将操作符链接到任务中是一种有用的优化：        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13129610.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-15 10:47
+xiaoyon
+<span data-post-id="13129610" class="post-view-count">阅读(116)</span> 
+<span data-post-id="13129610" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13129610" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13129610" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/06/04.html">2020年6月4日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/13043234.html">
+    <span>
+        druid18.1版本single-server启动报错
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：正文 昨天下载了一个18版本的driud打算在虚拟机探究一下，然后按照官网的启动方式启动了，每个失败。官网是/bin/start-micro-quickstart，我们去看他的单机启动配置&#160;http://druid.apache.org/docs/latest/operations/single-s        <a href="https://www.cnblogs.com/hackerxiaoyon/p/13043234.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-06-04 14:20
+xiaoyon
+<span data-post-id="13043234" class="post-view-count">阅读(221)</span> 
+<span data-post-id="13043234" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13043234" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13043234" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/hackerxiaoyon/archive/2020/05/11.html">2020年5月11日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/hackerxiaoyon/p/12871528.html">
+    <span>
+        Programming Model
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：上级：https://www.cnblogs.com/hackerxiaoyon/p/12747387.html Dataflow Programming Model 数据流的开发模型 Levels of Abstraction 抽象的分层 flink提供了不同的抽象分层来开发流和批的应用。 最底层        <a href="https://www.cnblogs.com/hackerxiaoyon/p/12871528.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-05-11 20:27
+xiaoyon
+<span data-post-id="12871528" class="post-view-count">阅读(175)</span> 
+<span data-post-id="12871528" class="post-comment-count">评论(0)</span> 
+<span data-post-id="12871528" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=12871528" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/hackerxiaoyon/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 xiaoyon
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    <div id="page_end_html">
+        <script type="text/javascript">
+        $(function () {
+            $("body").prepend($("#div_digg").css({ "position": "fixed", "right": "0px", "bottom": "0px", "z-index": "10", "background-color": "white", "margin": "10px", "padding": "10px", "border": "1px solid #cccccc" }));
+            if ($("#cnblogs_post_body #MySignature").html()) {
+                var signature = $("#cnblogs_post_body").next();
+                if (signature.attr("id") == "MySignature") {
+                    signature.hide();
+                }
+            }
+            else {
+                  $("#MySignature").html('<table><tr><td><img style="width: 80px; height:80px;" src="http://pic.cnitblog.com/face/506744/20131027143746.png" alt="img" /></td><td>
+作者：<a href="http://pic.cnitblog.com/face/506744/20131027143746.png" target="_blank">xiaoyon</a><br />出处：<a href="http://www.cnblogs.com/hackerxiaoyon/" target="_blank">http://www.cnblogs.com/hackerxiaoyon/</a>
+<br />其他分享：<a href="http://hacjj.blog.51cto.com" target="_blank">51cto个人分享</a>
+<br />本文以学习、研究和分享为主，欢迎转载，愿与志同道合的朋友一起成长......<br/><FONT style="FONT-WEIGHT: normal; FONT-SIZE: 14pt; LINE-HEIGHT: normal; FONT-STYLE: normal; FONT-VARIANT: normal"  color=red>技术交流群:329276418</FONT></td></tr></table>');            }
+        });
+    $("#MySignature").css("backgroundColor", "#D4E6FF").css("border", "2px solid double");    </script>
+<!--PageEndHtml Block End-->
+<script type="text/javascript" src="http://common.cnblogs.com/script/google-analytics.js"></script>
+    </div>
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjsUIeTvCVggSxKVu4axBHkhhob0BnUdX4G8FZypjlBDX3CIZWto4NiqCGlZ8ZqdZmD2QPG3Dr0TkWWCCZl-idNN__zG7kMQVlDkXL1Tr_ZzmBLY5f0CY3zqqcybEDhiMss" />
+</body>
+</html>

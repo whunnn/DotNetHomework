@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="description" content="1. mount namespace mount namespace 通过隔离文件系统挂载点对隔离文件系统提供支持。使用 unshare 构造 mount namespace 如下: root@chu" />
+    <meta property="og:description" content="1. mount namespace mount namespace 通过隔离文件系统挂载点对隔离文件系统提供支持。使用 unshare 构造 mount namespace 如下: root@chu" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>docker 原理之 mount namespace（下） - 莲花生 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/coffee/bundle-coffee.min.css?v=BgguPR_JbmA1HKLJOLqLtHq5pt8a1UlO6ibCA_xgwdI" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/coffee/bundle-coffee-mobile.min.css?v=gcYNuAuJkNMICFERxhZCtKHGitYmBYNTxm9W97H2O2g" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/xingzheanan/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/xingzheanan/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/xingzheanan/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 463887;
+        var currentBlogApp = 'xingzheanan';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'coffee';
+        var visitorUserId = '';
+    </script>
+        <script>
+            var currentPostDateAdded = '2021-05-03 02:13';
+        </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a href="https://www.cnblogs.com/xingzheanan/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/xingzheanan/">乱舞春秋</a>
+</h1>
+<h2>a little learning is a dangerous thing</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="navigator">
+			
+<ul id="navList">
+	<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+	<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/xingzheanan/">
+首页</a>
+</li>
+	<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+	<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E8%8E%B2%E8%8A%B1%E7%94%9F">
+联系</a></li>
+	<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+	<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/xingzheanan/rss/">
+订阅</a>
+	
+<a id="blog_nav_rss_image" href="https://www.cnblogs.com/xingzheanan/rss/">
+    <img src="/skins/coffee/images/xml.gif" alt="订阅" />
+</a></li>
+</ul>
+
+
+
+			<div class="blogStats">
+				
+				<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+				
+			</div><!--end: blogStats -->
+		</div><!--end: navigator 博客导航栏 -->
+		<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class = "postTitle">
+			
+<a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/xingzheanan/p/14727405.html">
+    <span>docker 原理之 mount namespace（下）</span>
+    
+
+
+
+</a>
+
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
+<hr>
+<h2 id="1-mount-namespace">1. mount namespace</h2>
+<p>mount namespace 通过隔离文件系统挂载点对隔离文件系统提供支持。使用 unshare 构造 mount namespace 如下:</p>
+<pre><code>root@chunqiu:~/chunqiu/docker/mount# dd if=/dev/zero bs=1M count=32 of=./disk1.img
+root@chunqiu:~/chunqiu/docker/mount# dd if=/dev/zero bs=1M count=32 of=./disk2.img
+root@chunqiu:~/chunqiu/docker/mount# mkfs.ext4 ./disk1.img
+root@chunqiu:~/chunqiu/docker/mount# mkfs.ext4 ./disk2.img
+
+root@chunqiu:~/chunqiu/docker/mount# ls
+disk1  disk1.img  disk2  disk2.img
+
+root@chunqiu:~/chunqiu/docker/mount# mount disk1.img disk1
+root@chunqiu:~/chunqiu/docker/mount# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk1
+
+root@chunqiu:~/chunqiu/docker/mount# readlink /proc/$$/ns/mnt
+mnt:[4026531840]
+</code></pre>
+<p>开启另一个 shell 窗口，并创建 mount namespace:</p>
+<pre><code>root@chunqiu:~# unshare --mount /bin/bash
+root@chunqiu:~# readlink /proc/$$/ns/mnt
+mnt:[4026532206]
+
+root@chunqiu:~# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk1
+root@chunqiu:~/chunqiu/docker/mount# mount disk2.img disk2
+root@chunqiu:~/chunqiu/docker/mount# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk1
+/dev/loop1                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk2
+
+root@chunqiu:~/chunqiu/docker/mount# touch disk1/demo; touch disk2/demo
+</code></pre>
+<p>回到原 mount namespace:</p>
+<pre><code>root@chunqiu:~/chunqiu/docker/mount# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk1
+
+root@chunqiu:~/chunqiu/docker/mount# ls disk1
+demo
+root@chunqiu:~/chunqiu/docker/mount# ls disk2
+</code></pre>
+<p>可以看到，通过 mount namespace 实现了文件系统的隔离:</p>
+<ul>
+<li>每个 mount namespace 都拥有一份自己的挂载点列表，创建新 mount namespace 时，新创建的 mount namespace 将拷贝一份老 mount namespace 的挂载点列表给自己。</li>
+<li>默认情况下所有挂载状态是私有的。</li>
+<li>mount namespace 实现了文件系统的隔离。上例中子文件系统 disk2 不会映射到父 mount namespace，同样的文件系统下创的文件对父 mount namespace 隔离。</li>
+</ul>
+<h3 id="11-挂载传播">1.1 挂载传播</h3>
+<p>上例中介绍了默认情况下所有挂载状态是私有的。那么，如果父 mount namespace 挂载了一张硬盘，在子 mount namespace 是不可见的，需要在子 mount namespace 中重新 mount。而挂载传播(mount propagation) 解决了这个问题。它定义了挂载对象之间的关系，系统用这些关系决定了挂载对象中的挂载事件如何传播到其它挂载对象。</p>
+<p>挂载传播的详细信息可参阅 man mount，这里以共享和私有挂载为例查看这两种挂载方式是如何影响子 mount namespace 的:</p>
+<pre><code>root@chunqiu:~/chunqiu/docker/mount# ls
+disk1  disk1.img  disk2  disk2.img
+
+root@chunqiu:~/chunqiu/docker/mount# mount --make-shared disk1.img ./disk1
+root@chunqiu:~/chunqiu/docker/mount# mount --make-private disk2.img ./disk2
+root@chunqiu:~/chunqiu/docker/mount# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  383K   25M   2% /root/chunqiu/docker/mount/disk1
+/dev/loop1                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk2
+
+root@chunqiu:~/chunqiu/docker/mount# cat /proc/self/mountinfo |grep disk| sed 's/ - .*//'
+54 25 7:0 / /root/chunqiu/docker/mount/disk1 rw,relatime shared:40
+55 25 7:1 / /root/chunqiu/docker/mount/disk2 rw,relatime
+</code></pre>
+<p>开启另一个 shell 窗口，并创建 mount namespace:</p>
+<pre><code>root@chunqiu:~# unshare --mount --propagation unchanged /bin/bash
+root@chunqiu:~# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  383K   25M   2% /root/chunqiu/docker/mount/disk1
+/dev/loop1                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk2
+
+root@chunqiu:~# cat /proc/self/mountinfo |grep disk| sed 's/ - .*//'
+/* disk1 是 shared 是因为 unshare 指明了 propagation unchanged，如果未指定，默认是私有的 */
+116 63 7:0 / /root/chunqiu/docker/mount/disk1 rw,relatime shared:40
+118 63 7:1 / /root/chunqiu/docker/mount/disk2 rw,relatime
+</code></pre>
+<p>在原 mount namespace 中创建“硬盘”并模仿挂载事件:</p>
+<pre><code>root@chunqiu:~/chunqiu/docker/mount# dd if=/dev/zero bs=1M count=32 of=./disk3.img
+root@chunqiu:~/chunqiu/docker/mount# dd if=/dev/zero bs=1M count=32 of=./disk4.img
+root@chunqiu:~/chunqiu/docker/mount# mkfs.ext4 ./disk3.img
+root@chunqiu:~/chunqiu/docker/mount# mkfs.ext4 ./disk4.img
+
+root@chunqiu:~/chunqiu/docker/mount# mkdir disk2/disk4
+root@chunqiu:~/chunqiu/docker/mount# mkdir disk1/disk3
+
+root@chunqiu:~/chunqiu/docker/mount# mount disk3.img disk1/disk3/
+root@chunqiu:~/chunqiu/docker/mount# mount disk4.img disk2/disk4/
+</code></pre>
+<p>查看子 mount namespace 的挂载信息:</p>
+<pre><code>root@chunqiu:~# df -hT
+Filesystem                                             Type      Size  Used Avail Use% Mounted on
+/dev/loop0                                             ext4       27M  384K   25M   2% /root/chunqiu/docker/mount/disk1
+/dev/loop1                                             ext4       27M  396K   25M   2% /root/chunqiu/docker/mount/disk2
+/dev/loop2                                             ext4       27M  395K   25M   2% /root/chunqiu/docker/mount/disk1/disk3
+</code></pre>
+<p>可以看到共享的挂载传播方式，文件系统内的挂载事件会映射到子 mount namespace 而私有的挂载传播方式则不会。</p>
+
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+		</div>
+		<div class="postDesc">posted @ 
+<span id="post-date">2021-05-03 14:13</span>&nbsp;
+<a href="https://www.cnblogs.com/xingzheanan/">莲花生</a>&nbsp;
+阅读(<span id="post_view_count">3</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727405" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(14727405);return false;">收藏</a></div>
+	</div>
+	
+	
+</div><!--end: topics 文章、评论容器-->
+<script src="https://common.cnblogs.com/highlight/10.3.1/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 463887, cb_blogApp = 'xingzheanan', cb_blogUserGuid = 'fac9c669-32a4-4681-d69c-08d6222f6651';
+    var cb_entryId = 14727405, cb_entryCreatedDate = '2021-05-03 14:13', cb_postType = 1;
+    updatePostStats(
+        [cb_entryId],
+        function(id, count) { $("#post_view_count").text(count) },
+        function(id, count) { $("#post_comment_count").text(count) })
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");
+</script>
+<a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <div id="cnblogs_c1" class="under-post-card">
+        <div id='div-gpt-ad-1592365906576-0' style='width: 300px; height: 250px;'></div>
+    </div>
+    <div id="under_post_card1"></div>
+    <div id="cnblogs_c2" class="under-post-card">
+        <div id='div-gpt-ad-1592366332455-0' style='width: 468px; height: 60px;'></div>
+    </div>
+    <div id="under_post_card2"></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+       var commentManager = new blogCommentManager();
+       commentManager.renderComments(0);
+       fixPostBody();
+       deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);       deliverT2();
+       deliverC1C2();
+       loadNewsAndKb();
+       loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);       LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+       GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+       loadOptUnderPost();
+       GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="calendar"><div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script></div>
+			
+			<DIV id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</DIV>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 莲花生
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjt2Q1qgwFUB9zl6LtxiT173SRIoKgE-jJU1lQmzsRjJiDENCwalEzeB514y49L__r368_acZLCfxabvxPywnFD0Pm2rOQ2aL4SjWol_tRYnJ7BnkRF8oNL_1nueVvs_pNA" />
+</body>
+</html>

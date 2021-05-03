@@ -1,0 +1,640 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>雨夜的博客 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.svg" type="image/svg+xml" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=zS6-e1bxywlu3kpHvpr1J6MySwya3ztFtEnS7RYQ0Fk" />
+    <link id="MainCss" rel="stylesheet" href="/skins/codinglife/bundle-codinglife.min.css?v=2uJkpdACLVfstRQ7zeCFK19brTwKuDEaNBLgKz9nm3A" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/codinglife/bundle-codinglife-mobile.min.css?v=DwDRKMd1bmjnJZ4iQqrTCO9QLlYb6OZaUAzHoHIIihg" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/yuyeblog/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/yuyeblog/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/yuyeblog/wlwmanifest.xml" />
+    <script>
+        var currentBlogId = 627075;
+        var currentBlogApp = 'yuyeblog';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'CodingLife';
+        var visitorUserId = '';
+    </script>
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=yJQaJ16S00coMfzvh-NgF2zm2J87f5VfNamFdsnKHrc"></script>
+    
+    
+    
+</head>
+<body class="has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a target="_blank" href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-pc')">
+            <div class="bannerbar aliyun forpc" style="background-size: contain;background-image: url(https://img2020.cnblogs.com/blog/35695/202104/35695-20210428221933214-737067094.jpg)">
+            </div>
+        </a>
+        <div id="bannerbar" class="bannerbar-mobile formobile">
+            <a href="https://www.aliyun.com/minisite/goods?userCode=swh7dvlt" target="_blank" onclick="ga('send', 'event', 'Link', 'click', 'aliyun-cps-blog-bannerbar-mobile')">
+                <img src="https://img2020.cnblogs.com/blog/35695/202104/35695-20210428213541700-642740375.jpg" alt="" />
+            </a>
+        </div>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding"><a href="https://www.cnblogs.com/" title="开发者的网上家园"><img src="/images/logo.svg?v=R9M0WmLAIPVydmdzE2keuvnjl-bPR7_35oHqtiBzGsM" alt="博客园Logo" /></a></li>
+                <li><a href="/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-sitehome')">首页</a></li>
+                <li><a href="https://news.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-news')">新闻</a></li>
+                <li><a href="https://q.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-q')">博问</a></li>
+                <li><a id="nav_brandzone" href="https://brands.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-brands')">专区</a></li>
+                <li><a href="https://ing.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-ing')">闪存</a></li>
+                <li><a href="https://edu.cnblogs.com/" onclick="ga('send', 'event', 'Link', 'click', 'skin-navbar-edu')">班级</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search" action="https://zzk.cnblogs.com/s" method="get">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="text" tabindex="3" />
+                        <button type="submit" id="zzk_search_button">
+                            <img src="/images/aggsite/search.svg" alt="搜索" />
+                        </button>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔">
+                        <img id="new_post_icon" class="navbar-icon" src="/images/aggsite/newpost.svg" alt="写随笔" />
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客">
+                        <img id="myblog_icon" class="navbar-icon" src="/images/aggsite/myblog.svg" alt="我的博客" />
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息">
+                        <img id="msg_icon" class="navbar-icon" src="/images/aggsite/message.svg?v=J0WS2P2iPgaIVgXxcAhliw4AFZIpaTWxtdoNAv9eiCA" alt="短消息" />
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="/images/aggsite/avatar-default.svg" alt="用户头像" />
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="/images/lite-mode-check.svg" class="hide" /><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup/">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/yuyeblog/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/yuyeblog/">雨夜的博客</a>
+</h1>
+<h2>雨夜的博客 – 一个专注于技术研究、技能分享的博客，公众号“雨夜的博客”,资源访问密码均为：4752。</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/yuyeblog/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%9B%A8%E5%A4%9C%E7%9A%84%E5%8D%9A%E5%AE%A2">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/yuyeblog/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<div id="blog_stats_place_holder"><script>loadBlogStats();</script></div>
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+
+
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2020/08/30.html">2020年8月30日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13584235.html">
+    <span>
+            <span>[置顶]</span>
+        代码整洁规范对于一个团队真的这么重要吗？
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：代码整洁规范对于一个团队真的这么重要吗？ 从2015年开始到现在创业以来，大大小小经历过数十几个项目，从程序员到主程到现在的项目的leader，一直以来都是以代码开发为主的，基础架构和上线测试都是自己亲力亲为的，直到现在自己去创业以来，才发现一直忽略了一个问题，就是代码规范和整洁是项目维持长久的根基        <a href="https://www.cnblogs.com/yuyeblog/p/13584235.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-08-30 02:24
+雨夜的博客
+<span data-post-id="13584235" class="post-view-count">阅读(119)</span> 
+<span data-post-id="13584235" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13584235" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13584235" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2021/05/03.html">2021年5月3日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/14727256.html">
+    <span>
+        RabbitMQ Golang教程
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：RabbitMQ Golang教程 首先，使用go get安装amqp go get github.com/streadway/amqp 发送 我们将消息发布者（发送者）称为 send.go，将消息消费者（接收者）称为receive.go。发布者将连接到RabbitMQ，发送一条消息，然后退出。 p        <a href="https://www.cnblogs.com/yuyeblog/p/14727256.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-03 12:17
+雨夜的博客
+<span data-post-id="14727256" class="post-view-count">阅读(1)</span> 
+<span data-post-id="14727256" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14727256" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727256" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/14727241.html">
+    <span>
+        基于golang分布式爬虫系统的架构体系v1.0
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：基于golang分布式爬虫系统的架构体系v1.0 一、什么是分布式系统 分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信和协调的系统。简单来说就是一群独立计算机集合共同对外提供服务，但是对于系统的用户来说，就像是一台计算机在提供服务一样。分布式意味着可以采用更        <a href="https://www.cnblogs.com/yuyeblog/p/14727241.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-05-03 12:05
+雨夜的博客
+<span data-post-id="14727241" class="post-view-count">阅读(84)</span> 
+<span data-post-id="14727241" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14727241" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14727241" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2021/03/07.html">2021年3月7日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/14493810.html">
+    <span>
+        基于 vagrant搭建移动端的开发环境
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：# 后端开发环境Homestead启动 Homestead 之前,确保 VirtualBox 、Vagrant、Git 软件己安装。 ## 安装 laravel/homesteadvagrant box add laravel/homestead如果这个命令失败了，请确保你安装的是最新版的 Vagr        <a href="https://www.cnblogs.com/yuyeblog/p/14493810.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2021-03-07 10:36
+雨夜的博客
+<span data-post-id="14493810" class="post-view-count">阅读(27)</span> 
+<span data-post-id="14493810" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14493810" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14493810" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2020/11/23.html">2020年11月23日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/14027434.html">
+    <span>
+        产品类书籍整理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：参与感.pdf 从零开始做运营入门篇.张亮.pdf 结网.pdf 精益创业.pdf 区块链：定义未来金融与经济新格局.pdf 区块链(从数字货币到信用社会).pdf 人人都是产品经理.pdf 如何阅读一本书.pdf 上瘾.pdf 数据分析实战.pdf 思考，快与慢.pdf 小群效应.epub 学会提        <a href="https://www.cnblogs.com/yuyeblog/p/14027434.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-23 22:05
+雨夜的博客
+<span data-post-id="14027434" class="post-view-count">阅读(64)</span> 
+<span data-post-id="14027434" class="post-comment-count">评论(0)</span> 
+<span data-post-id="14027434" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=14027434" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2020/11/12.html">2020年11月12日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13966640.html">
+    <span>
+        Web开发书籍整理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：HTML5+canvas开发详解第2版.epub JavaScript - 框架设计 司徒正美.pdf JavaScript - 权威指南(第6版)(中文版) -(笔记版).pdf JavaScript - 权威指南(第6版)(中文版).pdf JavaScript - The Definitive        <a href="https://www.cnblogs.com/yuyeblog/p/13966640.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-12 22:23
+雨夜的博客
+<span data-post-id="13966640" class="post-view-count">阅读(69)</span> 
+<span data-post-id="13966640" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13966640" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13966640" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13966564.html">
+    <span>
+        机器学习书籍整理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：《白话大数据与机器学习》.pdf 《图解机器学习》.pdf 机器学习从认知到实践(第2辑)(套装共3册,Python+TensorFlow)（异步图书）.epub 机器学习实战.pdf 机器学习与数据挖掘方法和应用（经典）.pdf 《Python深度学习》2018中文版pdf+英文版pdf+源代码.        <a href="https://www.cnblogs.com/yuyeblog/p/13966564.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-12 22:09
+雨夜的博客
+<span data-post-id="13966564" class="post-view-count">阅读(107)</span> 
+<span data-post-id="13966564" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13966564" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13966564" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13966522.html">
+    <span>
+        vue书籍整理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：vue.js之实战webpack.pdf Vue.js前端开发 快速入门与专业应用-陈陆扬.pdf Olga Filipova Learning Vue.js 2.pdf 《Vue.js权威指南》.pdf 聚宝盆--专业PDF书籍收集和好书推荐的专业网站！        <a href="https://www.cnblogs.com/yuyeblog/p/13966522.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-12 22:00
+雨夜的博客
+<span data-post-id="13966522" class="post-view-count">阅读(233)</span> 
+<span data-post-id="13966522" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13966522" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13966522" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+            <div class="postSeparator"></div>
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13966472.html">
+    <span>
+        android开发技术书籍整理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：Android插件化开发指南 (移动开发).pdf 《第一行代码：Android(第2版)》.pdf 《深入理解android：卷一》.pdf 《深入理解Android：WiFi模块 NFC和GPS卷》.pdf 《Android 4高级编程(第3版)》.pdf 《Android编程权威指南（第3版）        <a href="https://www.cnblogs.com/yuyeblog/p/13966472.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-11-12 21:51
+雨夜的博客
+<span data-post-id="13966472" class="post-view-count">阅读(162)</span> 
+<span data-post-id="13966472" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13966472" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13966472" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2020/09/10.html">2020年9月10日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13647390.html">
+    <span>
+        李笑来必读书籍整理
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：财富自由之路-李笑来（高清PDF版）.pdf 自学是门手艺-李笑来.pdf 2019-05《韭菜的自我修养》增订版.pdf 七年就是一辈子.pdf 【cydown.cn尘宇分享】《把时间当作朋友》扫描版.pdf        <a href="https://www.cnblogs.com/yuyeblog/p/13647390.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-09-10 18:34
+雨夜的博客
+<span data-post-id="13647390" class="post-view-count">阅读(330)</span> 
+<span data-post-id="13647390" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13647390" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13647390" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+		
+
+
+<div class="day">
+    <div class="dayTitle">
+        <a href="https://www.cnblogs.com/yuyeblog/archive/2020/09/07.html">2020年9月7日</a>
+    </div>
+
+        <div class="postTitle">
+            
+
+<a class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuyeblog/p/13628542.html">
+    <span>
+        基于django快速开发一个网站(三）
+    </span>
+    
+
+
+
+</a>
+
+        </div>
+        <div class="postCon">
+
+    <div class="c_b_p_desc">
+摘要：基于django快速开发一个网站(三） * 给django集成富文本编辑器 1. 下载富文本插件到系统 pip install django-mdeditor 2. 添加mdeditor到你的应用中 INSTALLED_APPS = [ ... &#39;mdeditor&#39;, ] 3. 配置media到se        <a href="https://www.cnblogs.com/yuyeblog/p/13628542.html" class="c_b_p_desc_readmore">阅读全文</a>
+    </div>
+</div>
+        <div class="clear"></div>
+        <div class="postDesc">posted @ 2020-09-07 19:12
+雨夜的博客
+<span data-post-id="13628542" class="post-view-count">阅读(220)</span> 
+<span data-post-id="13628542" class="post-comment-count">评论(0)</span> 
+<span data-post-id="13628542" class="post-digg-count">推荐(0)</span> 
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=13628542" rel="nofollow">
+    编辑
+</a>
+</div>
+        <div class="clear"></div>
+</div>
+
+
+
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        
+    <a href="https://www.cnblogs.com/yuyeblog/default.html?page=2">
+        下一页
+    </a>
+
+    </div>    
+</div>
+
+
+
+
+
+
+<script>
+    updatePostStats(
+        $(".post-view-count").map(function () { return this.dataset.postId }).get(),
+        function(id, count) { $(".post-view-count[data-post-id=" + id + "]").text("阅读(" + count + ")") },
+        function(id, count) { $(".post-comment-count[data-post-id=" + id + "]").text("评论(" + count + ")") },
+        function(id, count) { $(".post-digg-count[data-post-id=" + id + "]").text("推荐(" + count + ")") });
+</script>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2021 雨夜的博客
+<br /><span id="poweredby">Powered by .NET 5.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8L-rpLgFVEJMgssCVvNUAjtxu4hg2kAEV0MGwDV4l2f8z2t2W13uVzXF6JfvBNKBTg7eodF4gp9_O42kmPqAuCvFJhtxxFEz2lY-_roA2tUppnvZ_fQHQveyey9NCqwGmvsgwBsnU89E2KqA9nRNsDY" />
+</body>
+</html>
