@@ -1,0 +1,13 @@
+D:\c#homework\homework12\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.deps.json
+D:\c#homework\homework12\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.runtimeconfig.json
+D:\c#homework\homework12\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.runtimeconfig.dev.json
+D:\c#homework\homework12\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.dll
+D:\c#homework\homework12\OrderApi\bin\Debug\netcoreapp2.1\OrderApi.pdb
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.csproj.CoreCompileInputs.cache
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.RazorAssemblyInfo.cache
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.RazorAssemblyInfo.cs
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.AssemblyInfoInputs.cache
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.AssemblyInfo.cs
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.RazorTargetAssemblyInfo.cache
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.dll
+D:\c#homework\homework12\OrderApi\obj\Debug\netcoreapp2.1\OrderApi.pdb
